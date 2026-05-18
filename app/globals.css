@@ -4,6 +4,7 @@
   --background: #fdfbf7;
   --foreground: #262b2e;
   --grannsam-green: #2c8526;
+  --grannsam-green-light: #b2d8b2;
   --grannsam-green-muted: rgba(44, 133, 38, 0.1);
   --grannsam-gray: #8a8d9f;
   --grannsam-border: #d7d7d7;
@@ -13,6 +14,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-grannsam-green: var(--grannsam-green);
+  --color-grannsam-green-light: var(--grannsam-green-light);
   --color-grannsam-green-muted: var(--grannsam-green-muted);
   --color-grannsam-gray: var(--grannsam-gray);
   --color-grannsam-border: var(--grannsam-border);

@@ -1,7 +1,7 @@
 const navItems = [
   { label: "Appen", href: "#appen" },
   { label: "Pris", href: "#pris" },
-  { label: "Oss", href: "#oss" },
+  { label: "Grannskap", href: "#engagemang" },
 ] as const;
 
 export function Navbar() {
