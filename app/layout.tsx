@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inria_Serif } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inriaSerif = Inria_Serif({
-  variable: "--font-inria-serif",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="sv" className={`${inriaSerif.variable} h-full antialiased`}>
-      <body className="min-h-full">{children}</body>
+    <html lang="sv" className={`${inter.variable} h-full antialiased`}>
+      <body className="min-h-full font-sans">{children}</body>
     </html>
   );
 }

@@ -6,9 +6,9 @@ const navItems = [
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-grannsam-border/60 bg-background/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm">
       <nav
-        className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 md:h-[4.5rem] md:px-8"
+        className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:h-[4.5rem] md:px-10"
         aria-label="Huvudnavigering"
       >
         <a
@@ -23,7 +23,7 @@ export function Navbar() {
             <li key={item.href}>
               <a
                 href={item.href}
-                className="text-sm font-medium text-foreground/80 transition-colors hover:text-grannsam-green md:text-base"
+                className="text-sm font-medium text-foreground transition-colors hover:text-grannsam-green md:text-base"
               >
                 {item.label}
               </a>

@@ -1,5 +1,6 @@
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { HeroSection } from "@/components/sections/HeroSection";
 import { LandingSection } from "@/components/sections/LandingSection";
 
 export default function Home() {
@@ -8,12 +9,7 @@ export default function Home() {
       <Navbar />
 
       <main>
-        <LandingSection
-          sectionNumber={1}
-          title="Välkommen till Grannsam"
-          description="Platshållare för hero-sektionen. Här kommer er första design med huvudbudskap och call-to-action."
-          tone="default"
-        />
+        <HeroSection />
 
         <LandingSection
           id="appen"
