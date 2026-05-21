@@ -1,3 +1,4 @@
+import { NeighborhoodDivider } from "@/components/illustrations/NeighborhoodDivider";
 import {
   MdMarkChatUnread,
   MdPhoneAndroid,
@@ -77,7 +78,10 @@ export function WhyChooseSection() {
           ))}
         </div>
 
-        <hr className="mt-14 border-0 border-t-2 border-grannsam-green sm:mt-16 md:mt-20" />
+      </div>
+
+      <div className="mt-14 overflow-hidden sm:mt-16 md:mt-20">
+        <NeighborhoodDivider />
       </div>
     </section>
   );
