@@ -1,13 +1,45 @@
-const team = [
-  { name: "Anna Lindqvist", role: "VD & grundare" },
-  { name: "Erik Johansson", role: "Teknisk chef" },
-  { name: "Maria Andersson", role: "Produktchef" },
-  { name: "Johan Bergström", role: "Kundansvarig" },
-  { name: "Sofia Nilsson", role: "Marknadsföring" },
-  { name: "Lars Ekström", role: "Utvecklare" },
-] as const;
+import Image from "next/image";
 
-function MemberAvatar({ name }: { name: string }) {
+type TeamMember = {
+  name: string;
+  role: string;
+  photo?: string;
+};
+
+const team: TeamMember[] = [
+  {
+    name: "Reibin Amin",
+    role: "VD & grundare",
+    photo: "/images/team/reibin-amin.png",
+  },
+  {
+    name: "Bernard Liang",
+    role: "Teknisk Chef",
+    photo: "/images/team/bernard-liang.png",
+  },
+  { name: "Emil Er", role: "Fullstack utvecklare" },
+  {
+    name: "Aaron Håkansson",
+    role: "Sälj & kundansvarig",
+    photo: "/images/team/aaron-hakansson.png",
+  },
+];
+
+function MemberAvatar({ name, photo }: { name: string; photo?: string }) {
+  if (photo) {
+    return (
+      <div className="relative h-24 w-24 overflow-hidden rounded-full sm:h-28 sm:w-28">
+        <Image
+          src={photo}
+          alt={name}
+          fill
+          sizes="112px"
+          className="object-cover"
+        />
+      </div>
+    );
+  }
+
   const initials = name
     .split(" ")
     .map((part) => part[0])
@@ -56,7 +88,7 @@ export function AboutSection() {
                 key={member.name}
                 className="flex flex-col items-center text-center"
               >
-                <MemberAvatar name={member.name} />
+                <MemberAvatar name={member.name} photo={member.photo} />
                 <h3 className="mt-5 text-lg font-bold text-foreground">
                   {member.name}
                 </h3>
