@@ -1,74 +1,29 @@
-import {
-  MdCalendarMonth,
-  MdCardGiftcard,
-  MdPanTool,
-  MdSearch,
-} from "react-icons/md";
-import type { IconType } from "react-icons";
+import Image from "next/image";
 
-type PostCardProps = {
-  headerBg: string;
-  name: string;
-  headerLabel: string;
-  Icon: IconType;
-  imageAlt: string;
-  body: string;
-  date: string;
+type EngagementCardProps = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
 };
 
-function PostCard({
-  headerBg,
-  name,
-  headerLabel,
-  Icon,
-  imageAlt,
-  body,
-  date,
-}: PostCardProps) {
+function EngagementCard({ src, alt, width, height }: EngagementCardProps) {
   return (
-    <article className="overflow-hidden rounded-2xl bg-white shadow-[0_8px_30px_rgba(38,43,46,0.1)]">
-      <header
-        className={`flex items-center gap-3 px-4 py-3 sm:px-5 sm:py-3.5 ${headerBg}`}
-      >
-        <div
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/80 text-xs font-semibold text-foreground shadow-sm sm:h-10 sm:w-10 sm:text-sm"
-          aria-hidden
-        >
-          {name.charAt(0)}
-        </div>
-        <p className="min-w-0 flex-1 text-sm font-medium text-foreground sm:text-[0.95rem]">
-          <span className="font-semibold">{name}</span> {headerLabel}
-        </p>
-        <Icon className="h-5 w-5 shrink-0 text-foreground/70" aria-hidden />
-      </header>
-
-      <div
-        className="relative flex aspect-[4/3] w-full items-center justify-center bg-gradient-to-br from-[#e8e4dc] to-[#d4cfc4]"
-        role="img"
-        aria-label={imageAlt}
-      >
-        <span className="text-xs font-medium uppercase tracking-wider text-foreground/35 sm:text-sm">
-          Illustration
-        </span>
-      </div>
-
-      <div className="px-4 py-4 sm:px-5 sm:py-5">
-        <p className="text-sm leading-snug text-foreground sm:text-base">
-          {body}
-        </p>
-        <p className="mt-3 flex items-center gap-1.5 text-xs text-grannsam-gray sm:text-sm">
-          <MdCalendarMonth className="h-4 w-4 shrink-0" aria-hidden />
-          {date}
-        </p>
-      </div>
-    </article>
+    <Image
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      sizes="(max-width: 1024px) 100vw, 480px"
+      className="block h-auto w-full"
+    />
   );
 }
 
 type FeatureRow = {
   title: string;
   description: string;
-  card: PostCardProps;
+  card: EngagementCardProps;
   cardFirst: boolean;
 };
 
@@ -79,13 +34,10 @@ const rows: FeatureRow[] = [
       "Behöver du låna ett verktyg, få hjälp med ett lyft eller någon som vattnar blommorna? Med Grannsam är hjälpen nära – och det känns naturligt att både fråga och hjälpa.",
     cardFirst: true,
     card: {
-      headerBg: "bg-[#f2d06b]",
-      name: "Karin",
-      headerLabel: "vill ha hjälp:",
-      Icon: MdPanTool,
-      imageAlt: "Grannar som hjälps åt i trädgården",
-      body: "Jag behöver 2 gula lökar! 🧅😘",
-      date: "Mån 2 Februari, 19.00",
+      src: "/images/engagement/hjalp.png",
+      alt: "Carl vill ha hjälp med omplantering av tomater",
+      width: 596,
+      height: 475,
     },
   },
   {
@@ -94,13 +46,10 @@ const rows: FeatureRow[] = [
       "Vill du ha sällskap på löpturen, bjuda in till fika eller ordna en gårdsloppis? Skapa en aktivitet och låt grannarna anmäla sig direkt i appen.",
     cardFirst: false,
     card: {
-      headerBg: "bg-[#f9c8c8]",
-      name: "Ari",
-      headerLabel: "föreslår en aktivitet:",
-      Icon: MdSearch,
-      imageAlt: "Grannar som joggar tillsammans i parken",
-      body: "3 km Lötsjörundan och hem",
-      date: "Mån 2 Februari, 19.00",
+      src: "/images/engagement/aktivitet.png",
+      alt: "Alex föreslår en aktivitet: 3 km Lötsjörundan och hem",
+      width: 596,
+      height: 475,
     },
   },
   {
@@ -109,13 +58,10 @@ const rows: FeatureRow[] = [
       "Saker som inte längre behövs hos dig kan betyda mycket för någon annan. Dela med dig till kvarteret, minska svinnet och sprid glädje – med ett enkelt klick.",
     cardFirst: true,
     card: {
-      headerBg: "bg-[#bce9f5]",
-      name: "Carolina",
-      headerLabel: "vill ge en gåva:",
-      Icon: MdCardGiftcard,
-      imageAlt: "Kartong med saker att dela med grannarna",
-      body: "Har plockat massa goda äpplen.. 🍎🍏",
-      date: "Mån 2 Februari, 19.00",
+      src: "/images/engagement/gava.png",
+      alt: "Lisa vill ge en gåva: äldre kurslitteratur",
+      width: 298,
+      height: 238,
     },
   },
 ];
@@ -170,7 +116,7 @@ export function EngagementSection() {
             >
               {row.cardFirst ? (
                 <>
-                  <PostCard {...row.card} />
+                  <EngagementCard {...row.card} />
                   <FeatureText
                     title={row.title}
                     description={row.description}
@@ -182,7 +128,7 @@ export function EngagementSection() {
                     title={row.title}
                     description={row.description}
                   />
-                  <PostCard {...row.card} />
+                  <EngagementCard {...row.card} />
                 </>
               )}
             </div>
