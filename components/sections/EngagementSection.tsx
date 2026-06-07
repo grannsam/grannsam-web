@@ -36,8 +36,8 @@ const rows: FeatureRow[] = [
     card: {
       src: "/images/engagement/hjalp.png",
       alt: "Carl vill ha hjälp med omplantering av tomater",
-      width: 596,
-      height: 475,
+      width: 1024,
+      height: 823,
     },
   },
   {
@@ -48,8 +48,8 @@ const rows: FeatureRow[] = [
     card: {
       src: "/images/engagement/aktivitet.png",
       alt: "Alex föreslår en aktivitet: 3 km Lötsjörundan och hem",
-      width: 596,
-      height: 475,
+      width: 1024,
+      height: 823,
     },
   },
   {
@@ -60,8 +60,8 @@ const rows: FeatureRow[] = [
     card: {
       src: "/images/engagement/gava.png",
       alt: "Lisa vill ge en gåva: äldre kurslitteratur",
-      width: 298,
-      height: 238,
+      width: 1024,
+      height: 823,
     },
   },
 ];
