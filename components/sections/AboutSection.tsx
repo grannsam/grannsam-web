@@ -340,7 +340,7 @@ export function AboutSection() {
             </p>
           </header>
 
-          <div className="mt-12 grid auto-rows-fr gap-8 sm:mt-14 md:grid-cols-3 md:gap-6 lg:gap-8">
+          <div className="mt-12 grid auto-rows-fr gap-16 sm:mt-14 md:grid-cols-3 md:gap-6 lg:gap-8">
             {research.map((item) => (
               <ResearchCard key={item.name} {...item} />
             ))}
@@ -361,7 +361,7 @@ export function AboutSection() {
             bostadsrättsföreningar.
           </p>
 
-          <ul className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
+          <ul className="mt-12 grid gap-14 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3 lg:gap-12">
             {team.map((member) => (
               <li
                 key={member.name}
