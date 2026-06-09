@@ -9,14 +9,17 @@ type EngagementCardProps = {
 
 function EngagementCard({ src, alt, width, height }: EngagementCardProps) {
   return (
-    <Image
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-      sizes="(max-width: 1024px) 100vw, 480px"
-      className="block h-auto w-full"
-    />
+    <div className="overflow-hidden rounded-[3%] shadow-[0_6px_18px_rgba(38,43,46,0.18)]">
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        unoptimized
+        sizes="(max-width: 1024px) 100vw, 480px"
+        className="block h-auto w-full"
+      />
+    </div>
   );
 }
 
@@ -36,8 +39,8 @@ const rows: FeatureRow[] = [
     card: {
       src: "/images/engagement/hjalp-card.png",
       alt: "Carl vill ha hjälp med omplantering av tomater",
-      width: 952,
-      height: 750,
+      width: 1136,
+      height: 896,
     },
   },
   {
@@ -48,8 +51,8 @@ const rows: FeatureRow[] = [
     card: {
       src: "/images/engagement/aktivitet-card.png",
       alt: "Alex föreslår en aktivitet: 3 km Lötsjörundan och hem",
-      width: 952,
-      height: 750,
+      width: 1136,
+      height: 896,
     },
   },
   {
@@ -60,8 +63,8 @@ const rows: FeatureRow[] = [
     card: {
       src: "/images/engagement/gava-card.png",
       alt: "Lisa vill ge en gåva: äldre kurslitteratur",
-      width: 952,
-      height: 750,
+      width: 1136,
+      height: 896,
     },
   },
 ];
