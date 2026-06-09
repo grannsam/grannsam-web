@@ -1,4 +1,6 @@
 import { NeighborhoodDivider } from "@/components/illustrations/NeighborhoodDivider";
+import Link from "next/link";
+import { APPEN_PATH } from "@/lib/site";
 import {
   MdMarkChatUnread,
   MdPhoneAndroid,
@@ -78,6 +80,14 @@ export function WhyChooseSection() {
           ))}
         </div>
 
+        <p className="mt-10 text-center sm:mt-12">
+          <Link
+            href={APPEN_PATH}
+            className="text-base font-semibold text-grannsam-green underline-offset-4 transition-opacity hover:underline hover:opacity-80"
+          >
+            Se alla funktioner i appen →
+          </Link>
+        </p>
       </div>
 
       <div className="mt-14 overflow-hidden sm:mt-16 md:mt-20">
