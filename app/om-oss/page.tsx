@@ -6,7 +6,7 @@ import { AboutSection } from "@/components/sections/AboutSection";
 export const metadata: Metadata = {
   title: "Om oss – Grannsam",
   description:
-    "Lär känna teamet bakom Grannsam — vi bygger verktyg för starkare grannskap i bostadsrättsföreningar.",
+    "Läs grundarens berättelse, vår vision om levande grannskap och lär känna teamet bakom Grannsam.",
 };
 
 export default function AboutPage() {

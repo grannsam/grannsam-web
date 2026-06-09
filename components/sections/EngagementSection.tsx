@@ -34,10 +34,10 @@ const rows: FeatureRow[] = [
       "Behöver du låna ett verktyg, få hjälp med ett lyft eller någon som vattnar blommorna? Med Grannsam är hjälpen nära – och det känns naturligt att både fråga och hjälpa.",
     cardFirst: true,
     card: {
-      src: "/images/engagement/hjalp.png",
+      src: "/images/engagement/hjalp-card.png",
       alt: "Carl vill ha hjälp med omplantering av tomater",
-      width: 1024,
-      height: 823,
+      width: 952,
+      height: 750,
     },
   },
   {
@@ -46,10 +46,10 @@ const rows: FeatureRow[] = [
       "Vill du ha sällskap på löpturen, bjuda in till fika eller ordna en gårdsloppis? Skapa en aktivitet och låt grannarna anmäla sig direkt i appen.",
     cardFirst: false,
     card: {
-      src: "/images/engagement/aktivitet.png",
+      src: "/images/engagement/aktivitet-card.png",
       alt: "Alex föreslår en aktivitet: 3 km Lötsjörundan och hem",
-      width: 1024,
-      height: 823,
+      width: 952,
+      height: 750,
     },
   },
   {
@@ -58,10 +58,10 @@ const rows: FeatureRow[] = [
       "Saker som inte längre behövs hos dig kan betyda mycket för någon annan. Dela med dig till kvarteret, minska svinnet och sprid glädje – med ett enkelt klick.",
     cardFirst: true,
     card: {
-      src: "/images/engagement/gava.png",
+      src: "/images/engagement/gava-card.png",
       alt: "Lisa vill ge en gåva: äldre kurslitteratur",
-      width: 1024,
-      height: 823,
+      width: 952,
+      height: 750,
     },
   },
 ];
