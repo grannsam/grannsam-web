@@ -77,12 +77,6 @@ export function Footer() {
             <p className="mt-1 text-base">För ett starkare grannskap</p>
 
             <div className="mt-8 space-y-2 text-base">
-              <Link
-                href={CONTACT_PATH}
-                className="block transition-opacity hover:opacity-80"
-              >
-                Kontakta oss
-              </Link>
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
                 className="block transition-opacity hover:opacity-80"

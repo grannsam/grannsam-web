@@ -3,9 +3,9 @@ import Link from "next/link";
 import { BOOK_DEMO_PATH } from "@/lib/site";
 
 const features = [
-  "Nå ut med information till hela föreningen.",
-  "Effektivisera styrelsens ärendehantering.",
-  "Ett privat och tryggt grannskap med mobilt BankID.",
+  "Ett levande grannskap där grannar lär känna varandra.",
+  "Mindre administration — mer tid till det som betyder något.",
+  "Trygg kommunikation utan annonser och algoritmer.",
 ] as const;
 
 function CheckIcon() {

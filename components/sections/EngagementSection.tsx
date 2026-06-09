@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ABOUT_PATH } from "@/lib/site";
 
 type EngagementCardProps = {
   src: string;
@@ -137,6 +139,20 @@ export function EngagementSection() {
             </div>
           ))}
         </div>
+
+        <aside className="mx-auto mt-16 max-w-3xl rounded-2xl border border-grannsam-border/40 bg-[#f5f1e1] px-6 py-8 text-center sm:mt-20 sm:px-8">
+          <p className="text-base leading-relaxed text-foreground/85 sm:text-lg">
+            Idén till Grannsam föddes ur en verklig händelse i ett grannskap i
+            Stockholm — när att känna en granne gjorde skillnad i en stund av
+            nöd.
+          </p>
+          <Link
+            href={ABOUT_PATH}
+            className="mt-5 inline-flex text-base font-semibold text-grannsam-green underline-offset-4 transition-opacity hover:underline hover:opacity-80"
+          >
+            Läs vår historia
+          </Link>
+        </aside>
       </div>
     </section>
   );
