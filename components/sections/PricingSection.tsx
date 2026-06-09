@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { BOOK_DEMO_PATH } from "@/lib/site";
+
 const features = [
   "Obegränsat antal användare",
   "Fria uppdateringar av appen",
@@ -40,12 +43,12 @@ export function PricingSection() {
           </ul>
 
           <div className="mt-10 flex justify-center sm:mt-12">
-            <a
-              href="#"
+            <Link
+              href={BOOK_DEMO_PATH}
               className="inline-flex items-center justify-center rounded-full bg-grannsam-green px-8 py-3.5 text-base font-semibold text-white transition-opacity hover:opacity-90"
             >
               Boka demo
-            </a>
+            </Link>
           </div>
         </div>
       </div>

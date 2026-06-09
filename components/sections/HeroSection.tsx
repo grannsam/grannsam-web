@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { BOOK_DEMO_PATH } from "@/lib/site";
 
 const features = [
   "Nå ut med information till hela föreningen.",
@@ -54,12 +56,12 @@ export function HeroSection() {
             ))}
           </ul>
 
-          <a
-            href="#"
+          <Link
+            href={BOOK_DEMO_PATH}
             className="mt-10 inline-flex items-center justify-center rounded-full bg-grannsam-green px-8 py-3.5 text-base font-semibold text-white transition-opacity hover:opacity-90 sm:mt-12"
           >
             Boka demo
-          </a>
+          </Link>
         </div>
 
         <div className="relative mx-auto w-full max-w-[360px] justify-self-center lg:max-w-[400px] lg:justify-self-end">

@@ -1,7 +1,16 @@
+import Link from "next/link";
+import {
+  CONTACT_EMAIL,
+  CONTACT_PATH,
+  CONTACT_PHONE,
+  CONTACT_PHONE_DISPLAY,
+} from "@/lib/site";
+
 const footerLinks = [
-  { label: "Grannskap", href: "#engagemang" },
-  { label: "Appen", href: "#appen" },
-  { label: "Pris & Licens", href: "#pris" },
+  { label: "Grannskap", href: "/#engagemang" },
+  { label: "Appen", href: "/#appen" },
+  { label: "Pris & Licens", href: "/#pris" },
+  { label: "Kontakt", href: CONTACT_PATH },
   { label: "Vanliga frågor (FAQ)", href: "#faq" },
   { label: "Datasäkerhet", href: "#datasakerhet" },
 ] as const;
@@ -44,18 +53,23 @@ export function Footer() {
               <p className="mt-1 text-base">För ett starkare grannskap</p>
 
               <div className="mt-8 space-y-1 text-base">
-                <p>Kontakta oss</p>
-                <a
-                  href="mailto:info@grannsam.nu"
+                <Link
+                  href={CONTACT_PATH}
                   className="block transition-opacity hover:opacity-80"
                 >
-                  info@grannsam.nu
+                  Kontakta oss
+                </Link>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="block transition-opacity hover:opacity-80"
+                >
+                  {CONTACT_EMAIL}
                 </a>
                 <a
-                  href="tel:+46736418699"
+                  href={`tel:${CONTACT_PHONE}`}
                   className="block transition-opacity hover:opacity-80"
                 >
-                  +46 73 641 86 99
+                  {CONTACT_PHONE_DISPLAY}
                 </a>
               </div>
             </div>
@@ -64,12 +78,21 @@ export function Footer() {
               <ul className="space-y-1 text-base">
                 {footerLinks.map((link) => (
                   <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="transition-opacity hover:opacity-80"
-                    >
-                      {link.label}
-                    </a>
+                    {link.href.startsWith("/") ? (
+                      <Link
+                        href={link.href}
+                        className="transition-opacity hover:opacity-80"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="transition-opacity hover:opacity-80"
+                      >
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
