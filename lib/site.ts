@@ -4,3 +4,6 @@ export const CONTACT_PHONE_DISPLAY = "+46 73 641 86 99";
 
 export const CONTACT_PATH = "/kontakt";
 export const BOOK_DEMO_PATH = "/kontakt?intent=demo";
+export const ABOUT_PATH = "/om-oss";
+export const FAQ_PATH = "/faq";
+export const DATA_SECURITY_PATH = "/datasakerhet";

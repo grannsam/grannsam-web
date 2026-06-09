@@ -1,9 +1,12 @@
 import Link from "next/link";
 import {
+  ABOUT_PATH,
   CONTACT_EMAIL,
   CONTACT_PATH,
   CONTACT_PHONE,
   CONTACT_PHONE_DISPLAY,
+  DATA_SECURITY_PATH,
+  FAQ_PATH,
 } from "@/lib/site";
 
 const productLinks = [
@@ -13,9 +16,10 @@ const productLinks = [
 ] as const;
 
 const companyLinks = [
+  { label: "Om oss", href: ABOUT_PATH },
   { label: "Kontakt", href: CONTACT_PATH },
-  { label: "Vanliga frågor (FAQ)", href: "#faq" },
-  { label: "Datasäkerhet", href: "#datasakerhet" },
+  { label: "Vanliga frågor (FAQ)", href: FAQ_PATH },
+  { label: "Datasäkerhet", href: DATA_SECURITY_PATH },
 ] as const;
 
 type FooterLinkItem = { label: string; href: string };
