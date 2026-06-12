@@ -65,7 +65,7 @@ export function HeroSection() {
         </div>
 
         <div className="relative mx-auto w-full max-w-[360px] justify-self-center lg:max-w-[400px] lg:justify-self-end">
-          <div className="relative aspect-[631/1024] w-full overflow-hidden rounded-[2rem] shadow-[0_20px_50px_rgba(38,43,46,0.14)]">
+          <div className="relative aspect-[838/1024] w-full overflow-hidden rounded-[2rem] shadow-[0_20px_50px_rgba(38,43,46,0.14)]">
             <Image
               src="/images/hero-phone-mockup.png"
               alt="Grannsam-appen visar en styrelseavisering och pågående grannhjälp"
@@ -73,6 +73,7 @@ export function HeroSection() {
               priority
               sizes="(max-width: 1024px) 90vw, 400px"
               className="object-cover object-top"
+              unoptimized
             />
           </div>
         </div>
