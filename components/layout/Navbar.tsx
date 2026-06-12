@@ -55,7 +55,7 @@ export function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-t border-foreground/90 bg-[#f5f1e1]">
+    <header className="sticky top-0 z-50 bg-[#f5f1e1]">
       <nav
         className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-6 md:h-[4.5rem] md:px-10"
         aria-label="Huvudnavigering"
