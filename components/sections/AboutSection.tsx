@@ -15,7 +15,7 @@ type TeamMember = {
 const team: TeamMember[] = [
   {
     name: "Reibin Amin",
-    role: "VD & grundare",
+    role: "VD och grundare",
     photo: "/images/team/reibin-amin.png",
   },
   {
@@ -25,8 +25,8 @@ const team: TeamMember[] = [
   },
   { name: "Emil Er", role: "Fullstack utvecklare" },
   {
-    name: "Aaron Håkansson",
-    role: "Sälj & kundansvarig",
+    name: "Aron Håkanson",
+    role: "Sälj och kundansvarig",
     photo: "/images/team/aaron-hakansson.png",
   },
   { name: "Daniel Mundo", role: "UX" },
