@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Grannsam – App för starkare grannskap i BRF",
+  title: "För ett starkare grannskap",
   description:
     "Grannsam hjälper bostadsrättsföreningar att nå ut, hantera ärenden och stärka grannskapet — med BankID-verifierade grannar. 495 kr/mån för föreningen.",
 };
