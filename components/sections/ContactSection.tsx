@@ -4,15 +4,12 @@ import {
   CONTACT_PHONE,
   CONTACT_PHONE_DISPLAY,
 } from "@/lib/site";
-import type { InquiryType } from "@/lib/contact";
 
 type ContactSectionProps = {
-  initialInquiry?: InquiryType;
+  isDemo?: boolean;
 };
 
-export function ContactSection({ initialInquiry }: ContactSectionProps) {
-  const isDemo = initialInquiry === "demo";
-
+export function ContactSection({ isDemo = false }: ContactSectionProps) {
   return (
     <>
       <section className="border-b border-grannsam-border/30 bg-[#f5f1e1]">
@@ -41,7 +38,8 @@ export function ContactSection({ initialInquiry }: ContactSectionProps) {
               Fält markerade med * är obligatoriska.
             </p>
             <div className="mt-8">
-              <ContactForm initialInquiry={initialInquiry} />
+              {/* Vi rensar bort initialInquiry-prop eftersom ContactForm inte längre tar emot den */}
+              <ContactForm />
             </div>
           </div>
 

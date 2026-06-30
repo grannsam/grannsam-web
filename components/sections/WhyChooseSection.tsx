@@ -1,6 +1,4 @@
-import { NeighborhoodDivider } from "@/components/illustrations/NeighborhoodDivider";
-import Link from "next/link";
-import { APPEN_PATH } from "@/lib/site";
+import Image from "next/image";
 import {
   MdMarkChatUnread,
   MdPhoneAndroid,
@@ -42,6 +40,7 @@ const features: Feature[] = [
 function FeatureCard({ Icon, iconClassName, title, description }: Feature) {
   return (
     <article className="relative flex flex-col rounded-2xl bg-white px-6 pb-8 pt-14 shadow-[0_8px_30px_rgba(38,43,46,0.08)] sm:px-7 sm:pb-9 sm:pt-16">
+      {/* Centrerad ikon */}
       <div
         className="absolute -top-8 left-1/2 flex h-16 w-16 -translate-x-1/2 items-center justify-center rounded-full bg-white shadow-[0_4px_16px_rgba(38,43,46,0.1)] sm:-top-9 sm:h-[4.5rem] sm:w-[4.5rem]"
         aria-hidden
@@ -49,10 +48,13 @@ function FeatureCard({ Icon, iconClassName, title, description }: Feature) {
         <Icon className={`h-10 w-10 sm:h-11 sm:w-11 ${iconClassName}`} />
       </div>
 
+      {/* Centrerad rubrik */}
       <h3 className="text-center text-lg font-bold leading-snug text-foreground sm:text-xl">
         {title}
       </h3>
-      <p className="mt-4 text-center text-sm leading-relaxed text-foreground/85 sm:text-[0.95rem]">
+      
+      {/* Vänsterställd brödtext */}
+      <p className="mt-4 text-left text-sm leading-relaxed text-foreground/85 sm:text-[0.95rem]">
         {description}
       </p>
     </article>
@@ -63,9 +65,10 @@ export function WhyChooseSection() {
   return (
     <section
       id="appen"
-      className="scroll-mt-20 border-b border-grannsam-border/30 bg-[#f5f1e1]"
+      className="scroll-mt-20 border-b border-grannsam-border/30 bg-[#f5f1e1] w-full pb-12 md:pb-20"
       aria-labelledby="appen-heading"
     >
+      {/* Innehållscontainer */}
       <div className="mx-auto max-w-7xl px-6 pt-14 md:px-10 md:pt-20">
         <h2
           id="appen-heading"
@@ -79,19 +82,18 @@ export function WhyChooseSection() {
             <FeatureCard key={feature.title} {...feature} />
           ))}
         </div>
-
-        <p className="mt-10 text-center sm:mt-12">
-          <Link
-            href={APPEN_PATH}
-            className="text-base font-semibold text-grannsam-green underline-offset-4 transition-opacity hover:underline hover:opacity-80"
-          >
-            Se alla funktioner i appen →
-          </Link>
-        </p>
       </div>
 
-      <div className="mt-14 overflow-hidden sm:mt-16 md:mt-20">
-        <NeighborhoodDivider />
+      {/* Responsiv bild-behållare som behåller 100% av bildens naturliga höjd och bredd */}
+      <div className="mt-14 w-full block">
+        <Image 
+          src="/images/Asset 3@2x.png"
+          alt="Illustrativ delare över hela skärmen"
+          width={1920} /* Ange bildens ursprungliga bredd (Next.js behöver ett riktmärke) */
+          height={200} /* Ange bildens ursprungliga höjd */
+          className="w-full h-auto object-contain block" /* Tvingar full bredd och proportionerlig höjd */
+          priority
+        />
       </div>
     </section>
   );

@@ -29,7 +29,6 @@ type FeatureRow = {
   title: string;
   description: string;
   card: EngagementCardProps;
-  cardFirst: boolean;
 };
 
 const rows: FeatureRow[] = [
@@ -37,7 +36,6 @@ const rows: FeatureRow[] = [
     title: "Vi hjälper varandra",
     description:
       "Behöver du låna ett verktyg, få hjälp med ett lyft eller någon som vattnar blommorna? Med Grannsam är hjälpen nära – och det känns naturligt att både fråga och hjälpa.",
-    cardFirst: true,
     card: {
       src: "/images/engagement/hjalp-card.png",
       alt: "Carl vill ha hjälp med omplantering av tomater",
@@ -49,7 +47,6 @@ const rows: FeatureRow[] = [
     title: "Vi gör saker tillsammans",
     description:
       "Vill du ha sällskap på löpturen, bjuda in till fika eller ordna en gårdsloppis? Skapa en aktivitet och låt grannarna anmäla sig direkt i appen.",
-    cardFirst: false,
     card: {
       src: "/images/engagement/aktivitet-card.png",
       alt: "Alex föreslår en aktivitet: 3 km Lötsjörundan och hem",
@@ -61,7 +58,6 @@ const rows: FeatureRow[] = [
     title: "Vi tänker på varandra",
     description:
       "Saker som inte längre behövs hos dig kan betyda mycket för någon annan. Dela med dig till kvarteret, minska svinnet och sprid glädje – med ett enkelt klick.",
-    cardFirst: true,
     card: {
       src: "/images/engagement/gava-card.png",
       alt: "Lisa vill ge en gåva: äldre kurslitteratur",
@@ -105,7 +101,8 @@ export function EngagementSection() {
           >
             Ökat engagemang i grannskapet
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-foreground/85 sm:text-lg">
+          {/* Ändrat från text-center till text-left */}
+          <p className="mt-5 text-left text-base leading-relaxed text-foreground/85 sm:text-lg">
             Att ta första steget till en granne kan kännas ovant. I appen kan man
             be om hjälp, skapa aktiviteter och dela med sig i en trygg kontext.
             När initiativet redan är taget blir det enklare att mötas i
@@ -115,44 +112,20 @@ export function EngagementSection() {
 
         <div className="mt-14 space-y-16 sm:mt-16 sm:space-y-20 md:mt-20 md:space-y-24">
           {rows.map((row) => (
+            /* Grid-strukturen sköter ordningen: Text först (vänster), bild sedan (höger) */
             <div
               key={row.title}
               className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14"
             >
-              {row.cardFirst ? (
-                <>
-                  <EngagementCard {...row.card} />
-                  <FeatureText
-                    title={row.title}
-                    description={row.description}
-                  />
-                </>
-              ) : (
-                <>
-                  <FeatureText
-                    title={row.title}
-                    description={row.description}
-                  />
-                  <EngagementCard {...row.card} />
-                </>
-              )}
+              <FeatureText
+                title={row.title}
+                description={row.description}
+              />
+              <EngagementCard {...row.card} />
             </div>
           ))}
         </div>
 
-        <aside className="mx-auto mt-16 max-w-3xl rounded-2xl border border-grannsam-border/40 bg-[#f5f1e1] px-6 py-8 text-center sm:mt-20 sm:px-8">
-          <p className="text-base leading-relaxed text-foreground/85 sm:text-lg">
-            Idén till Grannsam föddes ur en verklig händelse i ett grannskap i
-            Stockholm — när att känna en granne gjorde skillnad i en stund av
-            nöd.
-          </p>
-          <Link
-            href={ABOUT_PATH}
-            className="mt-5 inline-flex text-base font-semibold text-grannsam-green underline-offset-4 transition-opacity hover:underline hover:opacity-80"
-          >
-            Läs vår historia
-          </Link>
-        </aside>
       </div>
     </section>
   );

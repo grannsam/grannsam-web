@@ -1,9 +1,7 @@
 import {
   buildContactEmail,
-  isInquiryType,
   validateContactForm,
   type ContactFormFields,
-  type InquiryType,
 } from "@/lib/contact";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
@@ -18,12 +16,9 @@ function parseContactBody(body: unknown): ContactFormFields | null {
   return {
     name: typeof data.name === "string" ? data.name : "",
     email: typeof data.email === "string" ? data.email : "",
-    phone: typeof data.phone === "string" ? data.phone : "",
     association: typeof data.association === "string" ? data.association : "",
-    apartmentCount:
-      typeof data.apartmentCount === "string" ? data.apartmentCount : "",
-    inquiry: typeof data.inquiry === "string" ? data.inquiry : "",
     message: typeof data.message === "string" ? data.message : "",
+    // Honeypot-fältet finns kvar i formuläret, så vi hanterar det här
     website: typeof data.website === "string" ? data.website : "",
   };
 }
@@ -33,19 +28,9 @@ export async function POST(request: Request) {
   const from = process.env.CONTACT_FROM_EMAIL;
   const to = process.env.CONTACT_TO_EMAIL;
 
-  if (!apiKey) {
+  if (!apiKey || !from || !to) {
     return NextResponse.json(
-      { error: "E-post är inte konfigurerad (RESEND_API_KEY saknas)." },
-      { status: 503 },
-    );
-  }
-
-  if (!from || !to) {
-    return NextResponse.json(
-      {
-        error:
-          "E-post är inte konfigurerad (CONTACT_FROM_EMAIL eller CONTACT_TO_EMAIL saknas).",
-      },
+      { error: "Konfigurationsfel på servern." },
       { status: 503 },
     );
   }
@@ -54,41 +39,30 @@ export async function POST(request: Request) {
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json(
-      { error: "Ogiltig förfrågan." },
-      { status: 400 },
-    );
+    return NextResponse.json({ error: "Ogiltig förfrågan." }, { status: 400 });
   }
 
   const fields = parseContactBody(body);
   if (!fields) {
-    return NextResponse.json(
-      { error: "Ogiltig förfrågan." },
-      { status: 400 },
-    );
+    return NextResponse.json({ error: "Ogiltig förfrågan." }, { status: 400 });
   }
 
+  // Honeypot-check: Om website är ifyllt är det en bot
   if (fields.website.trim()) {
     return NextResponse.json({ success: true });
   }
 
   const errors = validateContactForm(fields);
   if (errors) {
-    return NextResponse.json({ error: "Validering misslyckades.", errors }, { status: 400 });
-  }
-
-  if (!isInquiryType(fields.inquiry)) {
     return NextResponse.json(
-      { error: "Validering misslyckades.", errors: { inquiry: "Välj ett ärende." } },
-      { status: 400 },
+      { error: "Validering misslyckades.", errors },
+      { status: 400 }
     );
   }
 
-  const email = buildContactEmail({
-    ...fields,
-    inquiry: fields.inquiry as InquiryType,
-  });
+  const email = buildContactEmail(fields);
   const resend = new Resend(apiKey);
+  
   const { error } = await resend.emails.send({
     from,
     to: [to],
@@ -100,7 +74,7 @@ export async function POST(request: Request) {
 
   if (error) {
     return NextResponse.json(
-      { error: "Kunde inte skicka meddelandet. Försök igen senare." },
+      { error: "Kunde inte skicka meddelandet." },
       { status: 502 },
     );
   }

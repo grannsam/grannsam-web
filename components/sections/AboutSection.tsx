@@ -1,9 +1,5 @@
 import Image from "next/image";
-import {
-  MdFavorite,
-  MdGroups,
-  MdShield,
-} from "react-icons/md";
+import { MdFavorite, MdGroups, MdShield } from "react-icons/md";
 import type { IconType } from "react-icons";
 
 type TeamMember = {
@@ -30,54 +26,6 @@ const team: TeamMember[] = [
     photo: "/images/team/aaron-hakansson.png",
   },
   { name: "Daniel Mundo", role: "UX" },
-];
-
-type ResearchCard = {
-  Icon: IconType;
-  iconClassName: string;
-  name: string;
-  affiliation: string;
-  headline: string;
-  points: string[];
-};
-
-const research: ResearchCard[] = [
-  {
-    Icon: MdFavorite,
-    iconClassName: "text-[#e53935]",
-    name: "Julianne Holt-Lunstad",
-    affiliation: "Brigham Young University",
-    headline: "Starkare relationer kan förlänga livet",
-    points: [
-      "Meta-analys av 148 studier med över 300 000 personer",
-      "Starkare sociala relationer ökar sannolikheten att leva längre med cirka 50 %",
-      "Social isolering är lika skadligt som rökning, alkohol och fysisk inaktivitet",
-    ],
-  },
-  {
-    Icon: MdGroups,
-    iconClassName: "text-[#1e88e5]",
-    name: "Robert D. Putnam",
-    affiliation: "Författare till Bowling Alone",
-    headline: "Kända grannar bygger starkare samhällen",
-    points: [
-      "Högre tillit mellan människor",
-      "Mer samarbete i vardagen",
-      "Starkare lokalsamhällen och bättre demokratiskt deltagande",
-    ],
-  },
-  {
-    Icon: MdShield,
-    iconClassName: "text-grannsam-green",
-    name: "Robert J. Sampson",
-    affiliation: "Harvard University",
-    headline: "Grannar som håller koll skapar tryggare områden",
-    points: [
-      "Områden där grannar känner och pratar med varandra",
-      "Lägre brottslighet och tryggare gator",
-      "Mer informell social kontroll i kvarteret",
-    ],
-  },
 ];
 
 function MemberAvatar({ name, photo }: { name: string; photo?: string }) {
@@ -110,47 +58,11 @@ function MemberAvatar({ name, photo }: { name: string; photo?: string }) {
   );
 }
 
-function ResearchCard({
-  Icon,
-  iconClassName,
-  name,
-  affiliation,
-  headline,
-  points,
-}: ResearchCard) {
-  return (
-    <article className="relative flex h-full flex-col rounded-2xl bg-white px-6 pb-8 pt-14 shadow-[0_8px_30px_rgba(38,43,46,0.08)] sm:px-7 sm:pb-9 sm:pt-16">
-      <div
-        className="absolute -top-8 left-1/2 flex h-16 w-16 -translate-x-1/2 items-center justify-center rounded-full bg-white shadow-[0_4px_16px_rgba(38,43,46,0.1)] sm:-top-9 sm:h-[4.5rem] sm:w-[4.5rem]"
-        aria-hidden
-      >
-        <Icon className={`h-10 w-10 sm:h-11 sm:w-11 ${iconClassName}`} />
-      </div>
-
-      <h3 className="text-center text-lg font-bold leading-snug text-foreground sm:text-xl">
-        {headline}
-      </h3>
-      <ul className="mt-4 flex-1 space-y-2 text-sm leading-relaxed text-foreground/85 sm:text-[0.95rem]">
-        {points.map((point) => (
-          <li key={point} className="flex gap-2">
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-grannsam-green" aria-hidden />
-            <span>{point}</span>
-          </li>
-        ))}
-      </ul>
-      <footer className="mt-6 border-t border-grannsam-border/40 pt-4 text-center text-xs text-grannsam-gray sm:text-sm">
-        <p className="font-medium text-foreground/80">{name}</p>
-        <p>{affiliation}</p>
-      </footer>
-    </article>
-  );
-}
-
 export function AboutSection() {
   return (
     <>
       <section className="border-b border-grannsam-border/30 bg-[#f5f1e1]">
-        <div className="mx-auto max-w-3xl px-6 py-14 text-center md:px-10 md:py-20">
+        <div className="mx-auto max-w-3xl px-6 py-14 text-left md:px-10 md:py-20">
           <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
             Om oss
           </h1>
@@ -245,19 +157,17 @@ export function AboutSection() {
                 </p>
               </div>
 
-              <aside className="rounded-2xl border border-grannsam-green/20 bg-grannsam-green-muted px-5 py-5 sm:px-6 sm:py-6">
-                <p>
-                  Peter och jag sprang ut på gården och tittade in i fönstret.
-                  Där låg Karins man på golvet och hade en hjärtattack. Peter
-                  ringde omedelbart 112. Jag testade att öppna ytterdörren — som
-                  av ett mirakel var den öppen. Vi sprang in, tog hand om den
-                  äldre mannen och inom kort kom ambulanspersonalen och förde
-                  honom till sjukhus.
-                </p>
-                <p className="mt-3 font-medium text-foreground">
-                  Han klarade sig.
-                </p>
-              </aside>
+              <p className="mt-3">
+                Peter och jag sprang ut på gården och tittade in i fönstret.
+                Där låg Karins man på golvet och hade en hjärtattack. Peter
+                ringde omedelbart 112. Jag testade att öppna ytterdörren — som
+                av ett mirakel var den öppen. Vi sprang in, tog hand om den
+                äldre mannen och inom kort kom ambulanspersonalen och förde
+                honom till sjukhus.
+              </p>
+              <p className="mt-3 font-medium text-foreground">
+                Han klarade sig.
+              </p>
 
               <div>
                 <h3 className="text-lg font-bold text-foreground sm:text-xl">
@@ -322,28 +232,89 @@ export function AboutSection() {
         </div>
       </section>
 
+      {/* Ny Forskningssektion enligt bild */}
       <section
         className="border-b border-grannsam-border/30 bg-white"
         aria-labelledby="research-heading"
       >
-        <div className="mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20">
-          <header className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl px-6 py-14 md:px-10 md:py-20">
+          <header className="text-center">
             <h2
               id="research-heading"
-              className="text-2xl font-semibold text-foreground sm:text-3xl"
+              className="text-3xl font-bold text-foreground sm:text-4xl"
             >
-              Forskning som stödjer det
+              Forskningen bakom Grannsam
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-foreground/85 sm:text-lg">
-              Starka lokala relationer är inte bara trevliga — de har mätbart
-              betydelse för hälsa, trygghet och samhälle.
-            </p>
           </header>
-
-          <div className="mt-12 grid auto-rows-fr gap-16 sm:mt-14 md:grid-cols-3 md:gap-6 lg:gap-8">
-            {research.map((item) => (
-              <ResearchCard key={item.name} {...item} />
-            ))}
+          <div className="mt-8 space-y-6 text-base leading-relaxed text-foreground/85 sm:text-lg">
+            <p>
+              Människan är en social varelse. Våra relationer till familj, vänner
+              och grannar påverkar inte bara hur vi trivs – de påverkar också vår
+              hälsa, vår trygghet och hur väl våra samhällen fungerar.
+            </p>
+            <p>
+              Forskning visar att starka sociala relationer har en tydlig koppling
+              till bättre hälsa och längre liv. I{" "}
+              <a 
+                href="https://pubmed.ncbi.nlm.nih.gov/20668659/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-grannsam-green underline hover:text-grannsam-green-dark"
+              >
+                en omfattande metaanalys
+              </a>{" "}
+              av 148 studier och över 300 000 deltagare fann man att personer med starka
+              sociala relationer hade omkring 50 procent högre sannolikhet att
+              leva längre än personer med svagare sociala nätverk.
+            </p>
+            <div className="pt-4">
+              <h3 className="text-xl font-bold text-foreground">
+                Starka relationer bygger starkare samhällen
+              </h3>
+              <p className="mt-2">
+               Statsvetaren Robert Putnam har i sin forskning visat att samhällen
+                fungerar bättre när människor känner tillit till varandra och
+                deltar i lokala gemenskaper.{" "}
+                <a 
+                  href="https://www.ft.com/content/97c1044d-141a-42fb-a47a-672ddb9512c4?syn-25a6b1a6=1" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-grannsam-green underline hover:text-grannsam-green-dark"
+                >
+                  Han beskriver detta som socialt kapital
+                </a>
+                : de relationer och nätverk som gör att människor
+                samarbetar, hjälper varandra och engagerar sig i samhället.
+                Områden med starkt socialt kapital präglas ofta av högre tillit,
+                större demokratiskt deltagande och bättre förmåga att hantera
+                gemensamma utmaningar.
+              </p>
+            </div>
+            <div className="pt-4">
+              <h3 className="text-xl font-bold text-foreground">
+                Grannar som känner varandra skapar trygghet
+              </h3>
+              <p className="mt-2">
+                Sociologen Robert J. Sampson och hans kollegor har visat att
+                områden där grannar känner tillit till varandra och är villiga att
+                hjälpa till och agera för det gemensamma bästa har{" "}
+                <a 
+                  href="https://pubmed.ncbi.nlm.nih.gov/9252316/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-grannsam-green underline hover:text-grannsam-green-dark"
+                >
+                  lägre nivåer av våldsbrott och upplevs som tryggare
+                </a>
+                . Forskarna kallar detta för kollektiv handlingsförmåga; ett mått på ett områdes sociala
+                sammanhållning och förmåga att ta hand om sin närmiljö.
+              </p>
+            </div>
+            <p className="pt-4">
+              Grannsam finns för att göra det enklare att bygga de relationer som
+              forskningen gång på gång visar är viktiga – för människors hälsa,
+              för tryggare bostadsområden och för starkare lokalsamhällen.
+            </p>
           </div>
         </div>
       </section>

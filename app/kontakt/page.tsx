@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { ContactSection } from "@/components/sections/ContactSection";
+
 export const metadata: Metadata = {
   title: "Kontakt – Grannsam",
   description:
@@ -14,13 +15,16 @@ type KontaktPageProps = {
 
 export default async function KontaktPage({ searchParams }: KontaktPageProps) {
   const { intent } = await searchParams;
-  const initialInquiry = intent === "demo" ? ("demo" as const) : undefined;
+  
+  // Vi kollar om parametern ?intent=demo skickades med i URL:en
+  const isDemo = intent === "demo";
 
   return (
     <>
       <Navbar />
       <main>
-        <ContactSection initialInquiry={initialInquiry} />
+        {/* Vi skickar in den nya isDemo-proppen istället för initialInquiry */}
+        <ContactSection isDemo={isDemo} />
       </main>
       <Footer />
     </>
