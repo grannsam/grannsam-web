@@ -19,7 +19,6 @@ function parseContactBody(body: unknown): ContactFormFields | null {
     association: typeof data.association === "string" ? data.association : "",
     message: typeof data.message === "string" ? data.message : "",
     // Honeypot-fältet finns kvar i formuläret, så vi hanterar det här
-    website: typeof data.website === "string" ? data.website : "",
   };
 }
 
