@@ -18,7 +18,6 @@ function parseContactBody(body: unknown): ContactFormFields | null {
     email: typeof data.email === "string" ? data.email : "",
     association: typeof data.association === "string" ? data.association : "",
     message: typeof data.message === "string" ? data.message : "",
-    // Honeypot-fältet finns kvar i formuläret, så vi hanterar det här
   };
 }
 
@@ -44,11 +43,6 @@ export async function POST(request: Request) {
   const fields = parseContactBody(body);
   if (!fields) {
     return NextResponse.json({ error: "Ogiltig förfrågan." }, { status: 400 });
-  }
-
-  // Honeypot-check: Om website är ifyllt är det en bot
-  if (fields.website.trim()) {
-    return NextResponse.json({ success: true });
   }
 
   const errors = validateContactForm(fields);
