@@ -5,6 +5,7 @@ import {
   type ContactFormFields,
 } from "@/lib/contact";
 import { useState } from "react";
+import Link from "next/link";
 
 const inputClassName =
   "mt-1.5 w-full rounded-xl border border-grannsam-border bg-white px-4 py-3 text-base text-foreground outline-none transition-colors focus:border-grannsam-green focus:ring-2 focus:ring-grannsam-green/20";
@@ -128,6 +129,15 @@ export function ContactForm() {
       </div>
 
       {formError && <p className="text-sm text-red-600">{formError}</p>}
+
+      {/* ÄNDRING: "hanteras" har blivit "behandlas" för bättre flyt */}
+      <p className="text-xs text-foreground/60 leading-relaxed">
+        Genom att skicka meddelandet godkänner du att dina uppgifter behandlas i enlighet med vår{" "}
+        <Link href="/datasakerhet" className="text-grannsam-green underline hover:opacity-80 transition-opacity">
+          hantering av personuppgifter
+        </Link>
+        .
+      </p>
 
       <button
         type="submit"
