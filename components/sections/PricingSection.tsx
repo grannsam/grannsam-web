@@ -63,7 +63,7 @@ export function PricingSection() {
           <div className="mt-10 flex justify-center sm:mt-12">
             <Link
               href={BOOK_DEMO_PATH}
-              className="inline-flex items-center justify-center rounded-full bg-[#4c8c4a] hover:bg-[#3d703b] px-8 py-3.5 text-base font-semibold text-white transition-opacity hover:opacity-90 shadow-sm"
+              className="inline-flex items-center justify-center rounded-full bg-grannsam-green hover:opacity-90 px-8 py-3.5 text-base font-semibold text-white transition-opacity shadow-sm"
             >
               Boka demo
             </Link>

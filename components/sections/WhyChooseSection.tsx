@@ -77,7 +77,8 @@ export function WhyChooseSection() {
           Därför väljer bostadsrättsföreningar oss
         </h2>
 
-        <div className="mt-12 grid gap-8 sm:mt-14 md:grid-cols-3 md:gap-6 lg:gap-8">
+        {/* ÄNDRING: Höjt det generella bas-gapet till gap-16 för mobil/tablet-stackning */}
+        <div className="mt-12 grid gap-16 sm:mt-14 md:grid-cols-3 md:gap-6 lg:gap-8">
           {features.map((feature) => (
             <FeatureCard key={feature.title} {...feature} />
           ))}
@@ -89,9 +90,9 @@ export function WhyChooseSection() {
         <Image 
           src="/images/Asset 3@2x.png"
           alt="Illustrativ delare över hela skärmen"
-          width={1920} /* Ange bildens ursprungliga bredd (Next.js behöver ett riktmärke) */
-          height={200} /* Ange bildens ursprungliga höjd */
-          className="w-full h-auto object-contain block" /* Tvingar full bredd och proportionerlig höjd */
+          width={1920}
+          height={200}
+          className="w-full h-auto object-contain block"
           priority
         />
       </div>
