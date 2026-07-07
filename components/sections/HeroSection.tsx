@@ -66,7 +66,6 @@ export function HeroSection() {
           {/* HÖGER KOLUMN: MOBILBILD & MOBILKNAPP (40% bredd) */}
           <div className="w-full md:col-span-2 flex flex-col items-center">
             <div className="flex justify-center md:justify-end items-start w-full">
-              {/* ÄNDRING: Ökat till -mb-36 på mobil för att aggressivt dra upp knappen i tomrummet */}
               <div className="relative w-full max-w-[320px] aspect-[9/19] -mb-60 md:-mb-44">
                 <Image 
                   src="/images/hero-phone-mockup.png" 
@@ -79,9 +78,8 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* MOBILKNAPP: Placerad under bilden, visas endast på mobil */}
-            {/* ÄNDRING: Satt mt-0 eftersom den negativa marginalen ovan sköter resten av finliret */}
-            <div className="flex md:hidden justify-center w-full pt-1 mt-0">
+            {/* MOBILKNAPP: relative z-10 lyfter fram knappen så den blir klickbar framför bildlagret */}
+            <div className="relative z-10 flex md:hidden justify-center w-full pt-1 mt-0">
               <Link 
                 href="/kontakt?intent=demo" 
                 className="bg-grannsam-green hover:opacity-90 text-white font-medium py-6 px-10 rounded-full text-lg transition duration-200 shadow-sm active:scale-[0.98] text-center inline-block min-w-[200px] leading-none"
