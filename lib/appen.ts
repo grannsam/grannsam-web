@@ -11,14 +11,20 @@ export type AppGraphicVariant =
 export const appenIntro = {
   eyebrow: "Produkt",
   lead:
-    "En genomgång av funktionerna i Grannsam — vad grannar och styrelse kan göra i appen.",
+    "En genomgång av funktionerna i Grannsam – vad grannar och styrelsen kan göra i appen.",
+};
+
+// Ny hjälptyp för att hantera punktlistor med både rubrik/box och beskrivning
+export type FeatureBullet = {
+  title: string;
+  description: string;
 };
 
 export type AppFeature = {
   id: string;
   title: string;
   description: string;
-  bullets?: string[];
+  bullets?: FeatureBullet[]; // Uppdaterad från string[] till FeatureBullet[]
   callout?: string;
   graphic: AppGraphicVariant;
 };
@@ -38,48 +44,66 @@ export const appFeatureGroups: AppFeatureGroup[] = [
     features: [
       {
         id: "community",
-        title: "Ett trivsamt grannskap",
+        title: "Ett grannskap som respekterar integritet",
         graphic: "community",
         description:
-          "Inga privata meddelanden — kommunikation sker öppet via aktivitetschattar eller grannforumet, med fokus på verkliga möten.",
-        callout:
-          "Be om hjälp max en gång i veckan. Ett foruminlägg per månad.",
+          "Kommunikation mellan grannarna sker via skapade händelser eller i grannforumet, inte via privata meddelanden.",
       },
       {
         id: "events",
         title: "Skapa en händelse",
         graphic: "events",
         description:
-          "Publicera på hemskärmen, låt grannar delta och chatta i ett temporärt rum under aktiviteten.",
-        bullets: ["Aktivitet", "Be om hjälp", "Ge bort en gåva"],
+          "Publicera en händelse på hemskärmen så att grannar kan upptäcka den, delta eller svara. Välj vilken typ av händelse du vill skapa.",
+        bullets: [
+          {
+            title: "🏃 Aktivitet",
+            description: "Ta en promenad, spela pingis eller grilla tillsammans.",
+          },
+          {
+            title: "🙋 Be om hjälp",
+            description: "Låna ett verktyg, få hjälp att bära något eller passa ett husdjur.",
+          },
+          {
+            title: "🎁 Ge bort en gåva",
+            description: "Skänk kläder, möbler eller porslin du inte behöver.",
+          },
+        ],
       },
       {
         id: "profile",
-        title: "Profil & Kudos",
+        title: "Personlig profil",
         graphic: "profile",
         description:
-          "Öppen profil med bild, intressen och aktivitet — se vilka grannar som bidrar.",
+          "Öppen profil med bild, intressen och ditt engagemang i grannskapet.",
       },
       {
         id: "forum",
         title: "Grannforum",
         graphic: "forum",
         description:
-          "Dela det som är viktigt för grannskapet. Ett inlägg per månad bygger ett arkiv utan brus.",
+          "Dela nyheter, tips, idéer och annat som kan vara värdefullt för grannskapet. För att ge alla utrymme kan varje granne skapa upp till två inlägg per månad.",
       },
     ],
   },
   {
     id: "styrelse",
     title: "För styrelsen",
-    description: "Hantera ärenden, information och dokument för hela föreningen.",
+    description: "Samla föreningens ärenden, informationsutskick och dokument på ett och samma ställe.",
     features: [
+      {
+        id: "board",
+        title: "Anslagstavla",
+        graphic: "board",
+        description:
+          "Nå ut till alla medlemmar direkt i mobilen. Publicera viktiga meddelanden på hemskärmen och skicka pushnotiser så att information om exempelvis garagestädning, servicearbeten och andra händelser inte glöms bort.",
+      },
       {
         id: "ticket",
         title: "Rapportera ett ärende",
         graphic: "ticket",
         description:
-          "Boende rapporterar med bild och text. Styrelsen får en ticket, tilldelar ansvar och löser ärendet i ett chattrum.",
+          "Boende kan rapportera problem eller ställa en fråga med bild och text. Styrelsen får in ärendet, tilldelar ansvar och följer upp lösningen i ett chattrum. ",
       },
       {
         id: "documents",
@@ -87,13 +111,6 @@ export const appFeatureGroups: AppFeatureGroup[] = [
         graphic: "documents",
         description:
           "Ladda upp PDF- eller bildfiler med tillhörande information för grannskapet.",
-      },
-      {
-        id: "board",
-        title: "Anslagstavla",
-        graphic: "board",
-        description:
-          "Fäst viktiga meddelanden på hemskärmen och skicka pushnotiser till medlemmar.",
       },
     ],
   },

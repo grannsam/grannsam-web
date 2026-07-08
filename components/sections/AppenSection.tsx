@@ -3,15 +3,26 @@ import Link from "next/link";
 import { appFeatureGroups, appenIntro, type AppFeature } from "@/lib/appen";
 import { BOOK_DEMO_PATH, FAQ_PATH } from "@/lib/site";
 
-function FeatureTags({ items }: { items: string[] }) {
+// Uppdaterad komponent för att hantera objekt-strukturen med titlar och beskrivningar
+function FeatureTags({ items }: { items: NonNullable<AppFeature["bullets"]> }) {
   return (
-    <ul className="mt-3 flex flex-wrap gap-2">
-      {items.map((item) => (
-        <li
-          key={item}
-          className="rounded-full bg-grannsam-green-muted px-2.5 py-1 text-xs font-medium text-grannsam-green sm:text-sm"
+    <ul className="mt-4 space-y-4">
+      {items.map((item, index) => (
+        <li 
+          key={item.title || index} 
+          className="flex flex-col items-start gap-1.5"
         >
-          {item}
+          {/* DEN GRÖNA RUTAN (Pillen med emojin) */}
+          <span className="rounded-full bg-grannsam-green-muted px-2.5 py-1 text-xs font-medium text-grannsam-green sm:text-sm inline-block">
+            {item.title}
+          </span>
+          
+          {/* BESKRIVANDE TEXT (Ligger under rutan) */}
+          {item.description && (
+            <p className="text-sm leading-relaxed text-foreground/85 pl-1 sm:text-base">
+              {item.description}
+            </p>
+          )}
         </li>
       ))}
     </ul>

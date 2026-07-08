@@ -22,7 +22,8 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Borttagen för att förhindra att mobilsidor klipper menyn vid sidbyten */
+  /* scroll-behavior: smooth; */
 }
 
 body {
