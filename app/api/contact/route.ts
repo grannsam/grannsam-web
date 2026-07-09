@@ -21,10 +21,28 @@ function parseContactBody(body: unknown): ContactFormFields | null {
   };
 }
 
+function getResendErrorMessage(error: { message?: string }): string {
+  const message = error.message ?? "";
+
+  if (message.includes("only send testing emails")) {
+    return "E-post är felkonfigurerad: i testläge kan Resend bara skicka till e-postadressen på ditt Resend-konto.";
+  }
+
+  if (message.includes("not verified") || message.includes("domain")) {
+    return "E-post är felkonfigurerad: avsändardomänen i CONTACT_FROM_EMAIL är inte verifierad i Resend.";
+  }
+
+  if (message.includes("Invalid `from` field")) {
+    return "E-post är felkonfigurerad: CONTACT_FROM_EMAIL har ogiltigt format eller ogiltig adress.";
+  }
+
+  return "Kunde inte skicka meddelandet. Försök igen senare.";
+}
+
 export async function POST(request: Request) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.CONTACT_FROM_EMAIL;
-  const to = process.env.CONTACT_TO_EMAIL;
+  const apiKey = process.env.RESEND_API_KEY?.trim();
+  const from = process.env.CONTACT_FROM_EMAIL?.trim();
+  const to = process.env.CONTACT_TO_EMAIL?.trim();
 
   if (!apiKey) {
     return NextResponse.json(
@@ -81,8 +99,9 @@ export async function POST(request: Request) {
   });
 
   if (error) {
+    console.error("Resend contact form error:", error);
     return NextResponse.json(
-      { error: "Kunde inte skicka meddelandet. Försök igen senare." },
+      { error: getResendErrorMessage(error) },
       { status: 502 },
     );
   }
