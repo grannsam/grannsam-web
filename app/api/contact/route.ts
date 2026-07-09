@@ -1,32 +1,10 @@
-import {
-  buildContactEmail,
-  validateContactForm,
-  type ContactFormFields,
-} from "@/lib/contact";
-import { NextResponse } from "next/server";
-import { Resend } from "resend";
-
-function parseContactBody(body: unknown): ContactFormFields | null {
-  if (!body || typeof body !== "object") {
-    return null;
-  }
-
-  const data = body as Record<string, unknown>;
-
-  return {
-    name: typeof data.name === "string" ? data.name : "",
-    email: typeof data.email === "string" ? data.email : "",
-    association: typeof data.association === "string" ? data.association : "",
-    message: typeof data.message === "string" ? data.message : "",
-  };
-}
-
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.CONTACT_FROM_EMAIL;
   const to = process.env.CONTACT_TO_EMAIL;
 
   if (!apiKey || !from || !to) {
+    console.error("KONFIGURATIONSFEL: Saknar miljövariabler för Resend.");
     return NextResponse.json(
       { error: "Konfigurationsfel på servern." },
       { status: 503 },
@@ -36,41 +14,56 @@ export async function POST(request: Request) {
   let body: unknown;
   try {
     body = await request.json();
-  } catch {
-    return NextResponse.json({ error: "Ogiltig förfrågan." }, { status: 400 });
+  } catch (parseError) {
+    console.error("400 FEL: Misslyckades med att tolka JSON i requesten.", parseError);
+    return NextResponse.json({ error: "Ogiltig förfrågan (JSON-fel)." }, { status: 400 });
   }
 
   const fields = parseContactBody(body);
   if (!fields) {
-    return NextResponse.json({ error: "Ogiltig förfrågan." }, { status: 400 });
+    console.error("400 FEL: parseContactBody returnerade null. Body var inte ett objekt:", body);
+    return NextResponse.json({ error: "Ogiltig förfrågan (Felaktig datastruktur)." }, { status: 400 });
   }
 
   const errors = validateContactForm(fields);
-  if (errors) {
+  // FIX: Kontrollera om objektet faktiskt innehåller några fel, 
+  // eftersom ett tomt objekt {} annars utvärderas till true.
+  if (errors && Object.keys(errors).length > 0) {
+    console.error("400 FEL: Valideringen misslyckades. Följande fel hittades:", errors);
     return NextResponse.json(
       { error: "Validering misslyckades.", errors },
       { status: 400 }
     );
   }
 
-  const email = buildContactEmail(fields);
-  const resend = new Resend(apiKey);
-  
-  const { error } = await resend.emails.send({
-    from,
-    to: [to],
-    replyTo: email.replyTo,
-    subject: email.subject,
-    text: email.text,
-    html: email.html,
-  });
+  try {
+    const email = buildContactEmail(fields);
+    const resend = new Resend(apiKey);
+    
+    const { error } = await resend.emails.send({
+      from,
+      to: [to],
+      replyTo: email.replyTo,
+      subject: email.subject,
+      text: email.text,
+      html: email.html,
+    });
 
-  if (error) {
+    if (error) {
+      console.error("502 FEL: Resend nekade utskicket:", error);
+      return NextResponse.json(
+        { error: "Kunde inte skicka meddelandet via e-posttjänsten." },
+        { status: 502 },
+      );
+    }
+
+    return NextResponse.json({ success: true });
+
+  } catch (serverError) {
+    console.error("500 INTERNT FEL: Något gick snett under e-postbygget eller Resend-anropet:", serverError);
     return NextResponse.json(
-      { error: "Kunde inte skicka meddelandet." },
-      { status: 502 },
+      { error: "Ett internt fel uppstod på servern." },
+      { status: 500 }
     );
   }
-
-  return NextResponse.json({ success: true });
 }
