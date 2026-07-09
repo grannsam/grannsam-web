@@ -1,30 +1,91 @@
+import {
+  buildContactEmail,
+  validateContactForm,
+  type ContactFormFields,
+} from "@/lib/contact";
+import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function parseContactBody(body: unknown): ContactFormFields | null {
+  if (!body || typeof body !== "object") {
+    return null;
+  }
 
-export async function POST(req: Request) {
-  try {
-    const { name, email, message } = await req.json();
+  const data = body as Record<string, unknown>;
 
-    const { data, error } = await resend.emails.send({
-      from: "Kontakt <info@grannsam.nu>", // MÅSTE vara verifierad i Resend!
-      to: ["info@grannsam.nu"],
-      replyTo: email, // Här lägger du besökarens mejl så du kan svara dem
-      subject: `Nytt meddelande från ${name}`,
-      text: message,
-    });
+  return {
+    name: typeof data.name === "string" ? data.name : "",
+    email: typeof data.email === "string" ? data.email : "",
+    association: typeof data.association === "string" ? data.association : "",
+    message: typeof data.message === "string" ? data.message : "",
+  };
+}
 
-    if (error) {
-      // Om Resend nekar, returnera felet istället för att krascha funktionen
-      return Response.json({ error }, { status: 400 });
-    }
+export async function POST(request: Request) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.CONTACT_FROM_EMAIL;
+  const to = process.env.CONTACT_TO_EMAIL;
 
-    return Response.json({ success: true, data });
-  } catch (error) {
-    // Fångar upp dolda fel (t.ex. nätverksproblem eller saknade API-nycklar)
-    return Response.json(
-      { error: "Något gick snett internt" }, 
-      { status: 500 }
+  if (!apiKey) {
+    return NextResponse.json(
+      { error: "E-post är inte konfigurerad (RESEND_API_KEY saknas)." },
+      { status: 503 },
     );
   }
+
+  if (!from || !to) {
+    return NextResponse.json(
+      {
+        error:
+          "E-post är inte konfigurerad (CONTACT_FROM_EMAIL eller CONTACT_TO_EMAIL saknas).",
+      },
+      { status: 503 },
+    );
+  }
+
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json(
+      { error: "Ogiltig förfrågan." },
+      { status: 400 },
+    );
+  }
+
+  const fields = parseContactBody(body);
+  if (!fields) {
+    return NextResponse.json(
+      { error: "Ogiltig förfrågan." },
+      { status: 400 },
+    );
+  }
+
+  const errors = validateContactForm(fields);
+  if (errors) {
+    return NextResponse.json(
+      { error: "Validering misslyckades.", errors },
+      { status: 400 },
+    );
+  }
+
+  const email = buildContactEmail(fields);
+  const resend = new Resend(apiKey);
+  const { error } = await resend.emails.send({
+    from,
+    to: [to],
+    replyTo: email.replyTo,
+    subject: email.subject,
+    text: email.text,
+    html: email.html,
+  });
+
+  if (error) {
+    return NextResponse.json(
+      { error: "Kunde inte skicka meddelandet. Försök igen senare." },
+      { status: 502 },
+    );
+  }
+
+  return NextResponse.json({ success: true });
 }

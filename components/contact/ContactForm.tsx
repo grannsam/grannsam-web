@@ -52,8 +52,19 @@ export function ContactForm() {
         body: JSON.stringify(fields),
       });
 
+      const data: {
+        success?: boolean;
+        error?: string;
+        errors?: ContactFormErrors;
+      } = await response.json();
+
       if (!response.ok) {
-        setFormError("Kunde inte skicka meddelandet. Försök igen senare.");
+        if (data.errors) {
+          setErrors(data.errors);
+        }
+        setFormError(
+          data.error ?? "Kunde inte skicka meddelandet. Försök igen senare.",
+        );
         return;
       }
 
@@ -88,7 +99,11 @@ export function ContactForm() {
           value={fields.name}
           onChange={(e) => updateField("name", e.target.value)}
           className={inputClassName}
+          aria-invalid={Boolean(errors.name)}
         />
+        {errors.name ? (
+          <p className="mt-1.5 text-sm text-[#c62828]">{errors.name}</p>
+        ) : null}
       </div>
 
       <div>
@@ -101,7 +116,11 @@ export function ContactForm() {
           value={fields.email}
           onChange={(e) => updateField("email", e.target.value)}
           className={inputClassName}
+          aria-invalid={Boolean(errors.email)}
         />
+        {errors.email ? (
+          <p className="mt-1.5 text-sm text-[#c62828]">{errors.email}</p>
+        ) : null}
       </div>
 
       <div>
@@ -125,7 +144,11 @@ export function ContactForm() {
           value={fields.message}
           onChange={(e) => updateField("message", e.target.value)}
           className={inputClassName}
+          aria-invalid={Boolean(errors.message)}
         />
+        {errors.message ? (
+          <p className="mt-1.5 text-sm text-[#c62828]">{errors.message}</p>
+        ) : null}
       </div>
 
       {formError && <p className="text-sm text-red-600">{formError}</p>}
