@@ -7,8 +7,8 @@ export async function POST(req: Request) {
     const { name, email, message } = await req.json();
 
     const { data, error } = await resend.emails.send({
-      from: "Kontaktformulär <hello@dinverifieradedomän.se>", // MÅSTE vara verifierad i Resend!
-      to: ["din-egen-mejl@gmail.com"],
+      from: "Kontakt <info@grannsam.nu>", // MÅSTE vara verifierad i Resend!
+      to: ["info@grannsam.nu"],
       replyTo: email, // Här lägger du besökarens mejl så du kan svara dem
       subject: `Nytt meddelande från ${name}`,
       text: message,
