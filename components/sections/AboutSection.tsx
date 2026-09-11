@@ -25,7 +25,11 @@ const team: TeamMember[] = [
     role: "Sälj och kundansvarig",
     photo: "/images/team/aaron-hakansson.png",
   },
-  { name: "Daniel Mundo", role: "UX" },
+  {
+    name: "Daniel Åkerman",
+    role: "UX",
+    photo: "/images/team/daniel-akerman.png",
+  },
 ];
 
 function MemberAvatar({ name, photo }: { name: string; photo?: string }) {
