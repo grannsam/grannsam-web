@@ -7,6 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: absoluteUrl(path),
     lastModified: new Date(),
     changeFrequency: "monthly",
-    priority: path === "/" ? 1 : path === "/appen" || path === "/jamfor" ? 0.8 : 0.6,
+    priority: path === "/" ? 1 : path === "/appen" ? 0.8 : 0.6,
   }));
 }

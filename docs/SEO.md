@@ -35,9 +35,8 @@ Do not add marketing pages to `/api/`. Robots disallow that prefix.
 
 - **Slogan** — only `SITE_SLOGAN`. Title, H1, footer, and OG image follow.
 - **Brand / legal name / email / phone** — `lib/site.ts` (JSON-LD and contact UI use these). Prose in FAQ or datasäkerhet may still mention the company; update those files too if the legal name changes.
-- **Price or product claims** — homepage hero/pricing, FAQ, `/jamfor`, `defaultDescription` in `lib/seo.ts`, and `softwareApplicationJsonLd()` in `lib/seo.ts`. They are not derived from one number yet.
+- **Price or product claims** — homepage hero/pricing, FAQ, `defaultDescription` in `lib/seo.ts`, and `softwareApplicationJsonLd()` in `lib/seo.ts`. They are not derived from one number yet.
 - **FAQ** — edit `lib/faq.ts` only. The FAQPage schema is generated from the same list.
-- **“We are not Grannsamverkan”** — keep that FAQ item and `/jamfor` in sync if positioning changes.
 
 ## When you change images
 

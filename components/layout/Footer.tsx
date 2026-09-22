@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   ABOUT_PATH,
   APPEN_PATH,
-  COMPARE_PATH,
   CONTACT_EMAIL,
   CONTACT_PATH,
   CONTACT_PHONE,
@@ -18,7 +17,6 @@ import {
 const productLinks = [
   { label: "Grannskap", href: "/#engagemang" },
   { label: "Appen", href: APPEN_PATH },
-  { label: "Jämför", href: COMPARE_PATH },
   { label: "Pris & Licens", href: "/#pris" },
 ] as const;
 

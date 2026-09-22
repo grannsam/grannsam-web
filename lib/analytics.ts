@@ -21,7 +21,6 @@ export type ContactIntent = "demo" | "contact";
 const PAGE_EVENTS: Record<string, string> = {
   "/": "viewed_home",
   "/appen": "viewed_appen",
-  "/jamfor": "viewed_compare",
   "/om-oss": "viewed_about",
   "/kontakt": "viewed_contact",
   "/faq": "viewed_faq",

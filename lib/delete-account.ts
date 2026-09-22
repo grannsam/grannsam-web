@@ -1,43 +1,74 @@
+// Google Play links here (Data safety → Account deletion), so this must match what the app does.
+// It describes the flow shipped in grannsam-app KM-461: "Radera konto" deletes immediately, and the
+// profile is anonymised to "Borttagen användare" so neighbours keep their conversations.
+// Update this file whenever that flow changes.
+
+import { CONTACT_EMAIL } from "@/lib/site";
+
 export type DeleteAccountSection = {
   title: string;
+  /** CONTACT_EMAIL inside a paragraph is rendered as a mailto link. */
   paragraphs: string[];
+  /** Numbered: things done in order. */
   steps?: string[];
+  /** Bulleted: things that aren't a sequence. */
+  items?: string[];
+  /** Pre-fills the subject of this section's mailto link. */
+  mailSubject?: string;
 };
 
 export const deleteAccountIntro =
-  "Här beskriver vi hur du begär radering av ditt Grannsam-konto. Begäran skickas till Grannsam, som hanterar raderingen. Sidan kompletterar vår information om datasäkerhet — vid skillnad mot ert kundavtal gäller alltid det som står i avtalet.";
+  "Här beskriver vi hur du raderar ditt Grannsam-konto och vad som händer med dina personuppgifter. Sidan kompletterar vår information om datasäkerhet — vid skillnad mot ert kundavtal gäller alltid det som står i avtalet.";
 
 export const deleteAccountSections: DeleteAccountSection[] = [
   {
-    title: "Så begär du radering i appen",
+    title: "Så raderar du ditt konto i appen",
     paragraphs: [
-      "I Grannsam-appen skickar du en begäran om att kontot ska raderas. Själva raderingen genomförs av Grannsam efter att begäran tagits emot.",
+      "Kontot raderas direkt när du bekräftar, och du loggas ut.",
     ],
     steps: [
-      "Öppna Grannsam och gå till ditt konto via profilbilden.",
+      "Öppna Grannsam och tryck på din profilbild uppe till höger.",
       "Välj Kontoinställningar.",
-      "Under Radera Konto, bekräfta att du förstår att data och åtkomst till grannskapet raderas.",
-      "Tryck på Radera Konto. En begäran skickas till Grannsam.",
+      "Under Radera konto, bocka i att du förstår att kontot raderas permanent och att du förlorar åtkomsten till ditt grannskap.",
+      "Tryck på Radera konto och bekräfta.",
+    ],
+  },
+  {
+    title: "Om du är admin i föreningen",
+    paragraphs: [
+      "Är du föreningens enda admin behöver du först göra en annan medlem till admin. Annars finns det ingen som kan släppa in nya grannar, och appen ber dig lämna över innan kontot kan raderas.",
     ],
   },
   {
     title: "Om du inte kommer åt appen",
+    mailSubject: "Radera mitt konto",
     paragraphs: [
-      "Skicka en begäran till info@grannsam.nu från den e-postadress som är kopplad till kontot. Ange ditt namn, förening och att du vill radera ditt Grannsam-konto. Vi återkommer för att bekräfta din identitet innan radering genomförs.",
-    ],
-  },
-  {
-    title: "Vad som händer efter begäran",
-    paragraphs: [
-      "När du skickar begäran i appen får du en bekräftelse att den har skickats. Kontot raderas inte direkt i det ögonblicket.",
-      "Grannsam hanterar begäran och raderar kontot samt tillhörande personuppgifter. Efter radering kan du inte längre logga in med det kontot, och åtkomsten till ditt grannskap tas bort.",
+      `Skicka ett mejl till ${CONTACT_EMAIL} från den e-postadress som är kopplad till kontot, med ämnet "Radera mitt konto". Ange ditt namn och vilken förening du tillhör. Vi återkommer för att bekräfta din identitet innan radering genomförs.`,
+      "Vi raderar kontot inom 30 dagar och bekräftar via e-post när det är gjort. Raderingen blir densamma som i appen.",
     ],
   },
   {
     title: "Vad som raderas",
+    paragraphs: [],
+    items: [
+      "Ditt namn, din e-postadress och din adress",
+      "Ditt personnummer (vi sparar det aldrig i klartext)",
+      "Din profilbild och din profiltext",
+      "Din inloggning, så att kontot inte längre går att använda",
+      "Dina anmälningar till aktiviteter, dina gillningar och dina notiser",
+    ],
+  },
+  {
+    title: "Vad som finns kvar",
     paragraphs: [
-      "När raderingen är genomförd tas personuppgifter som är knutna till ditt konto bort, till exempel konto- och profiluppgifter samt inloggningskopplingar till kontot.",
+      "Inlägg, aktiviteter, kommentarer och meddelanden du har skrivit ligger kvar för dina grannar, så att deras svar och samtal inte försvinner. De visas som skrivna av \"Borttagen användare\" och går inte att koppla till dig.",
       "Radering av ditt konto påverkar inte automatiskt föreningens licens eller andra medlemmars konton.",
+    ],
+  },
+  {
+    title: "Går det att ångra?",
+    paragraphs: [
+      "Nej, raderingen går inte att ångra. Du kan däremot när som helst skapa ett nytt konto med samma e-postadress och BankID.",
     ],
   },
   {
