@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { AptabaseAnalytics } from "@/components/analytics/AptabaseAnalytics";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -23,7 +24,9 @@ export default function RootLayout({
   return (
     <html lang="sv" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full font-sans">
-        {children}
+        <AptabaseAnalytics>
+          {children}
+        </AptabaseAnalytics>
         <Analytics />
       </body>
     </html>
