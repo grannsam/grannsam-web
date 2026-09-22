@@ -10,6 +10,8 @@ import {
   DATA_SECURITY_PATH,
   DELETE_ACCOUNT_PATH,
   FAQ_PATH,
+  PRIVACY_PATH,
+  TERMS_PATH,
   SITE_LEGAL_NAME,
   SITE_SLOGAN,
 } from "@/lib/site";
@@ -25,6 +27,8 @@ const companyLinks = [
   { label: "Kontakt", href: CONTACT_PATH },
   { label: "Vanliga frågor (FAQ)", href: FAQ_PATH },
   { label: "Datasäkerhet", href: DATA_SECURITY_PATH },
+  { label: "Integritetspolicy", href: PRIVACY_PATH },
+  { label: "Användarvillkor", href: TERMS_PATH },
   { label: "Radera konto", href: DELETE_ACCOUNT_PATH },
 ] as const;
 

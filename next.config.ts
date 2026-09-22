@@ -9,13 +9,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/integritet",
-        destination: "/datasakerhet",
-        permanent: true,
-      },
-      {
         source: "/privacy",
-        destination: "/datasakerhet",
+        destination: "/integritet",
         permanent: true,
       },
     ];
