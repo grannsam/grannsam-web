@@ -42,7 +42,7 @@ export function DataSecuritySection() {
                   ))}
                   {section.title === "Dina rättigheter" ? (
                     <p className="text-base leading-relaxed text-foreground/85">
-                      Vill du begära radering av ditt Grannsam-konto? Se{" "}
+                      Vill du radera ditt Grannsam-konto? Se{" "}
                       <Link
                         href={DELETE_ACCOUNT_PATH}
                         className="font-medium text-grannsam-green underline-offset-2 hover:underline"
@@ -76,7 +76,7 @@ export function DataSecuritySection() {
               >
                 kontaktformuläret
               </Link>
-              . För att begära radering av konto, se{" "}
+              . För att radera ditt konto, se{" "}
               <Link
                 href={DELETE_ACCOUNT_PATH}
                 className="font-medium text-grannsam-green underline-offset-2 hover:underline"

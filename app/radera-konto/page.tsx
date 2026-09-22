@@ -8,7 +8,7 @@ import { DELETE_ACCOUNT_PATH } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Radera ditt Grannsam-konto",
   description:
-    "Så begär du radering av ditt Grannsam-konto i appen eller via e-post, och vad som händer med personuppgifterna.",
+    "Så raderar du ditt Grannsam-konto i appen eller via e-post, vad som raderas och vad som finns kvar.",
   path: DELETE_ACCOUNT_PATH,
 });
 
