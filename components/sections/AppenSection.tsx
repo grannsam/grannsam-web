@@ -63,7 +63,9 @@ export function AppenSection() {
           <p className="text-sm font-semibold uppercase tracking-widest text-white/75">
             {appenIntro.eyebrow}
           </p>
-          <h1 className="mt-3 text-3xl font-bold sm:text-4xl">Appen</h1>
+          <h1 className="mt-3 text-3xl font-bold sm:text-4xl">
+            Funktioner i Grannsam-appen
+          </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
             {appenIntro.lead}
           </p>

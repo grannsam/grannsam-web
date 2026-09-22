@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { DeleteAccountSection } from "@/components/sections/DeleteAccountSection";
+import { pageMetadata } from "@/lib/seo";
+import { DELETE_ACCOUNT_PATH } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Radera konto – Grannsam",
+export const metadata: Metadata = pageMetadata({
+  title: "Radera ditt Grannsam-konto",
   description:
-    "Så begär du radering av ditt Grannsam-konto i appen eller via e-post.",
-};
+    "Så begär du radering av ditt Grannsam-konto i appen eller via e-post, och vad som händer med personuppgifterna.",
+  path: DELETE_ACCOUNT_PATH,
+});
 
 export default function DeleteAccountPage() {
   return (

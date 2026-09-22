@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   ABOUT_PATH,
   APPEN_PATH,
+  COMPARE_PATH,
   CONTACT_EMAIL,
   CONTACT_PATH,
   CONTACT_PHONE,
@@ -9,11 +10,14 @@ import {
   DATA_SECURITY_PATH,
   DELETE_ACCOUNT_PATH,
   FAQ_PATH,
+  SITE_LEGAL_NAME,
+  SITE_SLOGAN,
 } from "@/lib/site";
 
 const productLinks = [
   { label: "Grannskap", href: "/#engagemang" },
   { label: "Appen", href: APPEN_PATH },
+  { label: "Jämför", href: COMPARE_PATH },
   { label: "Pris & Licens", href: "/#pris" },
 ] as const;
 
@@ -76,8 +80,8 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-16">
           <div className="sm:col-span-2 lg:col-span-1">
-            <p className="text-xl font-semibold md:text-2xl">Grannsam AB</p>
-            <p className="mt-1 text-base">För ett starkare grannskap</p>
+            <p className="text-xl font-semibold md:text-2xl">{SITE_LEGAL_NAME}</p>
+            <p className="mt-1 text-base">{SITE_SLOGAN}</p>
 
             <div className="mt-8 space-y-2 text-base">
               <a
@@ -108,7 +112,7 @@ export function Footer() {
         </div>
 
         <p className="mt-10 border-t border-white/20 pt-6 text-base">
-          © {year} Grannsam AB
+          © {year} {SITE_LEGAL_NAME}
         </p>
       </div>
     </footer>

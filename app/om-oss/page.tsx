@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { AboutSection } from "@/components/sections/AboutSection";
+import { pageMetadata } from "@/lib/seo";
+import { ABOUT_PATH } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Om oss – Grannsam",
+export const metadata: Metadata = pageMetadata({
+  title: "Teamet bakom Grannsam",
   description:
-    "Läs grundarens berättelse, vår vision om levande grannskap och lär känna teamet bakom Grannsam.",
-};
+    "Läs om visionen bakom Grannsam och lär känna teamet som bygger appen för bostadsrättsföreningar.",
+  path: ABOUT_PATH,
+});
 
 export default function AboutPage() {
   return (

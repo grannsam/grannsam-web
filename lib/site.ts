@@ -1,3 +1,9 @@
+export const SITE_URL = "https://www.grannsam.nu";
+export const SITE_NAME = "Grannsam";
+export const SITE_LEGAL_NAME = "Grannsam AB";
+export const SITE_SLOGAN = "För ett starkare grannskap";
+export const CANONICAL_HOST = "www.grannsam.nu";
+
 export const CONTACT_EMAIL = "info@grannsam.nu";
 export const CONTACT_PHONE = "+46736418699";
 export const CONTACT_PHONE_DISPLAY = "+46 73 641 86 99";
@@ -8,4 +14,17 @@ export const BOOK_DEMO_PATH = "/kontakt?intent=demo";
 export const ABOUT_PATH = "/om-oss";
 export const FAQ_PATH = "/faq";
 export const DATA_SECURITY_PATH = "/datasakerhet";
+export const PRIVACY_PATH = "/integritet";
 export const DELETE_ACCOUNT_PATH = "/radera-konto";
+export const COMPARE_PATH = "/jamfor";
+
+export const PUBLIC_PATHS = [
+  "/",
+  APPEN_PATH,
+  COMPARE_PATH,
+  ABOUT_PATH,
+  CONTACT_PATH,
+  FAQ_PATH,
+  DATA_SECURITY_PATH,
+  DELETE_ACCOUNT_PATH,
+] as const;

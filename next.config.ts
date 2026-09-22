@@ -8,6 +8,16 @@ const nextConfig: NextConfig = {
         destination: "/radera-konto",
         permanent: true,
       },
+      {
+        source: "/integritet",
+        destination: "/datasakerhet",
+        permanent: true,
+      },
+      {
+        source: "/privacy",
+        destination: "/datasakerhet",
+        permanent: true,
+      },
     ];
   },
 };

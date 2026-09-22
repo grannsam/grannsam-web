@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ABOUT_PATH } from "@/lib/site";
 
 type EngagementCardProps = {
   src: string;
@@ -17,7 +15,6 @@ function EngagementCard({ src, alt, width, height }: EngagementCardProps) {
         alt={alt}
         width={width}
         height={height}
-        unoptimized
         sizes="(max-width: 1024px) 100vw, 480px"
         className="block h-auto w-full"
       />
@@ -37,7 +34,7 @@ const rows: FeatureRow[] = [
     description:
       "Behöver du låna ett verktyg, få hjälp med ett lyft eller någon som vattnar blommorna? Med Grannsam är hjälpen nära – och det känns naturligt att både fråga och hjälpa.",
     card: {
-      src: "/images/engagement/hjalp-card.png",
+      src: "/images/engagement/hjalp-card.webp",
       alt: "Carl vill ha hjälp med omplantering av tomater",
       width: 1136,
       height: 896,
@@ -48,7 +45,7 @@ const rows: FeatureRow[] = [
     description:
       "Vill du ha sällskap på löpturen, bjuda in till fika eller ordna en gårdsloppis? Skapa en aktivitet och låt grannarna anmäla sig direkt i appen.",
     card: {
-      src: "/images/engagement/aktivitet-card.png",
+      src: "/images/engagement/aktivitet-card.webp",
       alt: "Alex föreslår en aktivitet: 3 km Lötsjörundan och hem",
       width: 1136,
       height: 896,
@@ -59,7 +56,7 @@ const rows: FeatureRow[] = [
     description:
       "Saker som inte längre behövs hos dig kan betyda mycket för någon annan. Dela med dig till kvarteret, minska svinnet och sprid glädje – med ett enkelt klick.",
     card: {
-      src: "/images/engagement/gava-card.png",
+      src: "/images/engagement/gava-card.webp",
       alt: "Lisa vill ge en gåva: äldre kurslitteratur",
       width: 1136,
       height: 896,

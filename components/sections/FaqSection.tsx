@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaqAccordion } from "@/components/faq/FaqAccordion";
 import { faqItems } from "@/lib/faq";
-import { BOOK_DEMO_PATH, CONTACT_PATH } from "@/lib/site";
+import { BOOK_DEMO_PATH, COMPARE_PATH, CONTACT_PATH } from "@/lib/site";
 
 export function FaqSection() {
   return (
@@ -9,11 +9,19 @@ export function FaqSection() {
       <section className="border-b border-grannsam-border/30 bg-[#f5f1e1]">
         <div className="mx-auto max-w-3xl px-6 py-14 text-center md:px-10 md:py-20">
           <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
-            Vanliga frågor
+            Vanliga frågor om Grannsam för BRF-styrelser
           </h1>
           <p className="mt-6 text-base leading-relaxed text-foreground/85 sm:text-lg">
             Svar på det styrelser och grannar ofta undrar över innan de tar
-            Grannsam i bruk.
+            Grannsam i bruk. Om du jämför oss med Facebook-grupper eller
+            Grannsamverkan-appen finns en kort översikt under{" "}
+            <Link
+              href={COMPARE_PATH}
+              className="font-medium text-grannsam-green underline-offset-2 hover:underline"
+            >
+              Jämför
+            </Link>
+            .
           </p>
         </div>
       </section>

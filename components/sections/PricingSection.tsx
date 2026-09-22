@@ -21,11 +21,10 @@ export function PricingSection() {
       <div className="absolute inset-0 z-0 isolate">
         <Image
           src="/images/Bild2.jpg"
-          alt="Bakgrund"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-35"
-          priority
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-35"
         />
         {/* En ljus, mjukt grön-tonad vit overlay */}
         <div className="absolute inset-0 bg-[#e3ecd5]/45 mix-blend-screen" />

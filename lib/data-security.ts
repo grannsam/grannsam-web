@@ -29,10 +29,11 @@ export const dataSecuritySections: SecuritySection[] = [
     ],
   },
   {
-    title: "Webbplats och kontaktformulär",
+    title: "Webbplats, cookies och kontaktformulär",
     paragraphs: [
       "När du skickar ett meddelande via kontaktformuläret på grannsam.nu behandlar vi de uppgifter du lämnar för att kunna svara på din förfrågan.",
       "Meddelanden skickas via vår e-postleverantör till Grannsam AB. Uppgifter används inte för marknadsföring utanför det som krävs för att hantera din kontakt.",
+      "Webbplatsen använder nödvändig teknik för att sidan ska fungera och anonym räckviddsmätning. Vi sätter inte reklamcookies och säljer inte besöksdata.",
     ],
   },
   {

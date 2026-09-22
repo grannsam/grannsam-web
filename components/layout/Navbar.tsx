@@ -6,11 +6,13 @@ import {
   ABOUT_PATH,
   APPEN_PATH,
   BOOK_DEMO_PATH,
+  COMPARE_PATH,
   CONTACT_PATH,
 } from "@/lib/site";
 
 const navItems = [
   { label: "Appen", href: APPEN_PATH },
+  { label: "Jämför", href: COMPARE_PATH },
   { label: "Pris", href: "/#pris" },
   { label: "Om oss", href: ABOUT_PATH },
   { label: "Kontakt", href: CONTACT_PATH },

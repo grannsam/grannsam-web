@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { SITE_SLOGAN } from "@/lib/site";
 
 export function HeroSection() {
   return (
@@ -12,7 +13,7 @@ export function HeroSection() {
         {/* 1. RUBRIK */}
         <div className="w-full text-center z-10 mb-0">
           <h1 className="text-4xl md:text-7xl font-normal text-[#1A1A1A] tracking-[-0.03em] font-sans text-center inline-block w-full leading-tight">
-            För ett starkare grannskap.
+            {SITE_SLOGAN}.
           </h1>
         </div>
         
@@ -67,12 +68,12 @@ export function HeroSection() {
           <div className="w-full md:col-span-2 flex flex-col items-center">
             <div className="flex justify-center md:justify-end items-start w-full">
               <div className="relative w-full max-w-[320px] aspect-[9/19] -mb-60 md:-mb-44">
-                <Image 
-                  src="/images/hero-phone-mockup.png" 
-                  alt="Grannsam applikation i mobiltelefon"
-                  layout="fill"
-                  objectFit="contain"
-                  objectPosition="top right"
+                <Image
+                  src="/images/hero-phone-mockup.png"
+                  alt="Grannsam-appen i en mobil, med anslagstavla och grannskap"
+                  fill
+                  sizes="(max-width: 768px) 320px, 280px"
+                  className="object-contain object-top md:object-right-top"
                   priority
                 />
               </div>

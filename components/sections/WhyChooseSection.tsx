@@ -64,7 +64,7 @@ function FeatureCard({ Icon, iconClassName, title, description }: Feature) {
 export function WhyChooseSection() {
   return (
     <section
-      id="appen"
+      id="varfor"
       className="scroll-mt-20 border-b border-grannsam-border/30 bg-[#f5f1e1] w-full pb-12 md:pb-20"
       aria-labelledby="appen-heading"
     >
@@ -87,13 +87,12 @@ export function WhyChooseSection() {
 
       {/* Responsiv bild-behållare som behåller 100% av bildens naturliga höjd och bredd */}
       <div className="mt-14 w-full block">
-        <Image 
-          src="/images/Asset 3@2x.png"
-          alt="Illustrativ delare över hela skärmen"
+        <Image
+          src="/images/neighborhood-divider.png"
+          alt=""
           width={1920}
           height={200}
           className="w-full h-auto object-contain block"
-          priority
         />
       </div>
     </section>

@@ -11,7 +11,7 @@ export function DeleteAccountSection() {
       <section className="border-b border-grannsam-border/30 bg-[#f5f1e1]">
         <div className="mx-auto max-w-3xl px-6 py-14 text-center md:px-10 md:py-20">
           <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
-            Radera konto
+            Radera ditt Grannsam-konto
           </h1>
           <p className="mt-6 text-base leading-relaxed text-foreground/85 sm:text-lg">
             {deleteAccountIntro}

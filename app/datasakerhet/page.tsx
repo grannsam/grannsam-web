@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { DataSecuritySection } from "@/components/sections/DataSecuritySection";
+import { pageMetadata } from "@/lib/seo";
+import { DATA_SECURITY_PATH } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Datasäkerhet – Grannsam",
+export const metadata: Metadata = pageMetadata({
+  title: "Datasäkerhet och integritet",
   description:
-    "Läs om hur Grannsam arbetar med trygghet, BankID-verifiering, integritet och hantering av personuppgifter.",
-};
+    "Hur Grannsam arbetar med BankID-verifiering, slutet grannskap, personuppgifter, cookies och dina rättigheter enligt GDPR.",
+  path: DATA_SECURITY_PATH,
+});
 
 export default function DataSecurityPage() {
   return (
