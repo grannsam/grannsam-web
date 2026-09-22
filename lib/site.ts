@@ -8,3 +8,4 @@ export const BOOK_DEMO_PATH = "/kontakt?intent=demo";
 export const ABOUT_PATH = "/om-oss";
 export const FAQ_PATH = "/faq";
 export const DATA_SECURITY_PATH = "/datasakerhet";
+export const DELETE_ACCOUNT_PATH = "/radera-konto";

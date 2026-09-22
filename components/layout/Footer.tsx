@@ -7,6 +7,7 @@ import {
   CONTACT_PHONE,
   CONTACT_PHONE_DISPLAY,
   DATA_SECURITY_PATH,
+  DELETE_ACCOUNT_PATH,
   FAQ_PATH,
 } from "@/lib/site";
 
@@ -21,6 +22,7 @@ const companyLinks = [
   { label: "Kontakt", href: CONTACT_PATH },
   { label: "Vanliga frågor (FAQ)", href: FAQ_PATH },
   { label: "Datasäkerhet", href: DATA_SECURITY_PATH },
+  { label: "Radera konto", href: DELETE_ACCOUNT_PATH },
 ] as const;
 
 type FooterLinkItem = { label: string; href: string };
