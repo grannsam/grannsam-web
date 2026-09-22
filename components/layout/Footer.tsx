@@ -1,3 +1,4 @@
+import { OutboundLink } from "@/components/analytics/TrackLink";
 import Link from "next/link";
 import {
   ABOUT_PATH,
@@ -84,18 +85,22 @@ export function Footer() {
             <p className="mt-1 text-base">{SITE_SLOGAN}</p>
 
             <div className="mt-8 space-y-2 text-base">
-              <a
+              <OutboundLink
                 href={`mailto:${CONTACT_EMAIL}`}
+                channel="email"
+                location="footer"
                 className="block transition-opacity hover:opacity-80"
               >
                 {CONTACT_EMAIL}
-              </a>
-              <a
+              </OutboundLink>
+              <OutboundLink
                 href={`tel:${CONTACT_PHONE}`}
+                channel="phone"
+                location="footer"
                 className="block transition-opacity hover:opacity-80"
               >
                 {CONTACT_PHONE_DISPLAY}
-              </a>
+              </OutboundLink>
             </div>
           </div>
 

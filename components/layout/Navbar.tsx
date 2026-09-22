@@ -1,5 +1,6 @@
 "use client";
 
+import { CtaLink } from "@/components/analytics/TrackLink";
 import Link from "next/link";
 import { useState } from "react";
 import {
@@ -83,12 +84,14 @@ export function Navbar() {
           ))}
         </ul>
 
-        <Link
+        <CtaLink
           href={BOOK_DEMO_PATH}
+          cta="book_demo"
+          location="nav"
           className="hidden shrink-0 rounded-full bg-grannsam-green px-6 py-2.5 text-base font-semibold text-white transition-opacity hover:opacity-90 md:inline-flex"
         >
           Boka demo
-        </Link>
+        </CtaLink>
 
         <button
           type="button"

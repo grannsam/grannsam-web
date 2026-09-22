@@ -1,3 +1,4 @@
+import { CtaLink, OutboundLink } from "@/components/analytics/TrackLink";
 import Link from "next/link";
 import {
   deleteAccountIntro,
@@ -54,19 +55,23 @@ export function DeleteAccountSection() {
             </h2>
             <p className="mt-3 text-base leading-relaxed text-foreground/85">
               Kontakta oss på{" "}
-              <a
+              <OutboundLink
                 href={`mailto:${CONTACT_EMAIL}`}
+                channel="email"
+                location="delete_account"
                 className="font-medium text-grannsam-green underline-offset-2 hover:underline"
               >
                 {CONTACT_EMAIL}
-              </a>{" "}
+              </OutboundLink>{" "}
               eller via{" "}
-              <Link
+              <CtaLink
                 href={CONTACT_PATH}
+                cta="contact"
+                location="delete_account"
                 className="font-medium text-grannsam-green underline-offset-2 hover:underline"
               >
                 kontaktformuläret
-              </Link>
+              </CtaLink>
               . Mer om hur vi arbetar med trygghet och personuppgifter finns på{" "}
               <Link
                 href={DATA_SECURITY_PATH}

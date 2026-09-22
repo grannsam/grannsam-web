@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { CtaLink } from "@/components/analytics/TrackLink";
 import { BOOK_DEMO_PATH } from "@/lib/site";
 
 const features = [
@@ -60,12 +60,14 @@ export function PricingSection() {
           </ul>
 
           <div className="mt-10 flex justify-center sm:mt-12">
-            <Link
+            <CtaLink
               href={BOOK_DEMO_PATH}
+              cta="book_demo"
+              location="pricing"
               className="inline-flex items-center justify-center rounded-full bg-grannsam-green hover:opacity-90 px-8 py-3.5 text-base font-semibold text-white transition-opacity shadow-sm"
             >
               Boka demo
-            </Link>
+            </CtaLink>
           </div>
         </div>
       </div>
