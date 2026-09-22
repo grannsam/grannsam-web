@@ -10,11 +10,6 @@ export const faqItems: FaqItem[] = [
       "Grannsam är en app för bostadsrättsföreningar som förenklar styrelsens arbete och stärker grannskapet. Boende kan ta del av information, hjälpa varandra, skapa aktiviteter och kommunicera i en trygg, lokal miljö.",
   },
   {
-    question: "Är Grannsam samma sak som Grannsamverkan-appen?",
-    answer:
-      "Nej. Grannsam är en app för bostadsrättsföreningar, utvecklad av Grannsam AB. Den officiella Grannsamverkan-appen från Samverkan mot brott handlar om brottsförebyggande samarbete med Polisen. Vi ersätter inte den appen. Grannsam är till för styrelsens information, ärendehantering och ett slutet grannskap i föreningen.",
-  },
-  {
     question: "Vem är Grannsam till för?",
     answer:
       "Grannsam riktar sig till bostadsrättsföreningar — styrelser som vill nå ut och effektivisera ärenden, och grannar som vill känna sitt grannskap bättre. Föreningen betalar en fast månadsavgift; appen är kostnadsfri för boende.",
