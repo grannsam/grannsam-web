@@ -5,6 +5,26 @@ import {
 } from "@/lib/delete-account";
 import { CONTACT_EMAIL, CONTACT_PATH, DATA_SECURITY_PATH } from "@/lib/site";
 
+const linkClassName =
+  "font-medium text-grannsam-green underline-offset-2 hover:underline";
+
+// Paragraphs are plain strings; turn the contact address into the same mailto link as the aside.
+function withEmailLink(text: string, subject?: string) {
+  const parts = text.split(CONTACT_EMAIL);
+  if (parts.length === 1) return text;
+  const href = `mailto:${CONTACT_EMAIL}${subject ? `?subject=${encodeURIComponent(subject)}` : ""}`;
+  return parts.flatMap((part, i) =>
+    i === 0
+      ? [part]
+      : [
+          <a key={i} href={href} className={linkClassName}>
+            {CONTACT_EMAIL}
+          </a>,
+          part,
+        ],
+  );
+}
+
 export function DeleteAccountSection() {
   return (
     <>
@@ -33,7 +53,7 @@ export function DeleteAccountSection() {
                       key={paragraph}
                       className="text-base leading-relaxed text-foreground/85"
                     >
-                      {paragraph}
+                      {withEmailLink(paragraph, section.mailSubject)}
                     </p>
                   ))}
                   {section.steps ? (

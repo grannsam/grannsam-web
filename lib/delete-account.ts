@@ -3,13 +3,18 @@
 // profile is anonymised to "Borttagen användare" so neighbours keep their conversations.
 // Update this file whenever that flow changes.
 
+import { CONTACT_EMAIL } from "@/lib/site";
+
 export type DeleteAccountSection = {
   title: string;
+  /** CONTACT_EMAIL inside a paragraph is rendered as a mailto link. */
   paragraphs: string[];
   /** Numbered: things done in order. */
   steps?: string[];
   /** Bulleted: things that aren't a sequence. */
   items?: string[];
+  /** Pre-fills the subject of this section's mailto link. */
+  mailSubject?: string;
 };
 
 export const deleteAccountIntro =
@@ -36,8 +41,9 @@ export const deleteAccountSections: DeleteAccountSection[] = [
   },
   {
     title: "Om du inte kommer åt appen",
+    mailSubject: "Radera mitt konto",
     paragraphs: [
-      "Skicka ett mejl till info@grannsam.nu från den e-postadress som är kopplad till kontot, med ämnet \"Radera mitt konto\". Ange ditt namn och vilken förening du tillhör. Vi återkommer för att bekräfta din identitet innan radering genomförs.",
+      `Skicka ett mejl till ${CONTACT_EMAIL} från den e-postadress som är kopplad till kontot, med ämnet "Radera mitt konto". Ange ditt namn och vilken förening du tillhör. Vi återkommer för att bekräfta din identitet innan radering genomförs.`,
       "Vi raderar kontot inom 30 dagar och bekräftar via e-post när det är gjort. Raderingen blir densamma som i appen.",
     ],
   },
