@@ -43,6 +43,13 @@ export function DeleteAccountSection() {
                       ))}
                     </ol>
                   ) : null}
+                  {section.items ? (
+                    <ul className="list-disc space-y-2 pl-5 text-base leading-relaxed text-foreground/85">
+                      {section.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </div>
               </article>
             ))}
