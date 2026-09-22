@@ -1,4 +1,5 @@
 import { ContactForm } from "@/components/contact/ContactForm";
+import { OutboundLink } from "@/components/analytics/TrackLink";
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
@@ -39,7 +40,7 @@ export function ContactSection({ isDemo = false }: ContactSectionProps) {
             </p>
             <div className="mt-8">
               {/* Vi rensar bort initialInquiry-prop eftersom ContactForm inte längre tar emot den */}
-              <ContactForm />
+              <ContactForm intent={isDemo ? "demo" : "contact"} />
             </div>
           </div>
 
@@ -50,21 +51,25 @@ export function ContactSection({ isDemo = false }: ContactSectionProps) {
             <div className="mt-5 space-y-4 text-base text-foreground/85">
               <div>
                 <p className="font-medium text-foreground">E-post</p>
-                <a
+                <OutboundLink
                   href={`mailto:${CONTACT_EMAIL}`}
+                  channel="email"
+                  location="contact"
                   className="mt-1 block text-grannsam-green transition-opacity hover:opacity-75"
                 >
                   {CONTACT_EMAIL}
-                </a>
+                </OutboundLink>
               </div>
               <div>
                 <p className="font-medium text-foreground">Telefon</p>
-                <a
+                <OutboundLink
                   href={`tel:${CONTACT_PHONE}`}
+                  channel="phone"
+                  location="contact"
                   className="mt-1 block text-grannsam-green transition-opacity hover:opacity-75"
                 >
                   {CONTACT_PHONE_DISPLAY}
-                </a>
+                </OutboundLink>
               </div>
             </div>
           </aside>

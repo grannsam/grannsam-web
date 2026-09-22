@@ -1,5 +1,5 @@
 import { AppenPlaceholderGraphic } from "@/components/illustrations/AppenPlaceholderGraphic";
-import Link from "next/link";
+import { CtaLink } from "@/components/analytics/TrackLink";
 import { appFeatureGroups, appenIntro, type AppFeature } from "@/lib/appen";
 import { BOOK_DEMO_PATH, FAQ_PATH } from "@/lib/site";
 
@@ -112,18 +112,22 @@ export function AppenSection() {
               Boka en demo eller läs vanliga frågor.
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              <Link
+              <CtaLink
                 href={BOOK_DEMO_PATH}
+                cta="book_demo"
+                location="appen"
                 className="inline-flex items-center justify-center rounded-full bg-grannsam-green px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:px-8 sm:text-base"
               >
                 Boka demo
-              </Link>
-              <Link
+              </CtaLink>
+              <CtaLink
                 href={FAQ_PATH}
+                cta="faq"
+                location="appen"
                 className="inline-flex items-center justify-center rounded-full border border-grannsam-green px-6 py-3 text-sm font-semibold text-grannsam-green transition-opacity hover:opacity-90 sm:px-8 sm:text-base"
               >
                 Vanliga frågor
-              </Link>
+              </CtaLink>
             </div>
           </aside>
         </div>

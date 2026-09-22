@@ -1,3 +1,4 @@
+import { CtaLink, OutboundLink } from "@/components/analytics/TrackLink";
 import Link from "next/link";
 import {
   dataSecurityIntro,
@@ -63,19 +64,23 @@ export function DataSecuritySection() {
             </h2>
             <p className="mt-3 text-base leading-relaxed text-foreground/85">
               Kontakta oss på{" "}
-              <a
+              <OutboundLink
                 href={`mailto:${CONTACT_EMAIL}`}
+                channel="email"
+                location="datasakerhet"
                 className="font-medium text-grannsam-green underline-offset-2 hover:underline"
               >
                 {CONTACT_EMAIL}
-              </a>{" "}
+              </OutboundLink>{" "}
               eller via{" "}
-              <Link
+              <CtaLink
                 href={CONTACT_PATH}
+                cta="contact"
+                location="datasakerhet"
                 className="font-medium text-grannsam-green underline-offset-2 hover:underline"
               >
                 kontaktformuläret
-              </Link>
+              </CtaLink>
               . För att radera ditt konto, se{" "}
               <Link
                 href={DELETE_ACCOUNT_PATH}

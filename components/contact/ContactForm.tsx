@@ -4,6 +4,8 @@ import {
   type ContactFormErrors,
   type ContactFormFields,
 } from "@/lib/contact";
+import { formEvents, type ContactIntent } from "@/lib/analytics";
+import { useAptabase } from "@aptabase/react";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -19,7 +21,13 @@ const emptyFields = (): ContactFormFields => ({
   message: "",
 });
 
-export function ContactForm() {
+export function ContactForm({
+  intent = "contact",
+}: {
+  intent?: ContactIntent;
+}) {
+  const { trackEvent } = useAptabase();
+  const events = formEvents(intent);
   const [fields, setFields] = useState<ContactFormFields>(emptyFields());
   const [errors, setErrors] = useState<ContactFormErrors>({});
   const [formError, setFormError] = useState<string | null>(null);
@@ -44,6 +52,7 @@ export function ContactForm() {
     setIsSubmitting(true);
     setFormError(null);
     setErrors({});
+    void trackEvent(events.submit, { intent });
 
     try {
       const response = await fetch("/api/contact", {
@@ -65,13 +74,22 @@ export function ContactForm() {
         setFormError(
           data.error ?? "Kunde inte skicka meddelandet. Försök igen senare.",
         );
+        void trackEvent(events.error, {
+          intent,
+          reason: data.errors || response.status === 400 ? "validation" : "server",
+        });
         return;
       }
 
       setIsSubmitted(true);
       setFields(emptyFields());
+      void trackEvent(events.success, { intent });
     } catch {
       setFormError("Kunde inte skicka meddelandet. Försök igen senare.");
+      void trackEvent(events.error, {
+        intent,
+        reason: "network",
+      });
     } finally {
       setIsSubmitting(false);
     }

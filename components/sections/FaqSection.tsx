@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { CtaLink } from "@/components/analytics/TrackLink";
 import { FaqAccordion } from "@/components/faq/FaqAccordion";
 import { faqItems } from "@/lib/faq";
 import { BOOK_DEMO_PATH, CONTACT_PATH } from "@/lib/site";
@@ -28,19 +28,23 @@ export function FaqSection() {
             </h2>
             <p className="mt-3 text-base leading-relaxed text-foreground/85">
               Vi hjälper gärna till.{" "}
-              <Link
+              <CtaLink
                 href={CONTACT_PATH}
+                cta="contact"
+                location="faq"
                 className="font-medium text-grannsam-green underline-offset-2 hover:underline"
               >
                 Kontakta oss
-              </Link>{" "}
+              </CtaLink>{" "}
               eller{" "}
-              <Link
+              <CtaLink
                 href={BOOK_DEMO_PATH}
+                cta="book_demo"
+                location="faq"
                 className="font-medium text-grannsam-green underline-offset-2 hover:underline"
               >
                 boka en demo
-              </Link>
+              </CtaLink>
               .
             </p>
           </aside>

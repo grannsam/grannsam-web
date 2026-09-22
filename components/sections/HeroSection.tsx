@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { CtaLink } from "@/components/analytics/TrackLink";
 import { SITE_SLOGAN } from "@/lib/site";
 
 export function HeroSection() {
@@ -55,12 +55,14 @@ export function HeroSection() {
 
             {/* SKRIVBORDSKNAPP */}
             <div className="hidden md:flex justify-center w-full pt-1 md:mt-6">
-              <Link 
-                href="/kontakt?intent=demo" 
+              <CtaLink
+                href="/kontakt?intent=demo"
+                cta="book_demo"
+                location="hero"
                 className="bg-grannsam-green hover:opacity-90 text-white font-medium py-6 px-10 rounded-full text-lg transition duration-200 shadow-sm active:scale-[0.98] text-center inline-block min-w-[200px] leading-none"
               >
                 Boka demo
-              </Link>
+              </CtaLink>
             </div>
           </div>
 
@@ -81,12 +83,14 @@ export function HeroSection() {
 
             {/* MOBILKNAPP: relative z-10 lyfter fram knappen så den blir klickbar framför bildlagret */}
             <div className="relative z-10 flex md:hidden justify-center w-full pt-1 mt-0">
-              <Link 
-                href="/kontakt?intent=demo" 
+              <CtaLink
+                href="/kontakt?intent=demo"
+                cta="book_demo"
+                location="hero_mobile"
                 className="bg-grannsam-green hover:opacity-90 text-white font-medium py-6 px-10 rounded-full text-lg transition duration-200 shadow-sm active:scale-[0.98] text-center inline-block min-w-[200px] leading-none"
               >
                 Boka demo
-              </Link>
+              </CtaLink>
             </div>
           </div>
 
