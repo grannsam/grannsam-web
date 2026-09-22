@@ -16,12 +16,10 @@ export const FAQ_PATH = "/faq";
 export const DATA_SECURITY_PATH = "/datasakerhet";
 export const PRIVACY_PATH = "/integritet";
 export const DELETE_ACCOUNT_PATH = "/radera-konto";
-export const COMPARE_PATH = "/jamfor";
 
 export const PUBLIC_PATHS = [
   "/",
   APPEN_PATH,
-  COMPARE_PATH,
   ABOUT_PATH,
   CONTACT_PATH,
   FAQ_PATH,

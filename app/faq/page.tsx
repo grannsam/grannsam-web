@@ -7,9 +7,9 @@ import { faqJsonLd, pageMetadata } from "@/lib/seo";
 import { FAQ_PATH } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Vanliga frågor om Grannsam för BRF-styrelser",
+  title: "Vanliga frågor",
   description:
-    "Svar på vanliga frågor om Grannsam för styrelser och grannar i bostadsrättsföreningar — pris, BankID, Grannsamverkan och hur ni kommer igång.",
+    "Svar på vanliga frågor om Grannsam för styrelser och grannar i bostadsrättsföreningar — pris, BankID, kom igång och mer.",
   path: FAQ_PATH,
 });
 
