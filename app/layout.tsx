@@ -1,22 +1,9 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
-import { AptabaseAnalytics } from "@/components/analytics/AptabaseAnalytics";
-import { JsonLd } from "@/components/seo/JsonLd";
 import {
   defaultDescription,
   defaultTitle,
-  organizationJsonLd,
-  websiteJsonLd,
 } from "@/lib/seo";
 import { SITE_LEGAL_NAME, SITE_NAME, SITE_URL } from "@/lib/site";
-import { Inter } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -61,13 +48,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="sv" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full font-sans">
-        <JsonLd data={organizationJsonLd()} />
-        <JsonLd data={websiteJsonLd()} />
-        <AptabaseAnalytics>{children}</AptabaseAnalytics>
-        <Analytics />
-      </body>
+    <html lang="sv">
+      <body>{children}</body>
     </html>
   );
 }

@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
         destination: "/datasakerhet",
         permanent: true,
       },
+      {
+        source: "/faq",
+        destination: "/#faq",
+        permanent: true,
+      },
     ];
   },
 };

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teamet bakom Grannsam</title>
+    <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/fonts/remixicon.css">
+    <link rel="stylesheet" href="/assets/css/output.css">
+    <style>
+        :root {
+            --primary-color: #2c8526;
+            --border-color: #2c8526;
+            --button-border: #2c8526;
+        }
+
+        .grannsam-logo {
+            font-family: "Bricolage Grotesque", sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            letter-spacing: -0.04em;
+            color: #2c8526;
+            line-height: 1;
+        }
+
+        html,
+        body {
+            overflow-x: clip;
+        }
+
+        #page-intro {
+            padding-top: 140px;
+        }
+
+        @media (min-width: 1024px) {
+            #page-intro {
+                padding-top: 180px;
+            }
+        }
+
+        .page-lead {
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .page-lead-left {
+            max-width: 760px;
+            margin-left: 0;
+            margin-right: 0;
+            text-align: left;
+        }
+
+        #ord-fran-vd {
+            background: #fff;
+        }
+
+        #varfor-grannskap {
+            background: #f5f1e1;
+        }
+
+        .pull-quote {
+            margin: 20px 0;
+            padding-left: 20px;
+            border-left: 4px solid #2c8526;
+            font-size: 20px;
+            line-height: 1.45;
+            font-weight: 500;
+            font-style: italic;
+            color: #111111;
+        }
+
+        .why-quote {
+            max-width: 760px;
+            margin: 40px auto 0;
+        }
+
+        .why-quote blockquote {
+            font-size: 24px;
+            line-height: 1.45;
+            font-weight: 500;
+            color: #111111;
+        }
+
+        .why-quote figcaption {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #5c5c5c;
+        }
+
+        .why-copy {
+            max-width: 760px;
+            margin: 40px auto 0;
+            text-align: left;
+        }
+
+        .why-copy p + p {
+            margin-top: 16px;
+        }
+
+        #forskning .research-intro {
+            margin-top: 28px;
+        }
+
+        #forskning .research-grid {
+            margin-top: 56px;
+        }
+
+        #forskning .research-close {
+            margin-top: 48px;
+        }
+
+        #forskning .research-card h3 {
+            margin-top: 20px;
+            margin-bottom: 16px;
+        }
+
+        .founder-layout {
+            display: grid;
+            gap: 40px;
+            align-items: start;
+            margin-top: 48px;
+        }
+
+        @media (min-width: 1024px) {
+            .founder-layout {
+                grid-template-columns: 220px minmax(0, 1fr);
+                gap: 72px;
+            }
+
+            .founder-sticky {
+                position: sticky;
+                top: 128px;
+            }
+        }
+
+        .founder-photo {
+            width: 192px;
+            height: 192px;
+            border-radius: 999px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        .story-card + .story-card,
+        .story-card + .story-quote {
+            margin-top: 24px;
+        }
+
+        .story-card {
+            border: 1px solid #bebebe;
+            border-radius: 15px;
+            padding: 28px 32px 32px;
+            text-align: left;
+        }
+
+        .story-index {
+            width: 42px;
+            height: 42px;
+            border-radius: 999px;
+            background: #2c8526;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Bricolage Grotesque", sans-serif;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .story-card h3 {
+            font-family: "Bricolage Grotesque", sans-serif;
+            font-size: 28px;
+            line-height: 1.2;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 12px;
+        }
+
+        .story-card p + p {
+            margin-top: 12px;
+        }
+
+        .research-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        @media (min-width: 1024px) {
+            .research-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .research-card {
+            height: 100%;
+            border: 1px solid #bebebe;
+            border-radius: 15px;
+            padding: 28px 28px 32px;
+            text-align: left;
+        }
+
+        .research-card a {
+            color: #2c8526;
+            text-decoration: underline;
+        }
+
+        #menu.max-h-\[300px\] {
+            max-height: 70vh;
+        }
+
+        #menu-toggle {
+            color: #2c8526;
+        }
+
+        #menu a,
+        #menu a:hover {
+            color: #fff;
+        }
+
+        #menu a:hover {
+            opacity: 0.75;
+        }
+
+        #menu a.nav-demo {
+            color: #2c8526;
+            background: #fff;
+            border-radius: 25px;
+            opacity: 1;
+            margin: 6px 8px;
+            height: 50px;
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-left: 14px;
+            padding-right: 14px;
+            box-sizing: border-box;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        #menu a.nav-demo:hover {
+            background: #1f6b1b;
+            color: #fff;
+        }
+
+        #menu li {
+            border-color: rgba(255, 255, 255, 0.22);
+        }
+
+        #header {
+            background-color: rgba(255, 246, 236, 0.55);
+            -webkit-backdrop-filter: blur(14px) saturate(1.4);
+            backdrop-filter: blur(14px) saturate(1.4);
+        }
+
+        @media (min-width: 1024px) {
+            #menu {
+                display: flex;
+                align-items: center;
+                flex: 0 1 auto;
+                width: auto;
+                min-width: 0;
+                max-width: 980px;
+                min-height: 62px;
+            }
+
+            #menu > ul {
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                min-height: 62px;
+            }
+
+            #menu a {
+                display: inline-flex;
+                align-items: center;
+                line-height: 1;
+                padding-top: 16px;
+                padding-bottom: 16px;
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+
+            #menu a.nav-demo,
+            #menu a.nav-demo:hover {
+                margin: 6px 8px;
+                height: 50px;
+                padding-top: 0;
+                padding-bottom: 0;
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header" class="fixed top-0 py-5 w-full z-50 bg-background transition-all duration-500">
+        <div class="container">
+            <div class="flex justify-between items-center">
+                <a href="/" class="grannsam-logo">Grannsam</a>
+                <div class="text-3xl mt-1 cursor-pointer block lg:hidden" id="menu-toggle">
+                    <i class="ri-menu-line"></i>
+                </div>
+                <nav id="menu"
+                    class="bg-primary lg:rounded-[50px] lg:static absolute left-0 top-16 z-50 w-full max-h-0 overflow-hidden opacity-0 invisible lg:max-h-full lg:opacity-100 lg:visible lg:w-auto transition-all duration-500 ease-linear">
+                    <ul class="flex lg:flex-row flex-col">
+                        <li class="border-b border-b-black-100 lg:border-b-0">
+                            <a href="/appen"
+                                class="text-[#dedede] font-medium font-bricolage px-5 py-2.5 inline-block hover:text-primary transition-all duration-500">Appen</a>
+                        </li>
+                        <li class="border-b border-b-black-100 lg:border-b-0">
+                            <a href="/#pris"
+                                class="text-[#dedede] font-medium font-bricolage px-5 py-2.5 inline-block hover:text-primary transition-all duration-500">Pris</a>
+                        </li>
+                        <li class="border-b border-b-black-100 lg:border-b-0">
+                            <a href="/om-oss"
+                                class="text-[#dedede] font-medium font-bricolage px-5 py-2.5 inline-block hover:text-primary transition-all duration-500">Om oss</a>
+                        </li>
+                        <li class="border-b border-b-black-100 lg:border-b-0">
+                            <a href="/kontakt"
+                                class="text-[#dedede] font-medium font-bricolage px-5 py-2.5 inline-block hover:text-primary transition-all duration-500">Kontakt</a>
+                        </li>
+                        <li class="border-b border-b-black-100 lg:border-b-0">
+                            <a href="/kontakt?intent=demo"
+                                class="nav-demo text-[#dedede] font-medium font-bricolage px-5 py-2.5 inline-block hover:text-primary transition-all duration-500">Boka demo</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="page-intro" class="lg:pb-15 pb-10">
+        <div class="container">
+            <div class="text-left fadeInLeft" data-delay="0.2">
+                <h3
+                    class="border border-[#bebebe] py-2.5 px-5 rounded-3xl md:text-base md:leading-5 text-sm inline-block font-normal mb-[5px]">
+                    <i class="ri-arrow-right-up-line text-primary"></i>
+                    Om oss
+                </h3>
+                <h1
+                    class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
+                    Teamet bakom Grannsam</h1>
+                <div class="page-lead-left md:text-xl md:leading-7 text-base mt-6">
+                    <p>Bakom Grannsam finns ett team som är dedikerat till att bygga en app som moderniserar och
+                        effektiviserar grannskapet. Vår vision är ett levande grannskap där människor känner till sina
+                        grannar och har en trygg kanal till kommunikation och interaktion.</p>
+                    <p class="mt-4">I ett grannskap där man kan be om hjälp, ställa upp för andra och hitta på
+                        aktiviteter tillsammans finns möjligheten att skapa relationer som kanske varar en hel
+                        livstid.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ord-fran-vd" class="lg:pt-15 pt-10 lg:pb-25 pb-15">
+        <div class="container">
+            <div class="text-left fadeInUp" data-delay="0.2">
+                <h2
+                    class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
+                    Ord från VD</h2>
+                <p class="md:text-xl md:leading-7 text-base mt-2">Idén bakom Grannsam kommer från en verklig händelse i
+                    Stockholm 2015.</p>
+            </div>
+            <div class="founder-layout">
+                <aside class="founder-sticky text-center">
+                    <img class="founder-photo" src="/assets/images/grannsam/reibin.png"
+                        alt="Reibin Amin, VD och grundare av Grannsam">
+                    <p class="text-lg font-bold text-black-100">Reibin Amin</p>
+                    <p class="text-primary">VD &amp; grundare</p>
+                </aside>
+                <div class="md:text-lg text-base leading-relaxed">
+                    <article class="story-card fadeInUp" data-delay="0.1">
+                        <div class="story-index">01</div>
+                        <h3>Ny i grannskapet</h3>
+                        <p>I början av året flyttade jag in i en nybyggd Brf. Eftersom grannskapet var nytt bestämde jag
+                            mig för att hälsa på och introducera mig för grannar jag stötte på i vardagen.</p>
+                        <p>Under några veckor testade jag detta trevliga, men också något obekväma, koncept. Efter en
+                            väldigt kort stund hade jag plötsligt blivit &ldquo;tjenis&rdquo; med många personer i
+                            grannskapet. Man visste vad varandra hette, var man bodde och vad man sysslade med. Det gav
+                            mig en känsla av trygghet i min närhet och en värme gentemot mina grannar.</p>
+                    </article>
+                    <article class="story-card fadeInUp" data-delay="0.2">
+                        <div class="story-index">02</div>
+                        <h3>Skruvmejseln</h3>
+                        <p>När jag en onsdag behövde en skruvmejsel för att skruva upp mitt matbord plingade jag på hos
+                            Karin. Hon lånade mig mejseln och jag var räddad. På lördagen skulle jag återlämna den. Jag
+                            gick över gården, in i trapphuset och plingade på hos Karin. Jag fick inget svar och
+                            bestämde mig för att gå hem — men så fort jag tog ett steg hörde jag ett rop på hjälp
+                            inifrån lägenheten.</p>
+                        <p>Samtidigt sprang fotbollspappan Peter ner för trappen. Jag stoppade honom och berättade vad
+                            jag visste: att Karin tog hand om sin äldre man som satt i rullstol, och att jag nyss hört
+                            ett rop på hjälp inifrån lägenheten.</p>
+                        <p>Peter och jag sprang ut på gården och tittade in i fönstret. Där låg Karins man på golvet och
+                            hade en hjärtattack. Peter ringde omedelbart 112. Jag testade att öppna ytterdörren — som
+                            av ett mirakel var den öppen. Vi sprang in, tog hand om den äldre mannen och inom kort kom
+                            ambulanspersonalen och förde honom till sjukhus.</p>
+                        <p class="font-medium text-black-100">Han klarade sig.</p>
+                    </article>
+                    <article class="story-card fadeInUp" data-delay="0.3">
+                        <div class="story-index">03</div>
+                        <h3>Idén som blev Grannsam</h3>
+                        <p>Karin kom förbi med blommor veckan därpå och var otroligt tacksam. Men jag var också tacksam
+                            för att jag av en slump kunde finnas där för en granne i en stund av nöd.</p>
+                        <blockquote class="pull-quote">Det slog mig verkligen hur mycket det kan betyda att känna en
+                            granne.</blockquote>
+                        <p>Denna upplevelse gav mig en idé som, efter mycket eftertanke och arbete, har landat i appen
+                            Grannsam.</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="varfor-grannskap" class="lg:pt-25 pt-15 lg:pb-25 pb-15">
+        <div class="container">
+            <div class="text-center fadeInUp" data-delay="0.2">
+                <h2
+                    class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
+                    Varför grannskap betyder något</h2>
+                <figure class="why-quote">
+                    <blockquote>&ldquo;Relationer och kontakt är en grundläggande del av att vara en människa. Det är
+                        till och med mer grundläggande än mat och skydd, och är den primära motivationen bakom ens
+                        beteenden.&rdquo;</blockquote>
+                    <figcaption>Dr Matthew Lieberman, UCLA Cognitive Neuroscience Lab</figcaption>
+                </figure>
+            </div>
+            <div class="why-copy md:text-lg text-base leading-relaxed fadeInUp" data-delay="0.3">
+                <p>Ditt grannskap är ett kollektiv av människor som bor nära varandra. Forskning visar att starka
+                    sociala relationer är en av de viktigaste faktorerna för människors välmående — människor med
+                    starka sociala nätverk lever längre, känner större trygghet och upplever högre livskvalitet.</p>
+                <p>I grannskap där människor känner varandra ökar tilliten, brottsligheten minskar och fler hjälper
+                    varandra i vardagen. Grannsam vill göra det enklare att bygga just den typen av lokala
+                    relationer.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="forskning" class="lg:pt-25 pt-15 lg:pb-25 pb-15">
+        <div class="container">
+            <div class="text-center fadeInUp" data-delay="0.2">
+                <h2
+                    class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
+                    Forskningen bakom Grannsam</h2>
+            </div>
+            <p class="page-lead research-intro md:text-xl md:leading-7 text-base fadeInUp" data-delay="0.3">Människan är en social varelse. Våra relationer
+                till familj, vänner och grannar påverkar inte bara hur vi trivs – de påverkar också vår hälsa, vår
+                trygghet och hur väl våra samhällen fungerar.</p>
+            <div class="research-grid md:text-lg text-base leading-relaxed">
+                <article class="research-card fadeInUp" data-delay="0.1">
+                    <i class="ri-heart-pulse-line text-[40px] text-primary"></i>
+                    <h3 class="text-2xl font-bold text-black-100 mt-4 mb-3">Längre liv</h3>
+                    <p>Forskning visar att starka sociala relationer har en tydlig koppling till bättre hälsa och längre
+                        liv. I <a href="https://pubmed.ncbi.nlm.nih.gov/20668659/" target="_blank"
+                            rel="noopener noreferrer">en omfattande metaanalys</a> av 148 studier och över 300 000
+                        deltagare fann man att personer med starka sociala relationer hade omkring 50 procent högre
+                        sannolikhet att leva längre än personer med svagare sociala nätverk.</p>
+                </article>
+                <article class="research-card fadeInUp" data-delay="0.2">
+                    <i class="ri-community-line text-[40px] text-primary"></i>
+                    <h3 class="text-2xl font-bold text-black-100 mt-4 mb-3">Starkare samhällen</h3>
+                    <p>Statsvetaren Robert Putnam har visat att samhällen fungerar bättre när människor känner tillit
+                        till varandra och deltar i lokala gemenskaper. <a
+                            href="https://www.ft.com/content/97c1044d-141a-42fb-a47a-672ddb9512c4?syn-25a6b1a6=1"
+                            target="_blank" rel="noopener noreferrer">Han beskriver detta som socialt kapital</a>: de
+                        relationer och nätverk som gör att människor samarbetar, hjälper varandra och engagerar sig i
+                        samhället.</p>
+                </article>
+                <article class="research-card fadeInUp" data-delay="0.3">
+                    <i class="ri-shield-check-line text-[40px] text-primary"></i>
+                    <h3 class="text-2xl font-bold text-black-100 mt-4 mb-3">Tryggare grannskap</h3>
+                    <p>Sociologen Robert J. Sampson och hans kollegor har visat att områden där grannar känner tillit
+                        till varandra och är villiga att hjälpa till har <a
+                            href="https://pubmed.ncbi.nlm.nih.gov/9252316/" target="_blank"
+                            rel="noopener noreferrer">lägre nivåer av våldsbrott och upplevs som tryggare</a>. De
+                        kallar detta kollektiv handlingsförmåga.</p>
+                </article>
+            </div>
+            <p class="page-lead research-close md:text-lg text-base leading-relaxed fadeInUp" data-delay="0.4">Grannsam finns för att göra det enklare att
+                bygga de relationer som forskningen gång på gång visar är viktiga – för människors hälsa, för tryggare
+                bostadsområden och för starkare lokalsamhällen.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="pt-12.5 pb-10">
+            <div class="container">
+                <div class="flex lg:flex-row flex-col items-center justify-between gap-y-4">
+                    <div class="copyright-text">
+                        <p>© 2026 Grannsam AB. För ett starkare grannskap.</p>
+                    </div>
+                    <ul class="flex flex-wrap justify-center gap-x-7.5 gap-y-3">
+                        <li><a href="/#engagemang">Grannskap</a></li>
+                        <li><a href="/appen">Appen</a></li>
+                        <li><a href="/#pris">Pris &amp; Licens</a></li>
+                        <li><a href="/om-oss">Om oss</a></li>
+                        <li><a href="/kontakt">Kontakt</a></li>
+                        <li><a href="/#faq">Vanliga frågor (FAQ)</a></li>
+                        <li><a href="/datasakerhet">Datasäkerhet</a></li>
+                    </ul>
+                </div>
+                <p class="text-center mt-4"><a href="mailto:info@grannsam.nu" class="text-primary">info@grannsam.nu</a>
+                    · <a href="tel:+46736418699" class="text-primary">+46 73 641 86 99</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="scroll-to-top" class="z-40 fixed right-2.5 bottom-5 w-10 h-10 items-center justify-center cursor-pointer"
+        style="display: none;">
+        <i class="ri-arrow-up-s-line absolute text-primary"></i>
+        <svg id="rounded-scroll" width="100%" height="100%" viewBox="-1 -1 102 102" stroke="#2c8526" stroke-width="4"
+            fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+    </div>
+
+    <script src="/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="/assets/js/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="/assets/js/grannsam-script.js"></script>
+    <script type="module" src="/assets/js/grannsam-analytics.js"></script>
+</body>
+
+</html>
