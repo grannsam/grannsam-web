@@ -4,7 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <script>
-        if (location.hash) document.documentElement.classList.add("skip-preloader");
+        if (location.hash) {
+            document.documentElement.classList.add("skip-preloader");
+        } else {
+            document.documentElement.classList.add("preloader-lock");
+            const blockScroll = (event) => {
+                if (!document.documentElement.classList.contains("preloader-lock")) return;
+                event.preventDefault();
+            };
+            document.addEventListener("wheel", blockScroll, { passive: false });
+            document.addEventListener("touchmove", blockScroll, { passive: false });
+            document.addEventListener("keydown", (event) => {
+                if (!document.documentElement.classList.contains("preloader-lock")) return;
+                if ([" ", "ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End"].includes(event.key)) {
+                    event.preventDefault();
+                }
+            });
+        }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Grannsam – För ett starkare grannskap</title>
@@ -29,6 +45,19 @@
 
         html.skip-preloader .preloader {
             display: none;
+        }
+
+        html.preloader-lock,
+        html.preloader-lock body {
+            overflow: hidden;
+            height: 100%;
+            overscroll-behavior: none;
+        }
+
+        html.preloader-lock body {
+            position: fixed;
+            inset: 0;
+            width: 100%;
         }
 
         .preloader {
