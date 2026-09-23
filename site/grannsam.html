@@ -31,12 +31,21 @@
             display: none;
         }
 
+        .preloader {
+            height: 100vh;
+            height: 100dvh;
+            overflow: visible;
+        }
+
         .preloader svg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 110%;
+            /* 100vh stops above the iPhone browser bars. Stretch the fill to the
+               large viewport, plus a little extra, on every phone size. */
+            height: 140%;
+            height: calc(100lvh + 80px);
         }
 
         .preloader svg path {
