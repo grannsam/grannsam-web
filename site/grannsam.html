@@ -683,6 +683,74 @@
             }
         }
 
+        .faq-mark {
+            position: relative;
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            margin-left: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-mark::before,
+        .faq-mark::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background: #000;
+            border-radius: 1px;
+            transform: translate(-50%, -50%);
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-mark::before {
+            width: 14px;
+            height: 2px;
+        }
+
+        .faq-mark::after {
+            width: 2px;
+            height: 14px;
+        }
+
+        .accordion-item [data-open="true"] .faq-mark {
+            background-color: transparent;
+            transform: rotate(45deg);
+        }
+
+        .accordion-item [data-open="true"] .faq-label {
+            background-color: transparent;
+        }
+
+        .accordion-item [data-open="true"] .faq-mark::before,
+        .accordion-item [data-open="true"] .faq-mark::after,
+        .accordion-header:hover .faq-mark::before,
+        .accordion-header:hover .faq-mark::after {
+            background: var(--primary-color);
+        }
+
+        .accordion-header:hover .faq-mark {
+            transform: scale(1.06);
+        }
+
+        .accordion-header:hover[data-open="true"] .faq-mark {
+            background-color: transparent;
+            transform: rotate(45deg) scale(1.06);
+        }
+
+        .faq-label {
+            display: inline-block;
+            transform-origin: left center;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .accordion-header:hover .faq-label {
+            color: var(--primary-color);
+            transform: scale(1.015);
+        }
+
         #engagemang,
         #pris,
         #faq {
@@ -1088,8 +1156,8 @@
                     <div class="accordion-item">
                         <h2 data-open="false"
                             class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            Vad är Grannsam?
-                            <span class="inline-block w-[11px] h-[11px] rounded-full bg-secondary shrink-0"></span>
+                            <span class="faq-label">Vad är Grannsam?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
                         </h2>
                         <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
                             <p class="mb-4">Grannsam är en grannskapsapp för bostadsrättsföreningar. Den förenklar
@@ -1100,8 +1168,8 @@
                     <div class="accordion-item">
                         <h2 data-open="false"
                             class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            Vad är en grannskapsapp?
-                            <span class="inline-block w-[11px] h-[11px] rounded-full bg-secondary shrink-0"></span>
+                            <span class="faq-label">Vad är en grannskapsapp?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
                         </h2>
                         <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
                             <p class="mb-4">En grannskapsapp är en app för grannar i samma område. Grannsam är en
@@ -1112,8 +1180,8 @@
                     <div class="accordion-item">
                         <h2 data-open="false"
                             class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            Vem är Grannsam till för?
-                            <span class="inline-block w-[11px] h-[11px] rounded-full bg-secondary shrink-0"></span>
+                            <span class="faq-label">Vem är Grannsam till för?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
                         </h2>
                         <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
                             <p class="mb-4">Grannsam riktar sig till bostadsrättsföreningar — styrelser som vill nå ut
@@ -1124,8 +1192,8 @@
                     <div class="accordion-item">
                         <h2 data-open="false"
                             class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            Vad kostar det?
-                            <span class="inline-block w-[11px] h-[11px] rounded-full bg-secondary shrink-0"></span>
+                            <span class="faq-label">Vad kostar det?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
                         </h2>
                         <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
                             <p class="mb-4">Föreningen betalar 495 kr per månad exklusive moms. I priset ingår
@@ -1136,8 +1204,8 @@
                     <div class="accordion-item">
                         <h2 data-open="false"
                             class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            Måste alla grannar använda appen?
-                            <span class="inline-block w-[11px] h-[11px] rounded-full bg-secondary shrink-0"></span>
+                            <span class="faq-label">Måste alla grannar använda appen?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
                         </h2>
                         <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
                             <p class="mb-4">Nej. Ju fler som ansluter desto levande blir grannskapet, men styrelsen kan
@@ -1148,8 +1216,8 @@
                     <div class="accordion-item">
                         <h2 data-open="false"
                             class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            Hur verifieras användare?
-                            <span class="inline-block w-[11px] h-[11px] rounded-full bg-secondary shrink-0"></span>
+                            <span class="faq-label">Hur verifieras användare?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
                         </h2>
                         <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
                             <p class="mb-4">Grannar verifieras med BankID så att ni vet att ni kommunicerar med riktiga
@@ -1159,8 +1227,8 @@
                     <div class="accordion-item">
                         <h2 data-open="false"
                             class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            Hur skiljer sig Grannsam från Facebook eller WhatsApp-grupper?
-                            <span class="inline-block w-[11px] h-[11px] rounded-full bg-secondary shrink-0"></span>
+                            <span class="faq-label">Hur skiljer sig Grannsam från Facebook eller WhatsApp-grupper?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
                         </h2>
                         <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
                             <p class="mb-4">Grannsam är byggt för ert grannskap, inte som ett öppet socialt nätverk. Det
@@ -1172,8 +1240,8 @@
                     <div class="accordion-item">
                         <h2 data-open="false"
                             class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            Kan styrelsen skicka information som verkligen når fram?
-                            <span class="inline-block w-[11px] h-[11px] rounded-full bg-secondary shrink-0"></span>
+                            <span class="faq-label">Kan styrelsen skicka information som verkligen når fram?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
                         </h2>
                         <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
                             <p class="mb-4">Ja. Med notiser och fästa inlägg kan styrelsen nå grannar direkt i appen på
@@ -1184,8 +1252,8 @@
                     <div class="accordion-item">
                         <h2 data-open="false"
                             class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            Hur fungerar ärendehantering?
-                            <span class="inline-block w-[11px] h-[11px] rounded-full bg-secondary shrink-0"></span>
+                            <span class="faq-label">Hur fungerar ärendehantering?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
                         </h2>
                         <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
                             <p class="mb-4">Boende kan rapportera ärenden i appen. Styrelsen tilldelar ansvar,
@@ -1196,8 +1264,8 @@
                     <div class="accordion-item">
                         <h2 data-open="false"
                             class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            Hur kommer vi igång?
-                            <span class="inline-block w-[11px] h-[11px] rounded-full bg-secondary shrink-0"></span>
+                            <span class="faq-label">Hur kommer vi igång?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
                         </h2>
                         <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
                             <p class="mb-4">Börja med att boka en demo så visar vi hur Grannsam kan fungera i er
@@ -1208,8 +1276,8 @@
                     <div class="accordion-item">
                         <h2 data-open="false"
                             class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            Hur kontaktar vi er?
-                            <span class="inline-block w-[11px] h-[11px] rounded-full bg-secondary shrink-0"></span>
+                            <span class="faq-label">Hur kontaktar vi er?</span>
+                            <span class="faq-mark" aria-hidden="true"></span>
                         </h2>
                         <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
                             <p class="mb-4">Använd kontaktformuläret på webbplatsen, mejla info@grannsam.nu eller ring
