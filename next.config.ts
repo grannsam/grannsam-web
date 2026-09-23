@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         destination: "/integritet",
         permanent: true,
       },
+      {
+        source: "/faq",
+        destination: "/#faq",
+        permanent: true,
+      },
     ];
   },
 };

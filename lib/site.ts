@@ -12,7 +12,6 @@ export const APPEN_PATH = "/appen";
 export const CONTACT_PATH = "/kontakt";
 export const BOOK_DEMO_PATH = "/kontakt?intent=demo";
 export const ABOUT_PATH = "/om-oss";
-export const FAQ_PATH = "/faq";
 export const DATA_SECURITY_PATH = "/datasakerhet";
 export const PRIVACY_PATH = "/integritet";
 export const TERMS_PATH = "/anvandarvillkor";
@@ -23,7 +22,6 @@ export const PUBLIC_PATHS = [
   APPEN_PATH,
   ABOUT_PATH,
   CONTACT_PATH,
-  FAQ_PATH,
   DATA_SECURITY_PATH,
   DELETE_ACCOUNT_PATH,
   PRIVACY_PATH,
