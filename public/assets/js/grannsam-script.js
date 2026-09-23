@@ -100,23 +100,23 @@ window.onload = function () {
         const unlock = () => document.documentElement.classList.remove("preloader-lock");
 
         tl.to(".preloader-heading .load-text , .preloader-heading .cont", {
-            delay: 0.6,
-            duration: 0.3,
+            delay: 0.47,
+            duration: 0.24,
             y: -100,
             opacity: 0,
         });
         tl.to(svg, {
-            duration: 0.35,
+            duration: 0.28,
             attr: { d: curve },
             ease: "power2.easeIn",
         }).to(svg, {
-            duration: 0.25,
+            duration: 0.2,
             attr: { d: flat },
             ease: "power2.easeOut",
         });
         tl.to(".preloader", {
             y: -1500,
-            duration: 0.4,
+            duration: 0.31,
         });
         tl.to(".preloader", {
             duration: 0,
