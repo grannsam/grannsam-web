@@ -3,25 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <script>
-        if (location.hash) {
-            document.documentElement.classList.add("skip-preloader");
-        } else {
-            document.documentElement.classList.add("preloader-lock");
-            const blockScroll = (event) => {
-                if (!document.documentElement.classList.contains("preloader-lock")) return;
-                event.preventDefault();
-            };
-            document.addEventListener("wheel", blockScroll, { passive: false });
-            document.addEventListener("touchmove", blockScroll, { passive: false });
-            document.addEventListener("keydown", (event) => {
-                if (!document.documentElement.classList.contains("preloader-lock")) return;
-                if ([" ", "ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End"].includes(event.key)) {
-                    event.preventDefault();
-                }
-            });
-        }
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Grannsam – För ett starkare grannskap</title>
     <link rel="icon" href="/favicon.ico" sizes="64x64" type="image/x-icon">
@@ -41,85 +22,6 @@
             letter-spacing: -0.04em;
             color: #2c8526;
             line-height: 1;
-        }
-
-        html.skip-preloader .preloader {
-            display: none;
-        }
-
-        html.preloader-lock,
-        html.preloader-lock body {
-            overflow: hidden;
-            height: 100%;
-            overscroll-behavior: none;
-        }
-
-        html.preloader-lock body {
-            position: fixed;
-            inset: 0;
-            width: 100%;
-        }
-
-        .preloader {
-            /* viewport-fit=cover lets this include the iPhone home-indicator island.
-               Safari clips anything that merely overflows past the viewport. */
-            right: 0;
-            bottom: 0;
-            height: calc(100vh + env(safe-area-inset-bottom, 0px));
-            height: calc(100dvh + env(safe-area-inset-bottom, 0px));
-            min-height: calc(100lvh + env(safe-area-inset-bottom, 0px));
-            overflow: hidden;
-        }
-
-        .preloader svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .preloader-heading {
-            height: 100dvh;
-        }
-
-        .preloader svg path {
-            fill: #1f6b1b;
-        }
-
-        .preloader .load-text {
-            font-family: "Bricolage Grotesque", sans-serif;
-            font-weight: 700;
-            font-size: 48px;
-            letter-spacing: -0.04em;
-            line-height: 1;
-            text-transform: none;
-            color: #fff;
-        }
-
-        .preloader .load-text span {
-            display: inline-block;
-            animation: loader-bounce 1.6s ease-in-out infinite;
-        }
-
-        .preloader .load-text span:nth-child(2) { animation-delay: 0.05s; }
-        .preloader .load-text span:nth-child(3) { animation-delay: 0.1s; }
-        .preloader .load-text span:nth-child(4) { animation-delay: 0.15s; }
-        .preloader .load-text span:nth-child(5) { animation-delay: 0.2s; }
-        .preloader .load-text span:nth-child(6) { animation-delay: 0.25s; }
-        .preloader .load-text span:nth-child(7) { animation-delay: 0.3s; }
-        .preloader .load-text span:nth-child(8) { animation-delay: 0.35s; }
-
-        @keyframes loader-bounce {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
         }
 
         .strip-shot,
@@ -845,17 +747,6 @@
 </head>
 
 <body>
-    <div class="preloader z-[999] fixed w-full left-0 top-0">
-        <svg viewbox="0 0 1000 1000" preserveaspectratio="none">
-            <path id="preloaderSvg" d="M0,1200S175,1180,500,1180s500,20,500,20V0H0Z"></path>
-        </svg>
-        <div class="preloader-heading absolute top-0 left-0 flex justify-center items-center w-full h-full">
-            <div class="load-text">
-                <span>G</span><span>r</span><span>a</span><span>n</span><span>n</span><span>s</span><span>a</span><span>m</span>
-            </div>
-        </div>
-    </div>
-
     <header id="header" class="fixed top-0 py-5 w-full z-50 bg-background transition-all duration-500">
         <div class="container">
             <div class="flex justify-between items-center">
