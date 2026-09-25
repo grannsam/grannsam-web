@@ -634,46 +634,51 @@
             }
         }
 
-        #boka-demo .faq-demo {
-            width: 100%;
-            max-width: 420px;
-            background: #2c8526;
-            color: #fff;
+        #boka-demo .demo-panel {
+            background:
+                linear-gradient(#fff6ec, #fff6ec) padding-box,
+                linear-gradient(115deg, #7dba5c 0%, #3f9834 46%, #1f6b1b 100%) border-box;
+            border: 2px solid transparent;
         }
 
-        #boka-demo .faq-demo h2,
-        #boka-demo .faq-demo p {
-            color: #fff;
+        #boka-demo .demo-portrait-ring {
+            display: inline-grid;
+            width: 144px;
+            height: 144px;
+            margin: 0 auto;
+            padding: 2px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(115deg, #7dba5c 0%, #3f9834 46%, #1f6b1b 100%);
         }
 
-        #boka-demo .faq-demo a:not(.btn) {
-            color: #fff;
-        }
-
-        #boka-demo .faq-demo .btn {
-            background: #fff;
-            color: #2c8526;
-            border-color: #fff;
-        }
-
-        #boka-demo .faq-demo .btn:hover {
-            background: #111111;
-            color: #fff;
-            border-color: #111111;
-        }
-
-        #boka-demo .faq-demo .faq-portrait {
+        #boka-demo .demo-portrait {
             display: block;
-            width: 148px;
-            height: 148px;
-            margin-left: auto;
-            margin-right: auto;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid transparent;
-            background:
-                linear-gradient(#2c8526, #2c8526) padding-box,
-                linear-gradient(115deg, #fff6ec 0%, #ffffff 46%, #b7e58a 100%) border-box;
+        }
+
+        #boka-demo .demo-panel h2,
+        #boka-demo .demo-panel p {
+            color: #101010;
+        }
+
+        #boka-demo .demo-panel a:not(.btn) {
+            color: #2c8526;
+        }
+
+        #boka-demo .demo-btn {
+            background: #2c8526;
+            color: #fff;
+            border-color: #2c8526;
+        }
+
+        #boka-demo .demo-btn:hover {
+            background: #1f6b1b;
+            color: #fff;
+            border-color: #1f6b1b;
         }
 
         #engagemang .section-intro {
@@ -958,18 +963,21 @@
 
     <section id="boka-demo" class="lg:pt-25 pt-15">
         <div class="container">
-            <div class="flex justify-center">
-                <div class="faq-demo p-12.5 rounded-[15px] text-center fadeInUp" data-delay="0.2">
-                    <img src="/assets/images/grannsam/team/daniel-akerman.png" alt="Daniel Åkerman, UX på Grannsam"
-                        class="faq-portrait">
-                    <h2 class="lg:text-[40px] text-3xl lg:leading-[1.2] py-3">Boka en demo</h2>
-                    <p class="mb-4">15 minuter. Vi visar hur appen kan stärka erat grannskap.</p>
-                    <a href="/kontakt?intent=demo"
-                        class="btn bg-primary text-white border-primary hover:bg-black-200 hover:text-white">
-                        Boka demo
-                    </a>
-                    <p><a href="mailto:info@grannsam.nu">info@grannsam.nu</a></p>
+            <div class="demo-panel lg:w-[80%] w-full text-center mx-auto lg:py-[70px] lg:px-20 py-10 px-10 lg:rounded-[40px] rounded-[30px] fadeInUp"
+                data-delay="0.2">
+                <div class="demo-portrait-ring">
+                    <img class="demo-portrait" src="/assets/images/grannsam/team/daniel-akerman.png"
+                        alt="Daniel Åkerman, UX på Grannsam">
                 </div>
+                <h2 class="lg:text-[40px] text-3xl lg:leading-[1.2] py-3">Boka en demo</h2>
+                <p class="md:text-xl md:leading-7 text-base">15 minuter. Vi visar hur appen kan stärka erat
+                    grannskap.</p>
+                <div class="mt-7.5">
+                    <a href="/kontakt?intent=demo"
+                        class="btn demo-btn">Boka
+                        demo</a>
+                </div>
+                <p class="text-lg mt-4"><a href="mailto:info@grannsam.nu">info@grannsam.nu</a></p>
             </div>
         </div>
     </section>
