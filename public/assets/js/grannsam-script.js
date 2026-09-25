@@ -104,7 +104,7 @@
         return rect.top < window.innerHeight && rect.bottom > 0
     }
     const visibleOnLoad = [
-        ...document.querySelectorAll(".fadeInUp:not([data-trigger]), .fadeInDown, .fadeInLeft, .fadeIn"),
+        ...document.querySelectorAll(".fadeInUp:not([data-trigger]), .fadeInDown, .fadeInLeft"),
     ].filter(inView)
     const baseDelay = visibleOnLoad.reduce((min, el) => {
         return Math.min(min, parseFloat(el.dataset.delay) || 0)
@@ -151,19 +151,6 @@
             })
         })
     })
-
-    document.querySelectorAll(".fadeIn").forEach((fadeIn) => {
-        const delay = entranceDelay(fadeIn, parseFloat(fadeIn.dataset.delay) || 0);
-        const opacity = parseFloat(getComputedStyle(fadeIn).opacity);
-
-        gsap.set(fadeIn, { opacity: 0 });
-        gsap.to(fadeIn, {
-            scrollTrigger: fadeIn,
-            opacity: Number.isFinite(opacity) ? opacity : 1,
-            delay: delay,
-            duration: 2
-        });
-    });
 
     document.querySelectorAll(".fadeInDown").forEach((fadeInDown) => {
         const delay = entranceDelay(fadeInDown, parseFloat(fadeInDown.dataset.delay) || 0);
