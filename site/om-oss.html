@@ -207,6 +207,53 @@
             text-decoration: underline;
         }
 
+        .team-grid {
+            display: grid;
+            gap: 48px 24px;
+            margin-top: 48px;
+            list-style: none;
+            padding: 0;
+        }
+
+        @media (min-width: 640px) {
+            .team-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .team-photo,
+        .team-initials {
+            width: 112px;
+            height: 112px;
+            border-radius: 50%;
+            margin-inline: auto;
+        }
+
+        .team-photo {
+            object-fit: cover;
+        }
+
+        .team-initials {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e7f3e6;
+            color: #2c8526;
+            font-family: "Bricolage Grotesque", sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .team-role {
+            color: #2c8526;
+        }
+
         #menu.max-h-\[300px\] {
             max-height: 70vh;
         }
@@ -500,6 +547,45 @@
         </div>
     </section>
 
+    <section id="team" class="lg:pb-25 pb-15" aria-labelledby="team-heading">
+        <div class="container">
+            <div class="text-center fadeInUp" data-delay="0.2">
+                <h2 id="team-heading"
+                    class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
+                    Vårt team</h2>
+                <p class="md:text-xl md:leading-7 text-base mt-2">Ett litet team med stor passion för grannskap, teknik
+                    och bostadsrättsföreningar.</p>
+            </div>
+            <ul class="team-grid list-none p-0">
+                <li class="text-center fadeInUp" data-delay="0.1">
+                    <img class="team-photo" src="/assets/images/grannsam/team/reibin-amin.png" alt="Reibin Amin">
+                    <h3 class="text-lg font-bold text-black-100 mt-5">Reibin Amin</h3>
+                    <p class="team-role mt-1">VD och grundare</p>
+                </li>
+                <li class="text-center fadeInUp" data-delay="0.15">
+                    <img class="team-photo" src="/assets/images/grannsam/team/bernard-liang.png" alt="Bernard Liang">
+                    <h3 class="text-lg font-bold text-black-100 mt-5">Bernard Liang</h3>
+                    <p class="team-role mt-1">Teknisk Chef</p>
+                </li>
+                <li class="text-center fadeInUp" data-delay="0.2">
+                    <div class="team-initials" aria-hidden="true">EE</div>
+                    <h3 class="text-lg font-bold text-black-100 mt-5">Emil Er</h3>
+                    <p class="team-role mt-1">Fullstack utvecklare</p>
+                </li>
+                <li class="text-center fadeInUp" data-delay="0.25">
+                    <img class="team-photo" src="/assets/images/grannsam/team/aaron-hakansson.png" alt="Aron Håkanson">
+                    <h3 class="text-lg font-bold text-black-100 mt-5">Aron Håkanson</h3>
+                    <p class="team-role mt-1">Sälj och kundansvarig</p>
+                </li>
+                <li class="text-center fadeInUp" data-delay="0.3">
+                    <img class="team-photo" src="/assets/images/grannsam/team/daniel-akerman.png" alt="Daniel Åkerman">
+                    <h3 class="text-lg font-bold text-black-100 mt-5">Daniel Åkerman</h3>
+                    <p class="team-role mt-1">UX</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
     <footer>
         <div class="pt-12.5 pb-10">
             <div class="container">
@@ -513,7 +599,7 @@
                         <li><a href="/#pris">Pris &amp; Licens</a></li>
                         <li><a href="/om-oss">Om oss</a></li>
                         <li><a href="/kontakt">Kontakt</a></li>
-                        <li><a href="/#faq">Vanliga frågor (FAQ)</a></li>
+                        <li><a href="/faq">Vanliga frågor (FAQ)</a></li>
                         <li><a href="/datasakerhet">Datasäkerhet</a></li>
                     </ul>
                 </div>
