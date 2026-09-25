@@ -79,13 +79,13 @@ function ctaFromLink(link) {
     if (demo && link.closest("#pris")) {
         return { cta: "book_demo", location: "pricing" };
     }
-    if (demo && link.closest("#faq")) {
-        return { cta: "book_demo", location: "faq" };
+    if (demo && link.closest("#boka-demo")) {
+        return { cta: "book_demo", location: "boka_demo" };
     }
     if (demo && link.classList.contains("btn") && pagePath() === "/appen") {
         return { cta: "book_demo", location: "appen" };
     }
-    if (link.classList.contains("btn") && href.indexOf("#faq") !== -1 && pagePath() === "/appen") {
+    if (link.classList.contains("btn") && href.indexOf("/faq") !== -1 && pagePath() === "/appen") {
         return { cta: "faq", location: "appen" };
     }
     if (link.closest(".delete-note") && href.indexOf("/kontakt") !== -1 && !demo) {

@@ -3,25 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <script>
-        if (location.hash) {
-            document.documentElement.classList.add("skip-preloader");
-        } else {
-            document.documentElement.classList.add("preloader-lock");
-            const blockScroll = (event) => {
-                if (!document.documentElement.classList.contains("preloader-lock")) return;
-                event.preventDefault();
-            };
-            document.addEventListener("wheel", blockScroll, { passive: false });
-            document.addEventListener("touchmove", blockScroll, { passive: false });
-            document.addEventListener("keydown", (event) => {
-                if (!document.documentElement.classList.contains("preloader-lock")) return;
-                if ([" ", "ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End"].includes(event.key)) {
-                    event.preventDefault();
-                }
-            });
-        }
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Grannsam – För ett starkare grannskap</title>
     <link rel="icon" href="/favicon.ico" sizes="64x64" type="image/x-icon">
@@ -34,6 +15,104 @@
             --button-border: #2c8526;
         }
 
+        footer.site-footer {
+            background: #2c8526;
+            color: #fff;
+        }
+
+        footer.site-footer a {
+            color: #fff;
+        }
+
+        footer.site-footer a:hover {
+            opacity: 0.8;
+        }
+
+        .site-footer-inner {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        .site-footer-grid {
+            display: grid;
+            gap: 40px;
+        }
+
+        .site-footer-name {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .site-footer-slogan {
+            margin-top: 4px;
+            font-size: 16px;
+        }
+
+        .site-footer-contact {
+            margin-top: 32px;
+            display: grid;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+        .site-footer-nav p {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .site-footer-nav ul {
+            margin: 16px 0 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+        .site-footer-copy {
+            margin: 40px 0 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .site-footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .site-footer-brand {
+                grid-column: 1 / -1;
+            }
+
+            .site-footer-nav {
+                justify-self: end;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .site-footer-inner {
+                padding: 56px 40px;
+            }
+
+            .site-footer-name {
+                font-size: 24px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .site-footer-grid {
+                grid-template-columns: 1.4fr 1fr 1fr;
+                gap: 64px;
+            }
+
+            .site-footer-brand {
+                grid-column: auto;
+            }
+        }
+
         .grannsam-logo {
             font-family: "Bricolage Grotesque", sans-serif;
             font-weight: 700;
@@ -41,85 +120,6 @@
             letter-spacing: -0.04em;
             color: #2c8526;
             line-height: 1;
-        }
-
-        html.skip-preloader .preloader {
-            display: none;
-        }
-
-        html.preloader-lock,
-        html.preloader-lock body {
-            overflow: hidden;
-            height: 100%;
-            overscroll-behavior: none;
-        }
-
-        html.preloader-lock body {
-            position: fixed;
-            inset: 0;
-            width: 100%;
-        }
-
-        .preloader {
-            /* viewport-fit=cover lets this include the iPhone home-indicator island.
-               Safari clips anything that merely overflows past the viewport. */
-            right: 0;
-            bottom: 0;
-            height: calc(100vh + env(safe-area-inset-bottom, 0px));
-            height: calc(100dvh + env(safe-area-inset-bottom, 0px));
-            min-height: calc(100lvh + env(safe-area-inset-bottom, 0px));
-            overflow: hidden;
-        }
-
-        .preloader svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .preloader-heading {
-            height: 100dvh;
-        }
-
-        .preloader svg path {
-            fill: #1f6b1b;
-        }
-
-        .preloader .load-text {
-            font-family: "Bricolage Grotesque", sans-serif;
-            font-weight: 700;
-            font-size: 48px;
-            letter-spacing: -0.04em;
-            line-height: 1;
-            text-transform: none;
-            color: #fff;
-        }
-
-        .preloader .load-text span {
-            display: inline-block;
-            animation: loader-bounce 1.6s ease-in-out infinite;
-        }
-
-        .preloader .load-text span:nth-child(2) { animation-delay: 0.05s; }
-        .preloader .load-text span:nth-child(3) { animation-delay: 0.1s; }
-        .preloader .load-text span:nth-child(4) { animation-delay: 0.15s; }
-        .preloader .load-text span:nth-child(5) { animation-delay: 0.2s; }
-        .preloader .load-text span:nth-child(6) { animation-delay: 0.25s; }
-        .preloader .load-text span:nth-child(7) { animation-delay: 0.3s; }
-        .preloader .load-text span:nth-child(8) { animation-delay: 0.35s; }
-
-        @keyframes loader-bounce {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
         }
 
         .strip-shot,
@@ -209,6 +209,17 @@
             color: #fff;
         }
 
+        #pris .section-subtitle {
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+        @media (min-width: 768px) {
+            #pris .section-subtitle {
+                font-size: 24px;
+            }
+        }
+
         #pris h3 {
             color: #fff;
             border-color: rgba(255, 255, 255, 0.75);
@@ -229,22 +240,28 @@
         }
 
         #pris .pricing-item {
-            max-width: 640px;
+            max-width: 700px;
             width: 100%;
             margin-inline: auto;
             background: #f5f1e1;
             border: none;
             border-radius: 16px;
-            padding: 40px 48px 36px;
+            padding: 44px 32px 40px;
             text-align: center;
             box-shadow: 0 12px 40px rgba(38, 43, 46, 0.06);
+        }
+
+        @media (min-width: 768px) {
+            #pris .pricing-item {
+                padding: 48px 56px 44px;
+            }
         }
 
         #pris .pricing-price {
             margin: 0;
             color: #1a1a1a;
             font-family: "Bricolage Grotesque", sans-serif;
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 700;
             line-height: 1.2;
         }
@@ -252,32 +269,38 @@
         #pris .pricing-price span {
             margin-left: 8px;
             color: rgba(26, 26, 26, 0.8);
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 400;
         }
 
         #pris .pricing-item ul {
             width: fit-content;
             max-width: 100%;
-            margin: 36px auto 0;
+            margin: 40px auto 0;
             padding: 0;
             list-style: none;
             text-align: left;
             color: #1a1a1a;
-            font-size: 16px;
+            font-size: 18px;
             line-height: 1.45;
         }
 
         #pris .pricing-item li + li {
-            margin-top: 10px;
+            margin-top: 14px;
         }
 
         #pris .pricing-item .btn {
-            margin-top: 40px;
+            margin-top: 44px;
+            font-size: 18px;
         }
 
         html {
             overflow-x: hidden;
+        }
+
+        #hem .hero-copy > p {
+            font-size: 24px;
+            line-height: 1.5;
         }
 
         .hero-points {
@@ -287,7 +310,7 @@
         }
 
         .hero-points li {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 500;
             line-height: 1.45;
             margin-bottom: 10px;
@@ -572,18 +595,33 @@
             color: #2c8526;
         }
 
+        #menu {
+            background-color: transparent;
+            border: 1px solid #2c8526;
+        }
+
+        @media (max-width: 1023px) {
+            #menu.max-h-\[300px\] {
+                background-color: rgba(255, 246, 236, 0.9);
+                -webkit-backdrop-filter: blur(14px) saturate(1.4);
+                backdrop-filter: blur(14px) saturate(1.4);
+                padding-bottom: 8px;
+            }
+        }
+
         #menu a,
         #menu a:hover {
-            color: #fff;
+            color: #101010;
         }
 
         #menu a:hover {
-            opacity: 0.75;
+            color: #2c8526;
+            opacity: 1;
         }
 
         #menu a.nav-demo {
-            color: #2c8526;
-            background: #fff;
+            color: #fff;
+            background: #2c8526;
             border-radius: 25px;
             opacity: 1;
             margin: 6px 8px;
@@ -606,7 +644,29 @@
         }
 
         #menu li {
-            border-color: rgba(255, 255, 255, 0.22);
+            border-color: rgba(44, 133, 38, 0.22);
+        }
+
+        @media (max-width: 1023px) {
+            #menu {
+                border: none;
+            }
+
+            #menu a:not(.nav-demo) {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            #menu li:last-child {
+                border-bottom: none;
+                padding: 12px 20px 20px;
+            }
+
+            #menu li:last-child a.nav-demo {
+                margin: 0;
+            }
         }
 
         #header {
@@ -683,137 +743,65 @@
             }
         }
 
-        .faq-mark {
-            position: relative;
-            display: inline-block;
-            width: 14px;
-            height: 14px;
-            flex-shrink: 0;
-            margin-left: 16px;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-mark::before,
-        .faq-mark::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            background: #000;
-            border-radius: 1px;
-            transform: translate(-50%, -50%);
-            transition: background-color 0.3s ease;
-        }
-
-        .faq-mark::before {
-            width: 14px;
-            height: 2px;
-        }
-
-        .faq-mark::after {
-            width: 2px;
-            height: 14px;
-        }
-
-        .accordion-item [data-open="true"] .faq-mark {
-            background-color: transparent;
-            transform: rotate(45deg);
-        }
-
-        .accordion-item [data-open="true"] .faq-label {
-            background-color: transparent;
-        }
-
-        .accordion-item [data-open="true"] .faq-mark::before,
-        .accordion-item [data-open="true"] .faq-mark::after,
-        .accordion-header:hover .faq-mark::before,
-        .accordion-header:hover .faq-mark::after {
-            background: var(--primary-color);
-        }
-
-        .accordion-header:hover .faq-mark {
-            transform: scale(1.06);
-        }
-
-        .accordion-header:hover[data-open="true"] .faq-mark {
-            background-color: transparent;
-            transform: rotate(45deg) scale(1.06);
-        }
-
-        .faq-label {
-            display: inline-block;
-            transform-origin: left center;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .accordion-header:hover .faq-label {
-            color: var(--primary-color);
-            transform: scale(1.015);
-        }
-
         #engagemang,
         #pris,
-        #faq {
+        #boka-demo {
             margin-bottom: 60px;
         }
 
         @media (min-width: 1024px) {
             #engagemang,
             #pris,
-            #faq {
+            #boka-demo {
                 margin-bottom: 100px;
             }
         }
 
-        #faq {
-            padding-top: 0;
+        #boka-demo .demo-panel {
+            background:
+                linear-gradient(#fff6ec, #fff6ec) padding-box,
+                linear-gradient(115deg, #7dba5c 0%, #3f9834 46%, #1f6b1b 100%) border-box;
+            border: 2px solid transparent;
         }
 
-        #faq .faq-demo {
-            align-self: start;
-            background: #2c8526;
-            color: #fff;
+        #boka-demo .demo-portrait-ring {
+            display: inline-grid;
+            width: 144px;
+            height: 144px;
+            margin: 0 auto;
+            padding: 2px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(115deg, #7dba5c 0%, #3f9834 46%, #1f6b1b 100%);
         }
 
-        @media (max-width: 767px) {
-            #faq .faq-demo {
-                order: 2;
-            }
-        }
-
-        #faq .faq-demo h2,
-        #faq .faq-demo p {
-            color: #fff;
-        }
-
-        #faq .faq-demo a:not(.btn) {
-            color: #fff;
-        }
-
-        #faq .faq-demo .btn {
-            background: #fff;
-            color: #2c8526;
-            border-color: #fff;
-        }
-
-        #faq .faq-demo .btn:hover {
-            background: #111111;
-            color: #fff;
-            border-color: #111111;
-        }
-
-        #faq .faq-demo .faq-portrait {
+        #boka-demo .demo-portrait {
             display: block;
-            width: 148px;
-            height: 148px;
-            margin-left: auto;
-            margin-right: auto;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid transparent;
-            background:
-                linear-gradient(#2c8526, #2c8526) padding-box,
-                linear-gradient(115deg, #fff6ec 0%, #ffffff 46%, #b7e58a 100%) border-box;
+        }
+
+        #boka-demo .demo-panel h2,
+        #boka-demo .demo-panel p {
+            color: #101010;
+        }
+
+        #boka-demo .demo-panel a:not(.btn) {
+            color: #2c8526;
+        }
+
+        #boka-demo .demo-btn {
+            background: #2c8526;
+            color: #fff;
+            border-color: #2c8526;
+        }
+
+        #boka-demo .demo-btn:hover {
+            background: #1f6b1b;
+            color: #fff;
+            border-color: #1f6b1b;
         }
 
         #engagemang .section-intro {
@@ -833,17 +821,6 @@
 </head>
 
 <body>
-    <div class="preloader z-[999] fixed w-full left-0 top-0">
-        <svg viewbox="0 0 1000 1000" preserveaspectratio="none">
-            <path id="preloaderSvg" d="M0,1200S175,1180,500,1180s500,20,500,20V0H0Z"></path>
-        </svg>
-        <div class="preloader-heading absolute top-0 left-0 flex justify-center items-center w-full h-full">
-            <div class="load-text">
-                <span>G</span><span>r</span><span>a</span><span>n</span><span>n</span><span>s</span><span>a</span><span>m</span>
-            </div>
-        </div>
-    </div>
-
     <header id="header" class="fixed top-0 py-5 w-full z-50 bg-background transition-all duration-500">
         <div class="container">
             <div class="flex justify-between items-center">
@@ -852,7 +829,7 @@
                     <i class="ri-menu-line"></i>
                 </div>
                 <nav id="menu"
-                    class="bg-primary lg:rounded-[50px] lg:static absolute left-0 top-16 z-50 w-full max-h-0 overflow-hidden opacity-0 invisible lg:max-h-full lg:opacity-100 lg:visible lg:w-auto transition-all duration-500 ease-linear">
+                    class="lg:rounded-[50px] lg:static absolute left-0 top-16 z-50 w-full max-h-0 overflow-hidden opacity-0 invisible lg:max-h-full lg:opacity-100 lg:visible lg:w-auto transition-all duration-500 ease-linear">
                     <ul class="flex lg:flex-row flex-col">
                         <li class="border-b border-b-black-100 lg:border-b-0">
                             <a href="/appen"
@@ -883,11 +860,11 @@
     <section id="hem">
         <div class="container">
             <div class="hero-grid grid grid-cols-1 gap-8 items-center">
-                <div class="hero-copy text-left fadeInUp" data-delay="0.2">
+                <div class="hero-copy text-left">
                     <div class="hero-shape hero-shape-left" aria-hidden="true">
                         <img src="/assets/images/shapes/shape2.png" alt="">
                     </div>
-                    <h1>För ett starkare grannskap.</h1>
+                    <h1 class="fadeInDown" data-delay="0.2">För ett starkare grannskap.</h1>
                     <p class="text-xl leading-7 mt-4 mb-[5px] text-black-100">Grannsam förenklar styrelsens uppgifter
                         och ökar grannarnas engagemang i er förening.</p>
                     <ul class="hero-points">
@@ -901,9 +878,9 @@
                             demo</a>
                     </div>
                 </div>
-                <div class="hero-phone-wrap fadeInUp" data-delay="0.35">
+                <div class="hero-phone-wrap">
                     <div class="hero-phone">
-                        <img src="/assets/images/grannsam/hero-phone.png"
+                        <img class="fadeInUp" data-delay="0.35" src="/assets/images/grannsam/hero-phone.png"
                             alt="Grannsam-appen i en mobil, med anslagstavla och grannskap">
                         <div class="hero-shape hero-shape-right" aria-hidden="true">
                             <img src="/assets/images/shapes/shape1.png" alt="">
@@ -917,14 +894,9 @@
     <section id="varfor" class="lg:pt-25 pt-15">
         <div class="container">
             <div class="text-center pb-15 fadeInUp" data-delay="0.2">
-                <h3
-                    class="border border-[#bebebe] py-2.5 px-5 rounded-3xl md:text-base md:leading-5 text-sm inline-block font-normal mb-[5px]">
-                    <i class="ri-arrow-right-up-line text-primary"></i>
-                    Bostadsrättsföreningar
-                </h3>
                 <h2
                     class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
-                    Föreningar väljer oss</h2>
+                    Därför väljer föreningar oss</h2>
             </div>
 
             <div class="grid lg:grid-cols-3 gap-x-6 gap-y-12.5 lg:pt-15 pt-0">
@@ -934,10 +906,6 @@
                         <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
                             <path fill="#36454F" d="M22 6.98V16c0 1.1-.9 2-2 2H6l-4 4V4c0-1.1.9-2 2-2h10.1A5.002 5.002 0 0 0 19 8c1.13 0 2.16-.39 3-1.02zM16 3c0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3-3 1.34-3 3z"/>
                         </svg>
-                        <div
-                            class="overlay-list absolute -right-2 -top-2 bg-primary flex justify-center items-center text-white lg:w-7.5 lg:h-7.5 w-6 h-6 rounded-full">
-                            <span class="lg:font-medium text-sm">01</span>
-                        </div>
                     </div>
                     <div class="lg:pt-6 pt-5">
                         <div class="title-box">
@@ -951,18 +919,11 @@
                     </div>
                 </div>
                 <div class="flex flex-col items-center text-center relative sm:px-[25px] px-0">
-                    <div class="absolute top-0 left-[-110px] opacity-50 lg:block hidden">
-                        <img src="/assets/images/shapes/workprocess-shape2.png" alt="">
-                    </div>
                     <div
                         class="lg:w-[65px] lg:h-[65px] w-12.5 h-12.5 rounded-full flex items-center justify-center border border-[rgba(0,0,0,.08)] relative">
                         <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
                             <path fill="#36454F" d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3zm-2 20h-4v-1h4v1zm3.25-3H6.75V4h10.5v14z"/>
                         </svg>
-                        <div
-                            class="overlay-list absolute -right-2 -top-2 bg-primary flex justify-center items-center text-white lg:w-7.5 lg:h-7.5 w-6 h-6 rounded-full">
-                            <span class="lg:font-medium text-sm">02</span>
-                        </div>
                     </div>
                     <div class="lg:pt-6 pt-5">
                         <div class="title-box">
@@ -977,18 +938,11 @@
                     </div>
                 </div>
                 <div class="flex flex-col items-center text-center relative sm:px-[25px] px-0">
-                    <div class="absolute top-0 left-[-110px] opacity-50 lg:block hidden">
-                        <img src="/assets/images/shapes/workprocess-shape1.png" alt="">
-                    </div>
                     <div
                         class="lg:w-[65px] lg:h-[65px] w-12.5 h-12.5 rounded-full flex items-center justify-center border border-[rgba(0,0,0,.08)] relative">
                         <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
                             <path fill="#36454F" d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
                         </svg>
-                        <div
-                            class="overlay-list absolute -right-2 -top-2 bg-primary flex justify-center items-center text-white lg:w-7.5 lg:h-7.5 w-6 h-6 rounded-full">
-                            <span class="lg:font-medium text-sm">03</span>
-                        </div>
                     </div>
                     <div class="lg:pt-6 pt-5">
                         <div class="title-box">
@@ -1010,16 +964,10 @@
     <section id="engagemang" class="lg:pt-25 pt-15">
         <div class="container">
             <div class="section-intro text-center pb-15 fadeInUp" data-delay="0.2">
-                <h3
-                    class="border border-[#bebebe] py-2.5 px-5 rounded-3xl md:text-base md:leading-5 text-sm inline-block font-normal mb-[5px]">
-                    <i class="ri-arrow-right-up-line text-primary"></i>
-                    Grannskap
-                </h3>
                 <h2
                     class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
                     Ökat engagemang.<br>I ditt grannskap</h2>
-                <p class="md:text-xl md:leading-7 text-base mt-2">Att ta första steget till en granne känns ovant.<br>
-                    När initiativet redan är taget blir det enklare att mötas i verkligheten.</p>
+                <p class="md:text-xl md:leading-7 text-base mt-2">Att ta första steget till en granne kan kännas ovant. I appen kan man be om hjälp, skapa aktiviteter och dela med sig i en trygg kontext. När initiativet redan är taget blir det enklare att mötas i verkligheten.</p>
             </div>
 
             <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
@@ -1096,11 +1044,6 @@
         <div class="container">
             <div class="lg:w-[75%] w-full mx-auto">
                 <div class="text-center pb-15 fadeInUp" data-delay="0.2">
-                    <h3
-                        class="border border-[#bebebe] py-2.5 px-5 rounded-3xl md:text-base md:leading-5 text-sm inline-block font-normal mb-[5px]">
-                        <i class="ri-arrow-right-up-line text-primary"></i>
-                        Pris
-                    </h3>
                     <h2
                         class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
                         Låg avgift för föreningen</h2>
@@ -1126,165 +1069,23 @@
         </div>
     </section>
 
-    <section id="faq" class="lg:pt-25 pt-15">
+    <section id="boka-demo" class="lg:pt-25 pt-15">
         <div class="container">
-            <div class="text-center pb-15 fadeInUp" data-delay="0.2">
-                <h3
-                    class="border border-[#bebebe] py-2.5 px-5 rounded-3xl md:text-base md:leading-5 text-sm inline-block font-normal mb-[5px]">
-                    <i class="ri-arrow-right-up-line text-primary"></i>
-                    FAQ
-                </h3>
-                <h2
-                    class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
-                    Vanliga frågor</h2>
-            </div>
-
-            <div class="grid lg:grid-cols-[33.33%_auto] md:grid-cols-2 grid-cols-1 gap-6">
-                <div class="faq-demo p-12.5 rounded-[15px] text-center">
-                    <img src="/assets/images/grannsam/reibin.png" alt="Reibin Amin, VD och grundare av Grannsam"
-                        class="faq-portrait">
-                    <h2 class="lg:text-[40px] text-3xl lg:leading-[1.2] py-3">Boka en demo</h2>
-                    <p class="mb-4">15 minuter. Vi visar hur appen kan stärka erat grannskap.</p>
+            <div class="demo-panel lg:w-[80%] w-full text-center mx-auto lg:py-[70px] lg:px-20 py-10 px-10 lg:rounded-[40px] rounded-[30px] fadeInUp"
+                data-delay="0.2">
+                <div class="demo-portrait-ring">
+                    <img class="demo-portrait" src="/assets/images/grannsam/team/daniel-akerman.png"
+                        alt="Daniel Åkerman, UX på Grannsam">
+                </div>
+                <h2 class="lg:text-[40px] text-3xl lg:leading-[1.2] py-3">Boka en demo</h2>
+                <p class="md:text-xl md:leading-7 text-base">15 minuter. Vi visar hur appen kan stärka erat
+                    grannskap.</p>
+                <div class="mt-7.5">
                     <a href="/kontakt?intent=demo"
-                        class="btn bg-primary text-white border-primary hover:bg-black-200 hover:text-white">
-                        Boka demo
-                    </a>
-                    <p><a href="mailto:info@grannsam.nu">info@grannsam.nu</a></p>
+                        class="btn demo-btn">Boka
+                        demo</a>
                 </div>
-
-                <div class="flex flex-col gap-[15px] lg:pl-7.5">
-                    <div class="accordion-item">
-                        <h2 data-open="false"
-                            class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            <span class="faq-label">Vad är Grannsam?</span>
-                            <span class="faq-mark" aria-hidden="true"></span>
-                        </h2>
-                        <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
-                            <p class="mb-4">Grannsam är en grannskapsapp för bostadsrättsföreningar. Den förenklar
-                                styrelsens arbete och stärker grannskapet. Boende kan ta del av information, hjälpa
-                                varandra, skapa aktiviteter och kommunicera i en trygg, lokal miljö.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 data-open="false"
-                            class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            <span class="faq-label">Vad är en grannskapsapp?</span>
-                            <span class="faq-mark" aria-hidden="true"></span>
-                        </h2>
-                        <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
-                            <p class="mb-4">En grannskapsapp är en app för grannar i samma område. Grannsam är en
-                                grannskapsapp byggd för bostadsrättsföreningar: slutet grannskap med BankID, information
-                                från styrelsen och ärendehantering — utan annonser och öppna sociala flöden.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 data-open="false"
-                            class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            <span class="faq-label">Vem är Grannsam till för?</span>
-                            <span class="faq-mark" aria-hidden="true"></span>
-                        </h2>
-                        <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
-                            <p class="mb-4">Grannsam riktar sig till bostadsrättsföreningar — styrelser som vill nå ut
-                                och effektivisera ärenden, och grannar som vill känna sitt grannskap bättre. Föreningen
-                                betalar en fast månadsavgift; appen är kostnadsfri för boende.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 data-open="false"
-                            class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            <span class="faq-label">Vad kostar det?</span>
-                            <span class="faq-mark" aria-hidden="true"></span>
-                        </h2>
-                        <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
-                            <p class="mb-4">Föreningen betalar 495 kr per månad exklusive moms. I priset ingår
-                                obegränsat antal användare, fria uppdateringar, kundtjänst och hjälp att komma igång —
-                                inklusive en introduktionsträff med grannar i er förening.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 data-open="false"
-                            class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            <span class="faq-label">Måste alla grannar använda appen?</span>
-                            <span class="faq-mark" aria-hidden="true"></span>
-                        </h2>
-                        <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
-                            <p class="mb-4">Nej. Ju fler som ansluter desto levande blir grannskapet, men styrelsen kan
-                                redan från start använda Grannsam för information och ärendehantering. Många föreningar
-                                börjar med styrelsen och låter intresset växa organiskt.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 data-open="false"
-                            class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            <span class="faq-label">Hur verifieras användare?</span>
-                            <span class="faq-mark" aria-hidden="true"></span>
-                        </h2>
-                        <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
-                            <p class="mb-4">Grannar verifieras med BankID så att ni vet att ni kommunicerar med riktiga
-                                boende i er förening — inte anonyma konton eller personer utanför området.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 data-open="false"
-                            class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            <span class="faq-label">Hur skiljer sig Grannsam från Facebook eller WhatsApp-grupper?</span>
-                            <span class="faq-mark" aria-hidden="true"></span>
-                        </h2>
-                        <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
-                            <p class="mb-4">Grannsam är byggt för ert grannskap, inte som ett öppet socialt nätverk. Det
-                                finns inga annonser eller algoritmer som styr flödet. Ni får ett slutet och lokalt
-                                system där styrelsen kan nå ut med viktig information och grannar kan interagera i en
-                                trygg kontext.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 data-open="false"
-                            class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            <span class="faq-label">Kan styrelsen skicka information som verkligen når fram?</span>
-                            <span class="faq-mark" aria-hidden="true"></span>
-                        </h2>
-                        <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
-                            <p class="mb-4">Ja. Med notiser och fästa inlägg kan styrelsen nå grannar direkt i appen på
-                                ett sätt som är svårare att missa än en lapp i hissen eller ett inlägg i en generell
-                                chattgrupp.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 data-open="false"
-                            class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            <span class="faq-label">Hur fungerar ärendehantering?</span>
-                            <span class="faq-mark" aria-hidden="true"></span>
-                        </h2>
-                        <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
-                            <p class="mb-4">Boende kan rapportera ärenden i appen. Styrelsen tilldelar ansvar,
-                                kommunicerar med den som rapporterat och kan vid behov föra ärendet vidare till rätt
-                                aktör — samlat på ett ställe istället för spritt i mejl och meddelanden.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 data-open="false"
-                            class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            <span class="faq-label">Hur kommer vi igång?</span>
-                            <span class="faq-mark" aria-hidden="true"></span>
-                        </h2>
-                        <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
-                            <p class="mb-4">Börja med att boka en demo så visar vi hur Grannsam kan fungera i er
-                                förening. Vi hjälper er sedan att komma igång och kan ordna en introduktionsträff med
-                                grannarna.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 data-open="false"
-                            class="accordion-header flex justify-between items-center lg:text-[22px] text-lg rounded-[10px] border border-[#ccc] py-4 px-5 font-medium cursor-pointer">
-                            <span class="faq-label">Hur kontaktar vi er?</span>
-                            <span class="faq-mark" aria-hidden="true"></span>
-                        </h2>
-                        <div class="accordion-body max-h-0 overflow-hidden opacity-0 invisible px-5 py-0 transition-all duration-500">
-                            <p class="mb-4">Använd kontaktformuläret på webbplatsen, mejla info@grannsam.nu eller ring
-                                +46 73 641 86 99. Vi återkommer vanligtvis inom 1–2 arbetsdagar.</p>
-                        </div>
-                    </div>
-                </div>
+                <p class="text-lg mt-4"><a href="mailto:info@grannsam.nu">info@grannsam.nu</a></p>
             </div>
         </div>
     </section>
@@ -1318,11 +1119,6 @@
     <section id="om-oss" class="lg:pt-25 pt-15">
         <div class="container">
             <div class="text-center pb-15 fadeInUp" data-delay="0.2">
-                <h3
-                    class="border border-[#bebebe] py-2.5 px-5 rounded-3xl md:text-base md:leading-5 text-sm inline-block font-normal mb-[5px]">
-                    <i class="ri-arrow-right-up-line text-primary"></i>
-                    Om oss
-                </h3>
                 <h2
                     class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
                     Teamet bakom Grannsam</h2>
@@ -1355,11 +1151,6 @@
     <section id="appen" class="lg:pt-25 pt-15">
         <div class="container">
             <div class="text-center pb-15 fadeInUp" data-delay="0.2">
-                <h3
-                    class="border border-[#bebebe] py-2.5 px-5 rounded-3xl md:text-base md:leading-5 text-sm inline-block font-normal mb-[5px]">
-                    <i class="ri-arrow-right-up-line text-primary"></i>
-                    Produkt
-                </h3>
                 <h2
                     class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
                     För grannar</h2>
@@ -1463,26 +1254,37 @@
         </section>
 </template>
 
-    <footer>
-        <div class="pt-12.5 pb-10">
-            <div class="container">
-                <div class="flex lg:flex-row flex-col items-center justify-between gap-y-4">
-                    <div class="copyright-text">
-                        <p>© 2026 Grannsam AB. För ett starkare grannskap.</p>
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="site-footer-grid">
+                <div class="site-footer-brand">
+                    <p class="site-footer-name">Grannsam AB</p>
+                    <p class="site-footer-slogan">För ett starkare grannskap</p>
+                    <div class="site-footer-contact">
+                        <a href="mailto:info@grannsam.nu">info@grannsam.nu</a>
+                        <a href="tel:+46736418699">+46 73 641 86 99</a>
                     </div>
-                    <ul class="flex flex-wrap justify-center gap-x-7.5 gap-y-3">
+                </div>
+                <nav class="site-footer-nav" aria-label="Produkt">
+                    <p>Produkt</p>
+                    <ul>
                         <li><a href="#engagemang">Grannskap</a></li>
                         <li><a href="/appen">Appen</a></li>
                         <li><a href="#pris">Pris &amp; Licens</a></li>
+                    </ul>
+                </nav>
+                <nav class="site-footer-nav" aria-label="Företag">
+                    <p>Företag</p>
+                    <ul>
                         <li><a href="/om-oss">Om oss</a></li>
                         <li><a href="/kontakt">Kontakt</a></li>
-                        <li><a href="#faq">Vanliga frågor (FAQ)</a></li>
+                        <li><a href="/faq">Vanliga frågor (FAQ)</a></li>
                         <li><a href="/datasakerhet">Datasäkerhet</a></li>
+                        <li><a href="/radera-konto">Radera konto</a></li>
                     </ul>
-                </div>
-                <p class="text-center mt-4"><a href="mailto:info@grannsam.nu" class="text-primary">info@grannsam.nu</a>
-                    · <a href="tel:+46736418699" class="text-primary">+46 73 641 86 99</a></p>
+                </nav>
             </div>
+            <p class="site-footer-copy">© 2026 Grannsam AB</p>
         </div>
     </footer>
 
