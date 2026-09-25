@@ -376,6 +376,7 @@
         @media (max-width: 1023px) {
             #menu.max-h-\[300px\] {
                 background-color: var(--background);
+                padding-bottom: 8px;
             }
         }
 
@@ -415,6 +416,28 @@
 
         #menu li {
             border-color: rgba(44, 133, 38, 0.22);
+        }
+
+        @media (max-width: 1023px) {
+            #menu {
+                border: none;
+            }
+
+            #menu a:not(.nav-demo) {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            #menu li:last-child {
+                border-bottom: none;
+                padding: 12px 20px 20px;
+            }
+
+            #menu li:last-child a.nav-demo {
+                margin: 0;
+            }
         }
 
         #header {
