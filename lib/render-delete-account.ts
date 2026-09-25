@@ -99,7 +99,7 @@ export function renderDeleteAccountPage(shell: string) {
     `;
 
   const start = shell.indexOf('<section id="page-intro">');
-  const end = shell.indexOf("<footer>");
+  const end = shell.indexOf("<footer");
   if (start === -1 || end === -1) {
     throw new Error("Datasäkerhet shell is missing the page intro or footer.");
   }
