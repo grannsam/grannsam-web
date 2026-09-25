@@ -131,22 +131,28 @@
         }
 
         #pris .pricing-item {
-            max-width: 640px;
+            max-width: 700px;
             width: 100%;
             margin-inline: auto;
             background: #f5f1e1;
             border: none;
             border-radius: 16px;
-            padding: 40px 48px 36px;
+            padding: 44px 32px 40px;
             text-align: center;
             box-shadow: 0 12px 40px rgba(38, 43, 46, 0.06);
+        }
+
+        @media (min-width: 768px) {
+            #pris .pricing-item {
+                padding: 48px 56px 44px;
+            }
         }
 
         #pris .pricing-price {
             margin: 0;
             color: #1a1a1a;
             font-family: "Bricolage Grotesque", sans-serif;
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 700;
             line-height: 1.2;
         }
@@ -154,28 +160,29 @@
         #pris .pricing-price span {
             margin-left: 8px;
             color: rgba(26, 26, 26, 0.8);
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 400;
         }
 
         #pris .pricing-item ul {
             width: fit-content;
             max-width: 100%;
-            margin: 36px auto 0;
+            margin: 40px auto 0;
             padding: 0;
             list-style: none;
             text-align: left;
             color: #1a1a1a;
-            font-size: 16px;
+            font-size: 18px;
             line-height: 1.45;
         }
 
         #pris .pricing-item li + li {
-            margin-top: 10px;
+            margin-top: 14px;
         }
 
         #pris .pricing-item .btn {
-            margin-top: 40px;
+            margin-top: 44px;
+            font-size: 18px;
         }
 
         html {
