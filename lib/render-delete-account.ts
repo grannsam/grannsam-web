@@ -66,11 +66,6 @@ export function renderDeleteAccountPage(shell: string) {
   const body = `<section id="page-intro">
         <div class="container">
             <div class="text-left fadeInUp" data-delay="0.2">
-                <h3
-                    class="border border-[#bebebe] py-2.5 px-5 rounded-3xl md:text-base md:leading-5 text-sm inline-block font-normal mb-[5px]">
-                    <i class="ri-arrow-right-up-line text-primary"></i>
-                    Radera konto
-                </h3>
                 <h1
                     class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
                     Radera ditt Grannsam-konto</h1>
