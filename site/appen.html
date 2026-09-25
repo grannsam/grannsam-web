@@ -104,18 +104,30 @@
             color: #2c8526;
         }
 
+        #menu {
+            background-color: transparent;
+            border: 1px solid #2c8526;
+        }
+
+        @media (max-width: 1023px) {
+            #menu.max-h-\[300px\] {
+                background-color: var(--background);
+            }
+        }
+
         #menu a,
         #menu a:hover {
-            color: #fff;
+            color: #101010;
         }
 
         #menu a:hover {
-            opacity: 0.75;
+            color: #2c8526;
+            opacity: 1;
         }
 
         #menu a.nav-demo {
-            color: #2c8526;
-            background: #fff;
+            color: #fff;
+            background: #2c8526;
             border-radius: 25px;
             opacity: 1;
             margin: 6px 8px;
@@ -138,7 +150,7 @@
         }
 
         #menu li {
-            border-color: rgba(255, 255, 255, 0.22);
+            border-color: rgba(44, 133, 38, 0.22);
         }
 
         #header {
@@ -197,7 +209,7 @@
                     <i class="ri-menu-line"></i>
                 </div>
                 <nav id="menu"
-                    class="bg-primary lg:rounded-[50px] lg:static absolute left-0 top-16 z-50 w-full max-h-0 overflow-hidden opacity-0 invisible lg:max-h-full lg:opacity-100 lg:visible lg:w-auto transition-all duration-500 ease-linear">
+                    class="lg:rounded-[50px] lg:static absolute left-0 top-16 z-50 w-full max-h-0 overflow-hidden opacity-0 invisible lg:max-h-full lg:opacity-100 lg:visible lg:w-auto transition-all duration-500 ease-linear">
                     <ul class="flex lg:flex-row flex-col">
                         <li class="border-b border-b-black-100 lg:border-b-0">
                             <a href="/appen"
