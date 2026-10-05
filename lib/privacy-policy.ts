@@ -33,10 +33,11 @@ export const privacyPolicy: LegalDocument = {
         "Profilbild och profiltext — om du lägger upp dem.",
         "Innehåll du skapar — inlägg, kommentarer, aktiviteter, meddelanden, ärenden och dokument, inklusive bilder.",
         "Medlemskapsuppgifter — vilken förening du tillhör, om styrelsen godkänt dig och om du stängts av.",
-        "Teknisk information — en pushtoken för att kunna skicka notiser till din enhet, statistik om hur appen används, och kraschrapporter när något går fel.",
+        "Teknisk information — en pushtoken för att kunna skicka notiser till din enhet, och kraschrapporter när något går fel.",
       ],
       paragraphs: [
         "Vi samlar inte in din position, och vi säljer aldrig personuppgifter vidare.",
+        "Vi mäter också hur appen används — vilka skärmar som öppnas och hur ofta funktioner används — men utan att koppla det till dig. Statistiken innehåller inget konto-id, ingen e-postadress, ingen uppgift om vilken förening du tillhör och inga id:n för det du skapat eller öppnat. Vi ser alltså att en funktion användes, inte vem som använde den, och vi kan inte i efterhand bygga en lista över vad du har gjort i appen.",
       ],
     },
     {
@@ -49,12 +50,13 @@ export const privacyPolicy: LegalDocument = {
           ["Visa ditt innehåll för dina grannar", "profil och innehåll du skapar", "Fullgöra avtalet (art. 6.1 b)"],
           ["Skicka notiser om det som händer i grannskapet", "pushtoken, notisinställningar", "Fullgöra avtalet (art. 6.1 b)"],
           ["Trygghet, moderering och hantering av ärenden", "innehåll, ärenden, avstängningar", "Berättigat intresse (art. 6.1 f) — att grannskapet är tryggt"],
-          ["Förbättra och felsöka appen", "användningsstatistik, kraschrapporter", "Berättigat intresse (art. 6.1 f)"],
+          ["Felsöka appen när något går fel", "kraschrapporter", "Berättigat intresse (art. 6.1 f) — att appen fungerar"],
           ["Svara på support- och GDPR-förfrågningar", "e-post och det du skriver till oss", "Fullgöra avtalet och rättslig förpliktelse (art. 6.1 b och c)"],
         ],
       },
       paragraphs: [
-        TODO("juridisk bedömning: bekräfta rättslig grund per ändamål — särskilt statistik och notiser, där samtycke kan krävas i stället för berättigat intresse, och gör en intresseavvägning för de punkter som vilar på art. 6.1 f"),
+        "Användningsstatistiken finns inte med i tabellen. Den innehåller inga uppgifter som kan knytas till dig, varken direkt eller indirekt, och är därför inte en behandling av personuppgifter.",
+        TODO("juridisk bedömning: gör en intresseavvägning för de två ändamål som vilar på art. 6.1 f (trygghet och moderering, samt kraschrapporter) och bekräfta att notiser ryms i avtalet enligt art. 6.1 b"),
       ],
     },
     {
@@ -88,7 +90,7 @@ export const privacyPolicy: LegalDocument = {
           ["Resend", "utgående e-post", TODO("region — bekräfta med Resend")],
           ["Expo (EAS)", "leverans av pushnotiser och appuppdateringar", "USA"],
           ["Sentry", "kraschrapporter", "EU (Tyskland)"],
-          ["Aptabase", "användningsstatistik", "EU"],
+          ["Aptabase", "anonym användningsstatistik", "EU"],
           ["Vercel", "drift av grannsam.nu", TODO("region — bekräfta i Vercel-projektet")],
           ["Apple och Google", "distribution av appen och transport av pushnotiser", "USA"],
         ],
@@ -106,9 +108,10 @@ export const privacyPolicy: LegalDocument = {
       items: [
         "Kontouppgifter sparas så länge du har ett konto.",
         "När du raderar kontot tas dina personuppgifter bort direkt: namn, e-post, adress, personnummerhash, profilbild och inloggning. Inlägg, aktiviteter och meddelanden du skrivit ligger kvar för dina grannar men visas som ”Borttagen användare” och går inte att koppla till dig.",
-        `Säkerhetskopior: ${TODO("hur länge säkerhetskopior sparas hos Supabase")}`,
-        `E-post till supporten: ${TODO("hur länge supportmejl sparas")}`,
-        `Loggar och kraschrapporter: ${TODO("lagringstid hos Sentry och Aptabase")}`,
+        "Säkerhetskopior: databasen kopieras dagligen och kopiorna sparas i sju dagar. Det betyder att uppgifter du raderat kan finnas kvar i en säkerhetskopia i upp till en vecka innan den skrivs över. Kopiorna används bara för att återställa tjänsten efter ett driftfel, aldrig för att läsa upp enskilda uppgifter.",
+        `E-post till supporten: ${TODO("hur länge supportmejl sparas i info@-brevlådan")}`,
+        `Kraschrapporter: ${TODO("lagringstid hos Sentry — står i projektets inställningar")}`,
+        "Användningsstatistik: sparas hos Aptabase utan koppling till dig, och kan därför inte raderas per person — det finns inget att söka på.",
       ],
     },
     {
@@ -128,8 +131,9 @@ export const privacyPolicy: LegalDocument = {
     {
       title: "Kakor och statistik på grannsam.nu",
       paragraphs: [
-        "På webbplatsen mäter vi besök med Vercel Analytics och Aptabase. Båda är utformade för att mäta utan att spåra enskilda besökare mellan webbplatser, och vi använder inga kakor för marknadsföring.",
-        TODO("bekräfta att ingen av tjänsterna sätter kakor på grannsam.nu, och komplettera annars med information och samtycke enligt lagen om elektronisk kommunikation"),
+        "Vi använder inga kakor på grannsam.nu — varken för marknadsföring eller för statistik. Besök mäts med Vercel Analytics och Aptabase, och ingen av dem sätter kakor eller sparar något i din webbläsare. Därför finns här ingen ruta om kakor att klicka bort.",
+        "Det vi mäter är vilka sidor som besöks och vilka knappar som används, till exempel att någon öppnade en fråga i FAQ:n eller skickade kontaktformuläret. Mätningarna innehåller inget om vem du är.",
+        "I appen lagrar statistikverktyget ingenting på din telefon. Varje mätning märks med ett tillfälligt sessionsnummer som skapas i appens minne och försvinner när appen stängs eller efter en timmes inaktivitet, och inga kakor skickas med. Därför behöver vi inte ditt samtycke för att mäta, och det finns inget att stänga av som skulle följa med till nästa gång du öppnar appen.",
       ],
     },
     {
