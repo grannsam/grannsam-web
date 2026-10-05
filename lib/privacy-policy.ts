@@ -111,6 +111,9 @@ export const privacyPolicy: LegalDocument = {
         "När du raderar kontot tas dina personuppgifter bort direkt: namn, e-post, adress, personnummerhash, profilbild och inloggning. Inlägg, aktiviteter och meddelanden du skrivit ligger kvar för dina grannar men visas som ”Borttagen användare” och går inte att koppla till dig.",
         "Säkerhetskopior: databasen kopieras dagligen och kopiorna sparas i sju dagar. Det betyder att uppgifter du raderat kan finnas kvar i en säkerhetskopia i upp till en vecka innan den skrivs över. Kopiorna används bara för att återställa tjänsten efter ett driftfel, aldrig för att läsa upp enskilda uppgifter.",
         `E-post till supporten: ${TODO("hur länge supportmejl sparas i info@-brevlådan")}`,
+        // 30 days is the retention of Sentry's free Developer plan. It is a property of the
+        // plan, not a setting, so upgrading to Team or Business silently changes it to 90 and
+        // makes this line wrong. Whoever changes the Sentry plan updates this sentence.
         "Kraschrapporter: sparas i 30 dagar hos Sentry och raderas därefter automatiskt.",
         `Användningsstatistik: ${TODO("lagringstid hos Aptabase, och om de kan radera statistik för ett enskilt konto")}`,
       ],
