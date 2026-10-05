@@ -34,10 +34,10 @@ export const privacyPolicy: LegalDocument = {
         "Innehåll du skapar — inlägg, kommentarer, aktiviteter, meddelanden, ärenden och dokument, inklusive bilder.",
         "Medlemskapsuppgifter — vilken förening du tillhör, om styrelsen godkänt dig och om du stängts av.",
         "Teknisk information — en pushtoken för att kunna skicka notiser till din enhet, och kraschrapporter när något går fel.",
+        "Användningsstatistik — men bara om du har sagt ja till det. Se nedan.",
       ],
       paragraphs: [
         "Vi samlar inte in din position, och vi säljer aldrig personuppgifter vidare.",
-        "Vi mäter också hur appen används — vilka skärmar som öppnas och hur ofta funktioner används — men utan att koppla det till dig. Statistiken innehåller inget konto-id, ingen e-postadress, ingen uppgift om vilken förening du tillhör och inga id:n för det du skapat eller öppnat. Vi ser alltså att en funktion användes, inte vem som använde den, och vi kan inte i efterhand bygga en lista över vad du har gjort i appen.",
       ],
     },
     {
@@ -51,11 +51,11 @@ export const privacyPolicy: LegalDocument = {
           ["Skicka notiser om det som händer i grannskapet", "pushtoken, notisinställningar", "Fullgöra avtalet (art. 6.1 b)"],
           ["Trygghet, moderering och hantering av ärenden", "innehåll, ärenden, avstängningar", "Berättigat intresse (art. 6.1 f) — att grannskapet är tryggt"],
           ["Felsöka appen när något går fel", "kraschrapporter", "Berättigat intresse (art. 6.1 f) — att appen fungerar"],
+          ["Förstå hur appen används, för att göra den bättre", "användningsstatistik kopplad till ditt konto", "Ditt samtycke (art. 6.1 a) — frivilligt, och du kan ta tillbaka det när som helst"],
           ["Svara på support- och GDPR-förfrågningar", "e-post och det du skriver till oss", "Fullgöra avtalet och rättslig förpliktelse (art. 6.1 b och c)"],
         ],
       },
       paragraphs: [
-        "Användningsstatistiken finns inte med i tabellen. Den innehåller inga uppgifter som kan knytas till dig, varken direkt eller indirekt, och är därför inte en behandling av personuppgifter.",
         TODO("juridisk bedömning: gör en intresseavvägning för de två ändamål som vilar på art. 6.1 f (trygghet och moderering, samt kraschrapporter) och bekräfta att notiser ryms i avtalet enligt art. 6.1 b"),
       ],
     },
@@ -90,7 +90,7 @@ export const privacyPolicy: LegalDocument = {
           ["Resend", "utgående e-post", TODO("region — bekräfta med Resend")],
           ["Expo (EAS)", "leverans av pushnotiser och appuppdateringar", "USA"],
           ["Sentry", "kraschrapporter", "EU (Tyskland)"],
-          ["Aptabase", "anonym användningsstatistik", "EU"],
+          ["Aptabase", "användningsstatistik (om du samtyckt)", "EU"],
           ["Vercel", "drift av grannsam.nu", TODO("region — bekräfta i Vercel-projektet")],
           ["Apple och Google", "distribution av appen och transport av pushnotiser", "USA"],
         ],
@@ -111,7 +111,7 @@ export const privacyPolicy: LegalDocument = {
         "Säkerhetskopior: databasen kopieras dagligen och kopiorna sparas i sju dagar. Det betyder att uppgifter du raderat kan finnas kvar i en säkerhetskopia i upp till en vecka innan den skrivs över. Kopiorna används bara för att återställa tjänsten efter ett driftfel, aldrig för att läsa upp enskilda uppgifter.",
         `E-post till supporten: ${TODO("hur länge supportmejl sparas i info@-brevlådan")}`,
         `Kraschrapporter: ${TODO("lagringstid hos Sentry — står i projektets inställningar")}`,
-        "Användningsstatistik: sparas hos Aptabase utan koppling till dig, och kan därför inte raderas per person — det finns inget att söka på.",
+        `Användningsstatistik: ${TODO("lagringstid hos Aptabase, och om de kan radera statistik för ett enskilt konto")}`,
       ],
     },
     {
@@ -119,6 +119,7 @@ export const privacyPolicy: LegalDocument = {
       paragraphs: [
         "Du har rätt att begära ett utdrag över de personuppgifter vi behandlar om dig, att få felaktiga uppgifter rättade, att få uppgifter raderade, att invända mot eller begära begränsning av viss behandling, och att få ut uppgifter du lämnat i ett maskinläsbart format (dataportabilitet).",
         `Du begär utdrag direkt i appen under Kontoinställningar, eller genom att mejla ${CONTACT_EMAIL}. Vi svarar inom en månad.`,
+        "Har du sagt ja till användningsstatistik kan du ta tillbaka det när som helst under Kontoinställningar i appen, utan att ange något skäl och utan att något annat förändras. Vi slutar då mäta. Det vi redan har samlat in blir inte olagligt av att du ändrar dig, men vi fortsätter inte.",
         "Om du tycker att vi behandlar dina personuppgifter felaktigt har du rätt att klaga till Integritetsskyddsmyndigheten (IMY), imy.se.",
       ],
     },
@@ -132,8 +133,9 @@ export const privacyPolicy: LegalDocument = {
       title: "Kakor och statistik på grannsam.nu",
       paragraphs: [
         "Vi använder inga kakor på grannsam.nu — varken för marknadsföring eller för statistik. Besök mäts med Vercel Analytics och Aptabase, och ingen av dem sätter kakor eller sparar något i din webbläsare. Därför finns här ingen ruta om kakor att klicka bort.",
-        "Det vi mäter är vilka sidor som besöks och vilka knappar som används, till exempel att någon öppnade en fråga i FAQ:n eller skickade kontaktformuläret. Mätningarna innehåller inget om vem du är.",
-        "I appen lagrar statistikverktyget ingenting på din telefon. Varje mätning märks med ett tillfälligt sessionsnummer som skapas i appens minne och försvinner när appen stängs eller efter en timmes inaktivitet, och inga kakor skickas med. Därför behöver vi inte ditt samtycke för att mäta, och det finns inget att stänga av som skulle följa med till nästa gång du öppnar appen.",
+        "Det vi mäter på webbplatsen är vilka sidor som besöks och vilka knappar som används, till exempel att någon öppnade en fråga i FAQ:n eller skickade kontaktformuläret. De mätningarna innehåller inget om vem du är — du är inte inloggad här.",
+        "I appen är det annorlunda, och där frågar vi först. Statistiken i appen är kopplad till ditt konto, så den samlas bara in om du har sagt ja. Du väljer när du registrerar dig, och du kan ändra dig när som helst under Kontoinställningar — säger du nej, eller tar tillbaka ditt ja, slutar vi mäta. Det påverkar inget annat i appen.",
+        "Själva mätverktyget lagrar ingenting på din telefon: varje mätning märks med ett tillfälligt sessionsnummer som skapas i appens minne och försvinner när appen stängs eller efter en timmes inaktivitet, och inga kakor skickas med. Det är ditt konto som avgör om vi mäter, inte något som ligger kvar på enheten.",
       ],
     },
     {
