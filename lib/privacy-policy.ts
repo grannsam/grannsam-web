@@ -34,7 +34,6 @@ export const privacyPolicy: LegalDocument = {
         "Innehåll du skapar — inlägg, kommentarer, aktiviteter, meddelanden, ärenden och dokument, inklusive bilder.",
         "Medlemskapsuppgifter — vilken förening du tillhör, om styrelsen godkänt dig och om du stängts av.",
         "Teknisk information — en pushtoken för att kunna skicka notiser till din enhet, och kraschrapporter när något går fel.",
-        "Användningsstatistik — men bara om du har sagt ja till det, och aldrig kopplad till dig personligen. Se nedan.",
       ],
       paragraphs: [
         "Vi samlar inte in din position, och vi säljer aldrig personuppgifter vidare.",
@@ -52,11 +51,11 @@ export const privacyPolicy: LegalDocument = {
           ["Skicka notiser om det som händer i grannskapet", "pushtoken, notisinställningar", "Fullgöra avtalet (art. 6.1 b)"],
           ["Trygghet, moderering och hantering av ärenden", "innehåll, ärenden, avstängningar", "Berättigat intresse (art. 6.1 f) — att grannskapet är tryggt"],
           ["Felsöka appen när något går fel", "kraschrapporter", "Berättigat intresse (art. 6.1 f) — att appen fungerar"],
-          ["Förstå hur appen används, för att göra den bättre", "användningsstatistik: vilken förening och om du sitter i styrelsen, aldrig vem du är", "Ditt samtycke (art. 6.1 a) — frivilligt, och du kan ta tillbaka det när som helst"],
           ["Svara på support- och GDPR-förfrågningar", "e-post och det du skriver till oss", "Fullgöra avtalet och rättslig förpliktelse (art. 6.1 b och c)"],
         ],
       },
       paragraphs: [
+        "Användningsstatistik står inte i tabellen. Vi mäter hur appen används — vilka skärmar som öppnas, hur ofta funktioner används — men mätningarna säger ingenting om vem du är. De innehåller inget konto-id, ingen e-postadress, ingen uppgift om vilken förening du tillhör och inga id:n för det du skapat eller läst. Det enda som följer med är om den som använde funktionen sitter i styrelsen eller är boende, eftersom styrelsen och de boende använder olika delar av appen. Eftersom ingen mätning går att knyta till en person är det inte personuppgifter, och då behövs varken rättslig grund eller samtycke.",
         TODO("juridisk granskning: tabellens struktur är bekräftad. Intresseavvägningen för de två ändamål som vilar på art. 6.1 f finns nu som utkast i grannsam-app, docs/legal/intresseavvagning.md, och behöver granskas och beslutas — den innehåller fyra öppna frågor, bland annat om frivilliga notiser ska flyttas från avtal till samtycke. Avgör också om bedömningen ska sammanfattas här i policyn eller bara finnas dokumenterad"),
       ],
     },
@@ -91,7 +90,7 @@ export const privacyPolicy: LegalDocument = {
           ["Resend", "utgående e-post", "EU/EES"],
           ["Expo (EAS)", "leverans av pushnotiser och appuppdateringar", "USA"],
           ["Sentry", "kraschrapporter", "EU (Tyskland)"],
-          ["Aptabase", "användningsstatistik utan konto-id (om du samtyckt)", "EU"],
+          ["Aptabase", "anonym användningsstatistik", "EU"],
           ["Vercel", "drift av grannsam.nu", "EU"],
           ["Apple och Google", "distribution av appen och transport av pushnotiser", "USA"],
         ],
@@ -115,7 +114,7 @@ export const privacyPolicy: LegalDocument = {
         // plan, not a setting, so upgrading to Team or Business silently changes it to 90 and
         // makes this line wrong. Whoever changes the Sentry plan updates this sentence.
         "Kraschrapporter: sparas i 30 dagar hos Sentry och raderas därefter automatiskt.",
-        "Användningsstatistik: sparas hos Aptabase i upp till fem år. Den innehåller inget konto-id, så den går inte att koppla till dig — varken av oss eller av Aptabase, vars egen identifierare bygger på en nyckel som byts varje dygn. Det betyder också att statistik inte kan tas fram eller raderas för en enskild person: det finns inget att söka på. Säger du nej, eller tar tillbaka ditt ja, slutar vi samla in.",
+        "Användningsstatistik: sparas hos Aptabase i upp till fem år. Den går inte att knyta till dig — varken av oss eller av Aptabase, vars egen identifierare bygger på en nyckel som byts varje dygn. Det betyder också att statistik varken kan tas fram eller raderas för en enskild person: det finns inget att söka på.",
       ],
     },
     {
@@ -123,7 +122,6 @@ export const privacyPolicy: LegalDocument = {
       paragraphs: [
         "Du har rätt att begära ett utdrag över de personuppgifter vi behandlar om dig, att få felaktiga uppgifter rättade, att få uppgifter raderade, att invända mot eller begära begränsning av viss behandling, och att få ut uppgifter du lämnat i ett maskinläsbart format (dataportabilitet).",
         `Du begär utdrag direkt i appen under Kontoinställningar, eller genom att mejla ${CONTACT_EMAIL}. Vi svarar inom en månad.`,
-        "Har du sagt ja till användningsstatistik kan du ta tillbaka det när som helst under Kontoinställningar i appen, utan att ange något skäl och utan att något annat förändras. Vi slutar då mäta. Det vi redan samlat in går inte att plocka ut och radera, eftersom det aldrig kopplades till dig — men det går heller inte att hitta eller använda för att säga något om just dig.",
         "Om du tycker att vi behandlar dina personuppgifter felaktigt har du rätt att klaga till Integritetsskyddsmyndigheten (IMY), imy.se.",
       ],
     },
@@ -138,7 +136,7 @@ export const privacyPolicy: LegalDocument = {
       paragraphs: [
         "Vi använder inga kakor på grannsam.nu — varken för marknadsföring eller för statistik. Besök mäts med Vercel Analytics och Aptabase, och ingen av dem sätter kakor eller sparar något i din webbläsare. Därför finns här ingen ruta om kakor att klicka bort.",
         "Det vi mäter på webbplatsen är vilka sidor som besöks och vilka knappar som används, till exempel att någon öppnade en fråga i FAQ:n eller skickade kontaktformuläret. De mätningarna innehåller inget om vem du är — du är inte inloggad här.",
-        "I appen frågar vi först. Statistiken där säger vilken förening mätningen kommer från och om den som använde funktionen sitter i styrelsen, men aldrig vem det var — ditt konto-id följer aldrig med. Vi frågar ändå, eftersom även det säger något om en liten grupp. Du väljer när du registrerar dig, och kan ändra dig när som helst under Kontoinställningar — säger du nej, eller tar tillbaka ditt ja, slutar vi mäta. Det påverkar inget annat i appen.",
+        "I appen gäller samma sak. Statistiken där säger om den som använde en funktion sitter i styrelsen eller är boende, men aldrig vem det var och aldrig vilken förening. Det finns därför ingen inställning för att stänga av den, och inget att samtycka till: det finns inget om dig att samla in.",
         "Själva mätverktyget lagrar ingenting på din telefon: varje mätning märks med ett tillfälligt sessionsnummer som skapas i appens minne och försvinner när appen stängs eller efter en timmes inaktivitet, och inga kakor skickas med. Det är ditt konto som avgör om vi mäter, inte något som ligger kvar på enheten.",
       ],
     },
