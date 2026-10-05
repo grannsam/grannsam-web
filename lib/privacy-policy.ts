@@ -19,8 +19,8 @@ export const privacyPolicy: LegalDocument = {
     {
       title: "Vem ansvarar för dina personuppgifter",
       paragraphs: [
-        `${SITE_LEGAL_NAME}, organisationsnummer ${TODO("organisationsnummer")}, ${TODO("postadress")}, är personuppgiftsansvarig för behandlingen som beskrivs här. Du når oss på ${CONTACT_EMAIL}.`,
-        `Din bostadsrättsförening bestämmer vilka som släpps in i grannskapet och modererar innehållet där. ${TODO("juridisk bedömning: om föreningen är gemensamt personuppgiftsansvarig för innehållet i sitt grannskap, eller om Grannsam är personuppgiftsbiträde åt föreningen — och hur ansvaret fördelas i kundavtalet")}`,
+        `${SITE_LEGAL_NAME}, organisationsnummer 559160-2585, Ursviks Allé 47, ${TODO("postnummer och ort")}, är personuppgiftsansvarig för behandlingen som beskrivs här. Du når oss på ${CONTACT_EMAIL}.`,
+        "Din bostadsrättsförening bestämmer vilka som släpps in i grannskapet och modererar innehållet där. Grannsam och föreningen ansvarar för olika saker. Grannsam är personuppgiftsansvarig för behandlingen i plattformen, alltså den vi själva bestämmer ändamål och medel för. Föreningen är personuppgiftsansvarig för det föreningen bestämmer över, till exempel medlemskapet och vilka boende som släpps in i föreningens grannskap. Vi är alltså inte gemensamt ansvariga för allt som sker i tjänsten.",
       ],
     },
     {
@@ -57,7 +57,7 @@ export const privacyPolicy: LegalDocument = {
         ],
       },
       paragraphs: [
-        TODO("juridisk bedömning: gör en intresseavvägning för de två ändamål som vilar på art. 6.1 f (trygghet och moderering, samt kraschrapporter) och bekräfta att notiser ryms i avtalet enligt art. 6.1 b"),
+        TODO("juridisk bedömning: tabellens struktur är bekräftad, men två saker saknas. (1) En dokumenterad intresseavvägning för de två ändamål som vilar på art. 6.1 f — trygghet och moderering, samt kraschrapporter. (2) Notiser står här under avtalet (art. 6.1 b); bekräfta att det gäller alla notiser, eller dela upp dem i nödvändiga och frivilliga och ange samtycke för de frivilliga"),
       ],
     },
     {
@@ -88,11 +88,11 @@ export const privacyPolicy: LegalDocument = {
         rows: [
           ["Supabase (drift på AWS)", "databas, filer och inloggning", "EU (Irland)"],
           ["Criipto / Idura", "BankID-verifiering", "EU"],
-          ["Resend", "utgående e-post", TODO("region — bekräfta med Resend")],
+          ["Resend", "utgående e-post", "EU/EES"],
           ["Expo (EAS)", "leverans av pushnotiser och appuppdateringar", "USA"],
           ["Sentry", "kraschrapporter", "EU (Tyskland)"],
           ["Aptabase", "användningsstatistik (om du samtyckt)", "EU"],
-          ["Vercel", "drift av grannsam.nu", TODO("region — bekräfta i Vercel-projektet")],
+          ["Vercel", "drift av grannsam.nu", "EU"],
           ["Apple och Google", "distribution av appen och transport av pushnotiser", "USA"],
         ],
       },
@@ -101,7 +101,7 @@ export const privacyPolicy: LegalDocument = {
       title: "Överföring utanför EU och EES",
       paragraphs: [
         "Merparten av uppgifterna stannar inom EU. Pushnotiser och appuppdateringar går via Expo, och appen distribueras av Apple och Google, vilket innebär överföring till USA.",
-        TODO("juridisk bedömning: ange överföringsgrund per leverantör utanför EU/EES — adekvat skyddsnivå (EU–US Data Privacy Framework) eller standardavtalsklausuler, och hänvisa till var kopior kan begäras"),
+        TODO("juridisk bedömning: överföringsgrund för Expo (pushnotiser och appuppdateringar) samt Apple och Google (distribution och transport av notiser) — adekvat skyddsnivå enligt EU–US Data Privacy Framework eller standardavtalsklausuler, och var kopior kan begäras. Obs: det tidigare svaret att inga uppgifter lämnar EU/EES stämmer inte för dessa tre. Vercel är numera inom EU och är inte längre en överföring"),
       ],
     },
     {
@@ -110,7 +110,7 @@ export const privacyPolicy: LegalDocument = {
         "Kontouppgifter sparas så länge du har ett konto.",
         "När du raderar kontot tas dina personuppgifter bort direkt: namn, e-post, adress, personnummerhash, profilbild och inloggning. Inlägg, aktiviteter och meddelanden du skrivit ligger kvar för dina grannar men visas som ”Borttagen användare” och går inte att koppla till dig.",
         "Säkerhetskopior: databasen kopieras dagligen och kopiorna sparas i sju dagar. Det betyder att uppgifter du raderat kan finnas kvar i en säkerhetskopia i upp till en vecka innan den skrivs över. Kopiorna används bara för att återställa tjänsten efter ett driftfel, aldrig för att läsa upp enskilda uppgifter.",
-        `E-post till supporten: ${TODO("hur länge supportmejl sparas i info@-brevlådan")}`,
+        "E-post till supporten: sparas så länge ärendet behöver hanteras och följas upp. När ärendet är avslutat sparas mejlen i högst två år, därefter raderas eller anonymiseras de. Det gäller även frågor om dataskydd. Underlag vi behöver för att kunna visa att vi följt lagen kan sparas längre, men bara så länge det behövs.",
         // 30 days is the retention of Sentry's free Developer plan. It is a property of the
         // plan, not a setting, so upgrading to Team or Business silently changes it to 90 and
         // makes this line wrong. Whoever changes the Sentry plan updates this sentence.

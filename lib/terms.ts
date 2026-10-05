@@ -26,7 +26,7 @@ export const terms: LegalDocument = {
         "Du bor i, eller hör till, en förening som har avtal med Grannsam.",
         "Du legitimerar dig med BankID när du skapar kontot.",
         "Styrelsen i föreningen godkänner dig innan du släpps in i grannskapet.",
-        `Åldersgräns: ${TODO("åldersgräns för konto, och hur den kontrolleras")}`,
+        "Åldersgräns: Grannsam är till för dig som är 13 år eller äldre. Du legitimerar dig med BankID när du skapar kontot, och vi gör ingen separat ålderskontroll utöver det. Får vi veta att någon under 13 år har ett konto kan det komma att raderas.",
       ],
     },
     {
@@ -64,7 +64,8 @@ export const terms: LegalDocument = {
         "Du kan anmäla innehåll eller en granne som bryter mot villkoren.",
         "Styrelsen i din förening godkänner nya medlemmar och kan stänga av någon från grannskapet.",
         "Vi kan ta bort innehåll som bryter mot villkoren, och stänga av konton vid allvarliga eller upprepade överträdelser.",
-        TODO("beskriv hur en avstängning kan överklagas och till vem"),
+        "Blir du avstängd från din förenings grannskap kan du kontakta styrelsen i föreningen och be dem ompröva beslutet. Det är styrelsen som bestämmer vilka boende som får tillgång till grannskapet och som modererar innehållet där.",
+        `Beror avstängningen på ett beslut av Grannsam kan du i stället höra av dig till oss på ${CONTACT_EMAIL} och få beslutet prövat.`,
       ],
     },
     {
@@ -78,7 +79,9 @@ export const terms: LegalDocument = {
       title: "Tillgänglighet och ändringar i appen",
       paragraphs: [
         "Vi utvecklar Grannsam löpande och uppdaterar appen automatiskt. Funktioner kan tillkomma, ändras eller tas bort.",
-        `Vi strävar efter att tjänsten ska vara tillgänglig dygnet runt, men kan inte garantera det: driftstörningar, underhåll och fel hos våra leverantörer kan förekomma. ${TODO("eventuella åtaganden om tillgänglighet gentemot föreningen regleras i kundavtalet — hänvisa dit om sådana finns")}`,
+        "Vi strävar efter att tjänsten ska vara tillgänglig dygnet runt, men vi garanterar inte någon viss tillgänglighet eller servicenivå, om vi inte har avtalat något annat skriftligen med din förening.",
+        "Tjänsten kan vara helt eller delvis otillgänglig ibland, till exempel vid planerat underhåll, tekniska fel, säkerhetsåtgärder, överbelastning eller driftstörningar hos våra leverantörer. Vi lägger planerat underhåll så att det stör så lite som möjligt när vi kan påverka det.",
+        "Tillfälliga driftstörningar innebär i sig inte att vi brutit mot avtalet eller att föreningen har rätt till ersättning, om inte annat följer av tvingande lag eller vi avtalat något annat skriftligen.",
       ],
     },
     {
@@ -90,7 +93,8 @@ export const terms: LegalDocument = {
     {
       title: "Ansvar",
       paragraphs: [
-        TODO("ansvarsbegränsning — utformas av jurist. Tänk på att begränsningar mot konsument är starkt begränsade av tvingande svensk konsumenträtt"),
+        "Grannsam ansvarar inte för indirekta skador, följdskador eller förluster som uppstår av att tjänsten använts, av tillfälliga driftstörningar eller av att data gått förlorad, i den utsträckning en sådan begränsning är tillåten enligt lag.",
+        "Begränsningen inskränker inte dina rättigheter enligt tvingande lag. Är du konsument gäller konsumentlagstiftningens regler framför det som står här. Särskilda ansvars- och beloppsbegränsningar gentemot föreningen regleras i kundavtalet.",
         "Grannsam ansvarar inte för innehåll som boende publicerar, men tar bort sådant som bryter mot villkoren när vi får kännedom om det.",
       ],
     },
@@ -104,7 +108,8 @@ export const terms: LegalDocument = {
       title: "Tillämplig lag och tvist",
       paragraphs: [
         "Svensk lag gäller för dessa villkor.",
-        `Är du konsument och vi inte kommer överens kan du vända dig till Allmänna reklamationsnämnden (arn.se) eller till EU:s plattform för tvistlösning online. ${TODO("behörig domstol — bekräftas av jurist")}`,
+        "Är du konsument och vi inte kommer överens kan du vända dig till Allmänna reklamationsnämnden (arn.se) eller till EU:s plattform för tvistlösning online. För dig som konsument gäller de tvingande regler om behörig domstol och tvistlösning som följer av lag.",
+        "Tvist mellan Grannsam och en förening avgörs av svensk allmän domstol, med Grannsams hemort som första instans, om inte annat följer av tvingande lag.",
       ],
     },
     {
