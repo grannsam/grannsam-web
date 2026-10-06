@@ -15,6 +15,7 @@ Search, social previews, and on-page headings are wired through a few shared fil
 | FAQ questions (homepage + FAQ schema) | Homepage markup in `site/grannsam.html`, and `lib/faq.ts` for the FAQ schema |
 | Datasäkerhet copy | `site/datasakerhet.html` |
 | Account deletion copy | `lib/delete-account.ts` |
+| Integritetspolicy and användarvillkor | `lib/privacy-policy.ts` and `lib/terms.ts`, rendered by `lib/render-legal.ts` |
 | Crawl files | `app/robots.ts`, `app/sitemap.ts` (sitemap reads `PUBLIC_PATHS`) |
 | Host aliases → www | `middleware.ts` |
 | Old-path redirects | `next.config.ts` |

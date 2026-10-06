@@ -17,6 +17,8 @@ var PAGE_EVENTS = {
     "/kontakt": "viewed_contact",
     "/faq": "viewed_faq",
     "/datasakerhet": "viewed_privacy",
+    "/integritet": "viewed_privacy_policy",
+    "/anvandarvillkor": "viewed_terms",
     "/radera-konto": "viewed_delete_account"
 };
 
@@ -91,6 +93,9 @@ function ctaFromLink(link) {
     if (link.closest(".delete-note") && href.indexOf("/kontakt") !== -1 && !demo) {
         return { cta: "contact", location: "delete_account" };
     }
+    if (link.closest(".legal-note") && href.indexOf("/kontakt") !== -1 && !demo) {
+        return { cta: "contact", location: pagePath().replace(/^\//, "") };
+    }
     if (link.closest(".security-note") && href.indexOf("/kontakt") !== -1 && !demo) {
         return { cta: "contact", location: "datasakerhet" };
     }
@@ -104,6 +109,7 @@ function outboundFromLink(link) {
     if (link.closest("footer")) return { channel: channel, location: "footer" };
     if (link.closest(".contact-aside")) return { channel: channel, location: "contact" };
     if (link.closest(".delete-note")) return { channel: channel, location: "delete_account" };
+    if (link.closest(".legal-note")) return { channel: channel, location: pagePath().replace(/^\//, "") };
     if (link.closest(".security-note")) return { channel: channel, location: "datasakerhet" };
     return null;
 }
