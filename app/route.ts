@@ -1,8 +1,8 @@
 import { defaultDescription, defaultTitle } from "@/lib/seo";
 import {
   designResponse,
-  homeJsonLd,
   readDesignHtml,
+  sharedJsonLd,
   withDesignHead,
 } from "@/lib/design-page";
 
@@ -13,7 +13,7 @@ export async function GET() {
       title: defaultTitle,
       description: defaultDescription,
       path: "/",
-      jsonLd: homeJsonLd(),
+      jsonLd: sharedJsonLd(),
     }),
   );
 }

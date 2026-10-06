@@ -1,4 +1,4 @@
-window.onload = function () {
+(function () {
 
     const menuToggle = document.getElementById("menu-toggle")
     const menu = document.getElementById("menu")
@@ -92,44 +92,30 @@ window.onload = function () {
         document.querySelector(".logo-slider").appendChild(logoCopy);
     }
 
-    const svg = document.getElementById("preloaderSvg");
-    if (svg && !location.hash) {
-        const tl = gsap.timeline();
-        const curve = "M0 502S175 272 500 272s500 230 500 230V0H0Z";
-        const flat = "M0 2S175 1 500 1s500 1 500 1V0H0Z";
-
-        tl.to(".preloader-heading .load-text , .preloader-heading .cont", {
-            delay: 1.5,
-            y: -100,
-            opacity: 0,
-        });
-        tl.to(svg, {
-            duration: 0.5,
-            attr: { d: curve },
-            ease: "power2.easeIn",
-        }).to(svg, {
-            duration: 0.5,
-            attr: { d: flat },
-            ease: "power2.easeOut",
-        });
-        tl.to(".preloader", {
-            y: -1500,
-        });
-        tl.to(".preloader", {
-            zIndex: -1,
-            display: "none",
-        });
-    }
-
     if (typeof ScrollTrigger !== "undefined") {
         gsap.registerPlugin(ScrollTrigger)
+        window.addEventListener("load", () => ScrollTrigger.refresh())
     }
 
     const fadeInUps = document.querySelectorAll(".fadeInUp")
     const triggeredCards = new Map()
+    const inView = (el) => {
+        const rect = el.getBoundingClientRect()
+        return rect.top < window.innerHeight && rect.bottom > 0
+    }
+    const visibleOnLoad = [
+        ...document.querySelectorAll(".fadeInUp:not([data-trigger]), .fadeInDown, .fadeInLeft"),
+    ].filter(inView)
+    const baseDelay = visibleOnLoad.reduce((min, el) => {
+        return Math.min(min, parseFloat(el.dataset.delay) || 0)
+    }, Infinity)
+    const entranceDelay = (el, delay) => {
+        if (!Number.isFinite(baseDelay) || el.dataset.trigger || !inView(el)) return delay
+        return Math.max(0, delay - baseDelay)
+    }
 
     fadeInUps.forEach((fadeInUp) => {
-        const delay = parseFloat(fadeInUp.dataset.delay) || 0;
+        const delay = entranceDelay(fadeInUp, parseFloat(fadeInUp.dataset.delay) || 0);
 
         gsap.set(fadeInUp, {
             y: 70
@@ -166,8 +152,23 @@ window.onload = function () {
         })
     })
 
+    document.querySelectorAll(".fadeInDown").forEach((fadeInDown) => {
+        const delay = entranceDelay(fadeInDown, parseFloat(fadeInDown.dataset.delay) || 0);
+
+        gsap.set(fadeInDown, {
+            y: -70
+        });
+
+        gsap.to(fadeInDown, {
+            scrollTrigger: fadeInDown,
+            y: 0,
+            delay: delay,
+            duration: 2
+        })
+    })
+
     document.querySelectorAll(".fadeInLeft").forEach((fadeInLeft) => {
-        const delay = parseFloat(fadeInLeft.dataset.delay) || 0;
+        const delay = entranceDelay(fadeInLeft, parseFloat(fadeInLeft.dataset.delay) || 0);
 
         gsap.set(fadeInLeft, {
             x: -80
@@ -181,7 +182,7 @@ window.onload = function () {
         })
     })
 
-}
+})()
 
 $(document).ready(function () {
     if ($(".testimonials-wrap").length) {
