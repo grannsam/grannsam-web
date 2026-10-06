@@ -178,7 +178,11 @@ export function renderLegalPage(
     `;
 
   const start = shell.indexOf('<section id="page-intro">');
-  const end = shell.indexOf("<footer>");
+  // "<footer" and not "<footer>": the shell's footer carries a class now
+  // (<footer class="site-footer">), and matching the bare tag made this throw for every legal page
+  // while the rest of the site rendered fine. render-delete-account.ts already matched the prefix,
+  // which is why Radera konto kept working and these two did not.
+  const end = shell.indexOf("<footer");
   if (start === -1 || end === -1) {
     throw new Error("Datasäkerhet shell is missing the page intro or footer.");
   }
