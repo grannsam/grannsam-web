@@ -62,6 +62,7 @@ export const deleteAccountSections: DeleteAccountSection[] = [
     title: "Vad som finns kvar",
     paragraphs: [
       "Inlägg, aktiviteter, kommentarer och meddelanden du har skrivit ligger kvar för dina grannar, så att deras svar och samtal inte försvinner. De visas som skrivna av \"Borttagen användare\" och går inte att koppla till dig.",
+      "Databasen säkerhetskopieras dagligen och kopiorna sparas i sju dagar. Dina uppgifter kan därför finnas kvar i en säkerhetskopia i upp till en vecka efter raderingen, innan kopian skrivs över. Kopiorna används bara för att återställa tjänsten efter ett driftfel.",
       "Radering av ditt konto påverkar inte automatiskt föreningens licens eller andra medlemmars konton.",
     ],
   },
