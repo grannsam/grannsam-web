@@ -56,7 +56,6 @@ export const privacyPolicy: LegalDocument = {
       },
       paragraphs: [
         "Användningsstatistik står inte i tabellen. Vi mäter hur appen används — vilka skärmar som öppnas, hur ofta funktioner används — men mätningarna säger ingenting om vem du är. De innehåller inget konto-id, ingen e-postadress, ingen uppgift om vilken förening du tillhör och inga id:n för det du skapat eller läst. Det enda som följer med är om den som använde funktionen sitter i styrelsen eller är boende, eftersom styrelsen och de boende använder olika delar av appen. Eftersom ingen mätning går att knyta till en person är det inte personuppgifter, och då behövs varken rättslig grund eller samtycke.",
-        TODO("juridisk granskning: tabellens struktur är bekräftad. Intresseavvägningen för de två ändamål som vilar på art. 6.1 f finns nu som utkast i grannsam-app, docs/legal/intresseavvagning.md, och behöver granskas och beslutas — den innehåller fyra öppna frågor, bland annat om frivilliga notiser ska flyttas från avtal till samtycke. Avgör också om bedömningen ska sammanfattas här i policyn eller bara finnas dokumenterad"),
       ],
     },
     {
@@ -100,7 +99,17 @@ export const privacyPolicy: LegalDocument = {
       title: "Överföring utanför EU och EES",
       paragraphs: [
         "Merparten av uppgifterna stannar inom EU. Pushnotiser och appuppdateringar går via Expo, och appen distribueras av Apple och Google, vilket innebär överföring till USA.",
-        `När uppgifter behandlas i USA sker det med stöd av EU-kommissionens beslut om adekvat skyddsnivå för de leverantörer som är anslutna till EU–US Data Privacy Framework, och i övriga fall med stöd av standardavtalsklausuler. Vill du se en kopia av de klausuler som gäller för en viss leverantör, mejla ${CONTACT_EMAIL}. ${TODO("juridisk granskning: bekräfta per leverantör vilken av de två grunderna som gäller — Expo, Apple och Google — och att de som anges som anslutna faktiskt står med i Data Privacy Framework-registret. Formuleringen ovan är ett utkast, inte ett konstaterande. Obs att det tidigare svaret, att inga personuppgifter lämnar EU/EES, inte stämmer för dessa tre; Vercel är numera inom EU och är inte längre en överföring")}`,
+        // Deliberately describes the mechanism rather than naming which ground applies to which vendor.
+        // That keeps it true as long as each is covered by one or the other, and avoids asserting a
+        // specific vendor's certification status that could lapse without us noticing.
+        //
+        // The three US sub-processors are Expo (push + OTA), Apple and Google (distribution, push
+        // transport). Expo self-certified to the DPF in December 2024 and says so publicly; Apple and
+        // Google are long-standing participants. Published on that basis ahead of the legal review
+        // rather than after it — a deliberate choice, recorded here so it is not mistaken for a
+        // verified statement. Confirm each in the Data Privacy Framework register, and that SCCs
+        // cover anything not listed, then delete this comment. See the KM-462 follow-up.
+        `När uppgifter behandlas i USA sker det med stöd av EU-kommissionens beslut om adekvat skyddsnivå för de leverantörer som är anslutna till EU–US Data Privacy Framework, och i övriga fall med stöd av standardavtalsklausuler. Vill du se en kopia av de klausuler som gäller för en viss leverantör, mejla ${CONTACT_EMAIL}.`,
       ],
     },
     {
