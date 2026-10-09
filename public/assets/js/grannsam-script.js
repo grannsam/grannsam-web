@@ -61,10 +61,7 @@
     window.addEventListener("scroll", handleScroll);
 
     scrollToTop.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
+        window.scrollTo(0, 0);
     })
 
     const accordionHeader = document.querySelectorAll(".accordion-header");
@@ -92,95 +89,44 @@
         document.querySelector(".logo-slider").appendChild(logoCopy);
     }
 
-    if (typeof ScrollTrigger !== "undefined") {
-        gsap.registerPlugin(ScrollTrigger)
-        window.addEventListener("load", () => ScrollTrigger.refresh())
-    }
-
-    const fadeInUps = document.querySelectorAll(".fadeInUp")
-    const triggeredCards = new Map()
-    const inView = (el) => {
-        const rect = el.getBoundingClientRect()
-        return rect.top < window.innerHeight && rect.bottom > 0
-    }
-    const visibleOnLoad = [
-        ...document.querySelectorAll(".fadeInUp:not([data-trigger]), .fadeInDown, .fadeInLeft"),
-    ].filter(inView)
-    const baseDelay = visibleOnLoad.reduce((min, el) => {
-        return Math.min(min, parseFloat(el.dataset.delay) || 0)
-    }, Infinity)
-    const entranceDelay = (el, delay) => {
-        if (!Number.isFinite(baseDelay) || el.dataset.trigger || !inView(el)) return delay
-        return Math.max(0, delay - baseDelay)
-    }
-
-    fadeInUps.forEach((fadeInUp) => {
-        const delay = entranceDelay(fadeInUp, parseFloat(fadeInUp.dataset.delay) || 0);
-
-        gsap.set(fadeInUp, {
-            y: 70
-        });
-
-        if (fadeInUp.dataset.trigger) {
-            const key = fadeInUp.dataset.trigger;
-            if (!triggeredCards.has(key)) triggeredCards.set(key, []);
-            triggeredCards.get(key).push({ el: fadeInUp, delay });
-            return;
+    const heroMotion = document.querySelectorAll("#hem .fadeInUp, #hem .fadeInDown, #hem .fadeInLeft")
+    if (heroMotion.length && typeof gsap !== "undefined") {
+        if (typeof ScrollTrigger !== "undefined") {
+            gsap.registerPlugin(ScrollTrigger)
+            window.addEventListener("load", () => ScrollTrigger.refresh())
         }
 
-        gsap.to(fadeInUp, {
-            scrollTrigger: fadeInUp,
-            y: 0,
-            delay: delay,
-            duration: 2
-        })
-    })
+        const inView = (el) => {
+            const rect = el.getBoundingClientRect()
+            return rect.top < window.innerHeight && rect.bottom > 0
+        }
+        const visibleOnLoad = [...heroMotion].filter(inView)
+        const baseDelay = visibleOnLoad.reduce((min, el) => {
+            return Math.min(min, parseFloat(el.dataset.delay) || 0)
+        }, Infinity)
+        const entranceDelay = (el, delay) => {
+            if (!Number.isFinite(baseDelay) || !inView(el)) return delay
+            return Math.max(0, delay - baseDelay)
+        }
 
-    triggeredCards.forEach((cards, selector) => {
-        const title = document.querySelector(selector);
-        const titleDelay = title ? (parseFloat(title.dataset.delay) || 0) : 0;
-        const halfway = titleDelay + 1;
-        const firstDelay = Math.min(...cards.map((card) => card.delay));
+        heroMotion.forEach((el) => {
+            const delay = entranceDelay(el, parseFloat(el.dataset.delay) || 0)
+            const from = el.classList.contains("fadeInDown")
+                ? { y: -70 }
+                : el.classList.contains("fadeInLeft")
+                    ? { x: -80 }
+                    : { y: 70 }
+            const to = el.classList.contains("fadeInLeft") ? { x: 0 } : { y: 0 }
 
-        cards.forEach(({ el, delay }) => {
+            gsap.set(el, from)
             gsap.to(el, {
-                scrollTrigger: { trigger: selector, start: "top bottom" },
-                y: 0,
-                delay: halfway + (delay - firstDelay),
+                scrollTrigger: el,
+                ...to,
+                delay: delay,
                 duration: 2
             })
         })
-    })
-
-    document.querySelectorAll(".fadeInDown").forEach((fadeInDown) => {
-        const delay = entranceDelay(fadeInDown, parseFloat(fadeInDown.dataset.delay) || 0);
-
-        gsap.set(fadeInDown, {
-            y: -70
-        });
-
-        gsap.to(fadeInDown, {
-            scrollTrigger: fadeInDown,
-            y: 0,
-            delay: delay,
-            duration: 2
-        })
-    })
-
-    document.querySelectorAll(".fadeInLeft").forEach((fadeInLeft) => {
-        const delay = entranceDelay(fadeInLeft, parseFloat(fadeInLeft.dataset.delay) || 0);
-
-        gsap.set(fadeInLeft, {
-            x: -80
-        });
-
-        gsap.to(fadeInLeft, {
-            scrollTrigger: fadeInLeft,
-            x: 0,
-            delay: delay,
-            duration: 2
-        })
-    })
+    }
 
 })()
 

@@ -635,7 +635,6 @@
             align-items: center;
             justify-content: center;
             line-height: 1;
-            transition: background-color 0.2s ease, color 0.2s ease;
         }
 
         #menu a.nav-demo:hover {
@@ -829,27 +828,27 @@
                     <i class="ri-menu-line"></i>
                 </div>
                 <nav id="menu"
-                    class="lg:rounded-[50px] lg:static absolute left-0 top-16 z-50 w-full max-h-0 overflow-hidden opacity-0 invisible lg:max-h-full lg:opacity-100 lg:visible lg:w-auto transition-all duration-500 ease-linear">
+                    class="lg:rounded-[50px] lg:static absolute left-0 top-16 z-50 w-full max-h-0 overflow-hidden opacity-0 invisible lg:max-h-full lg:opacity-100 lg:visible lg:w-auto">
                     <ul class="flex lg:flex-row flex-col">
                         <li class="border-b border-b-black-100 lg:border-b-0">
                             <a href="/appen"
-                                class="text-[#dedede] font-medium font-bricolage px-5 py-2.5 inline-block hover:text-primary transition-all duration-500">Appen</a>
+                                class="text-[#dedede] font-medium font-bricolage px-5 py-2.5 inline-block hover:text-primary">Appen</a>
                         </li>
                         <li class="border-b border-b-black-100 lg:border-b-0">
                             <a href="#pris"
-                                class="text-[#dedede] font-medium font-bricolage px-5 py-2.5 inline-block hover:text-primary transition-all duration-500">Pris</a>
+                                class="text-[#dedede] font-medium font-bricolage px-5 py-2.5 inline-block hover:text-primary">Pris</a>
                         </li>
                         <li class="border-b border-b-black-100 lg:border-b-0">
                             <a href="/om-oss"
-                                class="text-[#dedede] font-medium font-bricolage px-5 py-2.5 inline-block hover:text-primary transition-all duration-500">Om oss</a>
+                                class="text-[#dedede] font-medium font-bricolage px-5 py-2.5 inline-block hover:text-primary">Om oss</a>
                         </li>
                         <li class="border-b border-b-black-100 lg:border-b-0">
                             <a href="/kontakt"
-                                class="text-[#dedede] font-medium font-bricolage px-5 py-2.5 inline-block hover:text-primary transition-all duration-500">Kontakt</a>
+                                class="text-[#dedede] font-medium font-bricolage px-5 py-2.5 inline-block hover:text-primary">Kontakt</a>
                         </li>
                         <li class="border-b border-b-black-100 lg:border-b-0">
                             <a href="/kontakt?intent=demo"
-                                class="nav-demo text-[#dedede] font-medium font-bricolage px-5 py-2.5 inline-block hover:text-primary transition-all duration-500">Boka demo</a>
+                                class="nav-demo text-[#dedede] font-medium font-bricolage px-5 py-2.5 inline-block hover:text-primary">Boka demo</a>
                         </li>
                     </ul>
                 </nav>
@@ -893,7 +892,7 @@
 
     <section id="varfor" class="lg:pt-25 pt-15">
         <div class="container">
-            <div class="text-center pb-15 fadeInUp" data-delay="0.2">
+            <div class="text-center pb-15">
                 <h2
                     class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
                     Därför väljer föreningar oss</h2>
@@ -963,7 +962,7 @@
 
     <section id="engagemang" class="lg:pt-25 pt-15">
         <div class="container">
-            <div class="section-intro text-center pb-15 fadeInUp" data-delay="0.2">
+            <div class="section-intro text-center pb-15">
                 <h2
                     class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
                     Ökat engagemang.<br>I ditt grannskap</h2>
@@ -972,8 +971,7 @@
 
             <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
                 <div>
-                    <div class="info-item border border-[#bebebe] pt-7.5 pl-7.5 pr-7.5 rounded-[15px] fadeInUp"
-                        data-delay="0.2">
+                    <div class="info-item border border-[#bebebe] pt-7.5 pl-7.5 pr-7.5 rounded-[15px]">
                         <div class="mb-10">
                             <h4 class="lg:text-3xl text-[26px] lg:leading-[49px] font-medium mb-2">Vi hjälper varandra
                             </h4>
@@ -985,8 +983,7 @@
                     </div>
                 </div>
                 <div>
-                    <div class="info-item border border-[#bebebe] pt-7.5 pl-7.5 pr-7.5 rounded-[15px] fadeInUp"
-                        data-delay="0.4">
+                    <div class="info-item border border-[#bebebe] pt-7.5 pl-7.5 pr-7.5 rounded-[15px]">
                         <div class="mb-10">
                             <h4 class="lg:text-3xl text-[26px] lg:leading-[49px] font-medium mb-2">Vi gör saker
                                 tillsammans</h4>
@@ -999,8 +996,7 @@
                     </div>
                 </div>
                 <div>
-                    <div class="info-item border border-[#bebebe] pt-7.5 pl-7.5 pr-7.5 rounded-[15px] fadeInUp"
-                        data-delay="0.6">
+                    <div class="info-item border border-[#bebebe] pt-7.5 pl-7.5 pr-7.5 rounded-[15px]">
                         <div class="mb-10">
                             <h4 class="lg:text-3xl text-[26px] lg:leading-[49px] font-medium mb-2">Vi tänker på varandra
                             </h4>
@@ -1019,8 +1015,7 @@
 <template id="reibin-quote">
     <section class="lg:pt-25 pt-15">
         <div class="container">
-            <div class="lg:w-[80%] w-full text-center mx-auto bg-black-200 lg:py-[70px] lg:px-20 py-10 px-10 lg:rounded-[40px] rounded-[30px] fadeInUp"
-                data-delay="0.2">
+            <div class="lg:w-[80%] w-full text-center mx-auto bg-black-200 lg:py-[70px] lg:px-20 py-10 px-10 lg:rounded-[40px] rounded-[30px]">
                 <h3 class="md:text-3xl md:leading-[48px] text-2xl leading-9 text-white quote-mark">“Det slog mig
                     verkligen hur mycket det kan betyda att känna en
                     granne.”</h3>
@@ -1043,7 +1038,7 @@
         </div>
         <div class="container">
             <div class="lg:w-[75%] w-full mx-auto">
-                <div class="text-center pb-15 fadeInUp" data-delay="0.2">
+                <div class="text-center pb-15">
                     <h2
                         class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
                         Låg avgift för föreningen</h2>
@@ -1051,7 +1046,7 @@
                 </div>
 
                 <div class="flex justify-center">
-                    <div class="pricing-item fadeInUp" data-delay="0.2">
+                    <div class="pricing-item">
                         <p class="pricing-price">495 kr / månad<span>exkl. moms</span></p>
                         <ul>
                             <li>- Obegränsat antal användare</li>
@@ -1071,8 +1066,7 @@
 
     <section id="boka-demo" class="lg:pt-25 pt-15">
         <div class="container">
-            <div class="demo-panel lg:w-[80%] w-full text-center mx-auto lg:py-[70px] lg:px-20 py-10 px-10 lg:rounded-[40px] rounded-[30px] fadeInUp"
-                data-delay="0.2">
+            <div class="demo-panel lg:w-[80%] w-full text-center mx-auto lg:py-[70px] lg:px-20 py-10 px-10 lg:rounded-[40px] rounded-[30px]">
                 <div class="demo-portrait-ring">
                     <img class="demo-portrait" src="/assets/images/grannsam/team/daniel-akerman.png"
                         alt="Daniel Åkerman, UX på Grannsam">
@@ -1093,8 +1087,7 @@
 <template id="boka-demo">
     <section id="kontakt" class="lg:pt-25 pt-15">
         <div class="container">
-            <div class="lg:w-[75%] mx-auto text-center lg:px-12.5 py-7.5 px-8 border border-[rgba(0,0,0,0.05)] rounded-[20px] fadeInUp"
-                data-delay="0.2">
+            <div class="lg:w-[75%] mx-auto text-center lg:px-12.5 py-7.5 px-8 border border-[rgba(0,0,0,0.05)] rounded-[20px]">
                 <h2
                     class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-normal">
                     Boka en demo av Grannsam</h2>
@@ -1118,7 +1111,7 @@
 <template id="om-oss-section">
     <section id="om-oss" class="lg:pt-25 pt-15">
         <div class="container">
-            <div class="text-center pb-15 fadeInUp" data-delay="0.2">
+            <div class="text-center pb-15">
                 <h2
                     class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
                     Teamet bakom Grannsam</h2>
@@ -1132,8 +1125,7 @@
                 <p class="md:text-xl md:leading-7 text-base mt-2">Ett litet team med stor passion för grannskap, teknik
                     och bostadsrättsföreningar.</p>
             </div>
-            <div class="lg:w-[80%] mx-auto lg:px-10 lg:py-12.5 px-7.5 py-10 border border-primary rounded-2xl text-center mb-15 fadeInUp"
-                data-delay="0.2">
+            <div class="lg:w-[80%] mx-auto lg:px-10 lg:py-12.5 px-7.5 py-10 border border-primary rounded-2xl text-center mb-15">
                 <div class="text mb-7.5 lg:text-3xl lg:leading-10 text-2xl italic font-bricolage">“Relationer och
                     kontakt är en grundläggande del av att vara en människa. Det är till och med mer grundläggande än
                     mat och skydd, och är den primära motivationen bakom ens beteenden.”</div>
@@ -1150,7 +1142,7 @@
 <template id="for-grannar">
     <section id="appen" class="lg:pt-25 pt-15">
         <div class="container">
-            <div class="text-center pb-15 fadeInUp" data-delay="0.2">
+            <div class="text-center pb-15">
                 <h2
                     class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
                     För grannar</h2>
@@ -1160,8 +1152,7 @@
                     i grannskapet.</p>
             </div>
             <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-x-6 gap-y-7.5">
-                <div class="text-center py-15 px-7.5 rounded-[15px] border border-[#bebebe] hover:border-primary transition-all duration-500 fadeInUp"
-                    data-delay="0.1">
+                <div class="text-center py-15 px-7.5 rounded-[15px] border border-[#bebebe] hover:border-primary">
                     <div>
                         <i class="ri-lock-2-line text-[50px] text-primary"></i>
                         <h4 class="lg:text-3xl lg:leading-[49px] text-[26px] font-medium my-3">Ett grannskap som
@@ -1170,8 +1161,7 @@
                             händelser eller i grannforumet, inte via privata meddelanden.</p>
                     </div>
                 </div>
-                <div class="text-center py-15 px-7.5 rounded-[15px] border border-[#bebebe] hover:border-primary transition-all duration-500 fadeInUp"
-                    data-delay="0.2">
+                <div class="text-center py-15 px-7.5 rounded-[15px] border border-[#bebebe] hover:border-primary">
                     <div>
                         <i class="ri-calendar-event-line text-[50px] text-primary"></i>
                         <h4 class="lg:text-3xl lg:leading-[49px] text-[26px] font-medium my-3">Skapa en händelse</h4>
@@ -1184,8 +1174,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="text-center py-15 px-7.5 rounded-[15px] border border-[#bebebe] hover:border-primary transition-all duration-500 fadeInUp"
-                    data-delay="0.3">
+                <div class="text-center py-15 px-7.5 rounded-[15px] border border-[#bebebe] hover:border-primary">
                     <div>
                         <i class="ri-user-smile-line text-[50px] text-primary"></i>
                         <h4 class="lg:text-3xl lg:leading-[49px] text-[26px] font-medium my-3">Personlig profil</h4>
@@ -1193,8 +1182,7 @@
                             i grannskapet.</p>
                     </div>
                 </div>
-                <div class="text-center py-15 px-7.5 rounded-[15px] border border-[#bebebe] hover:border-primary transition-all duration-500 fadeInUp"
-                    data-delay="0.4">
+                <div class="text-center py-15 px-7.5 rounded-[15px] border border-[#bebebe] hover:border-primary">
                     <div>
                         <i class="ri-chat-3-line text-[50px] text-primary"></i>
                         <h4 class="lg:text-3xl lg:leading-[49px] text-[26px] font-medium my-3">Grannforum</h4>
@@ -1211,7 +1199,7 @@
 <template id="for-styrelsen">
     <section class="lg:pt-25 pt-15">
         <div class="container">
-            <div class="text-center lg:pt-25 pt-15 pb-15 fadeInUp" data-delay="0.2">
+            <div class="text-center lg:pt-25 pt-15 pb-15">
                 <h2
                     class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
                     För styrelsen</h2>
@@ -1219,8 +1207,7 @@
                     dokument på ett och samma ställe.</p>
             </div>
             <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-x-6 gap-y-7.5">
-                <div class="text-center py-15 px-7.5 rounded-[15px] border border-[#bebebe] hover:border-primary transition-all duration-500 fadeInUp"
-                    data-delay="0.1">
+                <div class="text-center py-15 px-7.5 rounded-[15px] border border-[#bebebe] hover:border-primary">
                     <div>
                         <i class="ri-megaphone-line text-[50px] text-primary"></i>
                         <h4 class="lg:text-3xl lg:leading-[49px] text-[26px] font-medium my-3">Anslagstavla</h4>
@@ -1229,8 +1216,7 @@
                             garagestädning, servicearbeten och andra händelser inte glöms bort.</p>
                     </div>
                 </div>
-                <div class="text-center py-15 px-7.5 rounded-[15px] border border-[#bebebe] hover:border-primary transition-all duration-500 fadeInUp"
-                    data-delay="0.2">
+                <div class="text-center py-15 px-7.5 rounded-[15px] border border-[#bebebe] hover:border-primary">
                     <div>
                         <i class="ri-file-list-3-line text-[50px] text-primary"></i>
                         <h4 class="lg:text-3xl lg:leading-[49px] text-[26px] font-medium my-3">Rapportera ett ärende
@@ -1240,8 +1226,7 @@
                             ett chattrum.</p>
                     </div>
                 </div>
-                <div class="text-center py-15 px-7.5 rounded-[15px] border border-[#bebebe] hover:border-primary transition-all duration-500 fadeInUp"
-                    data-delay="0.3">
+                <div class="text-center py-15 px-7.5 rounded-[15px] border border-[#bebebe] hover:border-primary">
                     <div>
                         <i class="ri-folder-open-line text-[50px] text-primary"></i>
                         <h4 class="lg:text-3xl lg:leading-[49px] text-[26px] font-medium my-3">Dokument</h4>

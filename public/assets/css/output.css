@@ -1386,7 +1386,7 @@ video {
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
@@ -1421,8 +1421,11 @@ h6 {
   padding: 17px 34px;
   text-align: center;
   text-transform: none;
-  transition: 0.3s;
   box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.25);
+  transition: none;
+}
+
+#hem .btn {
   transition: all 0.5s;
 }
 

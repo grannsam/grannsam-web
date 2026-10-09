@@ -65,7 +65,7 @@ export function renderDeleteAccountPage(shell: string) {
 
   const body = `<section id="page-intro">
         <div class="container">
-            <div class="text-left fadeInUp" data-delay="0.2">
+            <div class="text-left">
                 <h1
                     class="xl:leading-[90px] xl:text-[80px] md:leading-[60px] md:text-[50px] leading-[50px] text-[40px] text-black-100 font-medium">
                     Radera ditt Grannsam-konto</h1>
@@ -78,7 +78,7 @@ export function renderDeleteAccountPage(shell: string) {
 
     <section id="security-body" class="lg:pt-15 pt-10 pb-15">
         <div class="container">
-            <div class="security-wrap md:text-lg text-base leading-relaxed fadeInUp" data-delay="0.3">
+            <div class="security-wrap md:text-lg text-base leading-relaxed">
                 ${sections}
 
                 <aside class="security-note delete-note">
