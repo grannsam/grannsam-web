@@ -14,6 +14,7 @@ export type DesignMeta = {
   description: string;
   path: string;
   jsonLd?: unknown[];
+  robots?: string;
 };
 
 function escapeHtml(value: string) {
@@ -70,6 +71,7 @@ export function withDesignHead(html: string, meta: DesignMeta) {
     <meta name="twitter:title" content="${escapeHtml(meta.title)}">
     <meta name="twitter:description" content="${escapeHtml(meta.description)}">
     <meta name="twitter:image" content="${twitterImage}">
+    ${meta.robots ? `<meta name="robots" content="${escapeHtml(meta.robots)}">` : ""}
     ${jsonLd}
     <script defer src="/_vercel/insights/script.js"></script>`;
 
@@ -78,10 +80,11 @@ export function withDesignHead(html: string, meta: DesignMeta) {
     .replace("</head>", `${head}\n</head>`);
 }
 
-export function designResponse(html: string) {
+export function designResponse(html: string, headers?: Record<string, string>) {
   return new Response(html, {
     headers: {
       "Content-Type": "text/html; charset=utf-8",
+      ...headers,
     },
   });
 }
