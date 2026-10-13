@@ -18,6 +18,13 @@ export const PRIVACY_PATH = "/integritet";
 export const TERMS_PATH = "/anvandarvillkor";
 export const DELETE_ACCOUNT_PATH = "/radera-konto";
 
+/** Transactional mail landing. Kept out of PUBLIC_PATHS so it stays out of the sitemap. */
+export const AUTH_CALLBACK_PATH = "/auth/callback";
+export const APP_AUTH_URL = "grannsam://auth/callback";
+export const IOS_APP_STORE_URL = "https://apps.apple.com/app/id6805535420";
+export const ANDROID_APP_STORE_URL =
+  "https://play.google.com/store/apps/details?id=com.grannsam.app";
+
 export const PUBLIC_PATHS = [
   "/",
   APPEN_PATH,
