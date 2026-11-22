@@ -6,6 +6,20 @@ import {
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
+const contactCorsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+function contactJson(body: unknown, status = 200) {
+  return NextResponse.json(body, { status, headers: contactCorsHeaders });
+}
+
+export function OPTIONS() {
+  return new NextResponse(null, { status: 204, headers: contactCorsHeaders });
+}
+
 function parseContactBody(body: unknown): ContactFormFields | null {
   if (!body || typeof body !== "object") {
     return null;
@@ -45,19 +59,19 @@ export async function POST(request: Request) {
   const to = process.env.CONTACT_TO_EMAIL?.trim();
 
   if (!apiKey) {
-    return NextResponse.json(
+    return contactJson(
       { error: "E-post är inte konfigurerad (RESEND_API_KEY saknas)." },
-      { status: 503 },
+      503,
     );
   }
 
   if (!from || !to) {
-    return NextResponse.json(
+    return contactJson(
       {
         error:
           "E-post är inte konfigurerad (CONTACT_FROM_EMAIL eller CONTACT_TO_EMAIL saknas).",
       },
-      { status: 503 },
+      503,
     );
   }
 
@@ -65,26 +79,17 @@ export async function POST(request: Request) {
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json(
-      { error: "Ogiltig förfrågan." },
-      { status: 400 },
-    );
+    return contactJson({ error: "Ogiltig förfrågan." }, 400);
   }
 
   const fields = parseContactBody(body);
   if (!fields) {
-    return NextResponse.json(
-      { error: "Ogiltig förfrågan." },
-      { status: 400 },
-    );
+    return contactJson({ error: "Ogiltig förfrågan." }, 400);
   }
 
   const errors = validateContactForm(fields);
   if (errors) {
-    return NextResponse.json(
-      { error: "Validering misslyckades.", errors },
-      { status: 400 },
-    );
+    return contactJson({ error: "Validering misslyckades.", errors }, 400);
   }
 
   const email = buildContactEmail(fields);
@@ -100,11 +105,8 @@ export async function POST(request: Request) {
 
   if (error) {
     console.error("Resend contact form error:", error);
-    return NextResponse.json(
-      { error: getResendErrorMessage(error) },
-      { status: 502 },
-    );
+    return contactJson({ error: getResendErrorMessage(error) }, 502);
   }
 
-  return NextResponse.json({ success: true });
+  return contactJson({ success: true });
 }

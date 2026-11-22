@@ -1,7 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: "/docs/grannsam-nu/radera-konto.html",
+        destination: "/radera-konto",
+        permanent: true,
+      },
+      {
+        source: "/privacy",
+        destination: "/integritet",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
